@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>概率趣题 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="赠券收集者问题 问题 思路 证明   在线雇佣问题 问题 思路 证明      赠券收集者问题问题把相同的球随机投到 n 个盒子里，在每个盒子里至少有一个球之前，要投多少个球？ 答案：大约要投 $n\ln(n)$ 次 思路将盒子分为有球和没球的，投球分为$n$个阶段，分别为有$0,1,2…n$个盒子有球，按阶段分别计数。 证明我们称一次投球投入到空盒子为“击中”，则称第$i$次击中到第$i+1">
+<meta name="keywords" content="Programming, Computer Science, Physics, Philosopy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率趣题">
+<meta property="og:url" content="http://milkpku.github.io/blog/2015/01/15/概率趣题/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="赠券收集者问题 问题 思路 证明   在线雇佣问题 问题 思路 证明      赠券收集者问题问题把相同的球随机投到 n 个盒子里，在每个盒子里至少有一个球之前，要投多少个球？ 答案：大约要投 $n\ln(n)$ 次 思路将盒子分为有球和没球的，投球分为$n$个阶段，分别为有$0,1,2…n$个盒子有球，按阶段分别计数。 证明我们称一次投球投入到空盒子为“击中”，则称第$i$次击中到第$i+1">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-09-23T03:22:23.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="概率趣题">
+<meta name="twitter:description" content="赠券收集者问题 问题 思路 证明   在线雇佣问题 问题 思路 证明      赠券收集者问题问题把相同的球随机投到 n 个盒子里，在每个盒子里至少有一个球之前，要投多少个球？ 答案：大约要投 $n\ln(n)$ 次 思路将盒子分为有球和没球的，投球分为$n$个阶段，分别为有$0,1,2…n$个盒子有球，按阶段分别计数。 证明我们称一次投球投入到空盒子为“击中”，则称第$i$次击中到第$i+1">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('https://s3-us-west-2.amazonaws.com/tabs.web.media/b/m/bm46/bm46-square-orig.jpg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">推荐：《独裁者手册》</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-概率趣题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/01/15/概率趣题/" class="article-date">
+  <time datetime="2015-01-16T07:00:00.000Z" itemprop="datePublished">2015-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Mathematics/">Mathematics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      概率趣题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#赠券收集者问题">赠券收集者问题</a><ul>
+<li><a href="#问题">问题</a></li>
+<li><a href="#思路">思路</a></li>
+<li><a href="#证明">证明</a></li>
+</ul>
+</li>
+<li><a href="#在线雇佣问题">在线雇佣问题</a><ul>
+<li><a href="#问题-1">问题</a></li>
+<li><a href="#思路-1">思路</a></li>
+<li><a href="#证明-1">证明</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h2><span id="赠券收集者问题">赠券收集者问题</span></h2><h3><span id="问题">问题</span></h3><p>把相同的球随机投到 <script type="math/tex">n</script> 个盒子里，在每个盒子里至少有一个球之前，要投多少个球？</p>
+<p>答案：大约要投 $n\ln(n)$ 次</p>
+<h3><span id="思路">思路</span></h3><p>将盒子分为有球和没球的，投球分为$n$个阶段，分别为有$0,1,2…n$个盒子有球，按阶段分别计数。</p>
+<h3><span id="证明">证明</span></h3><p>我们称一次投球投入到空盒子为“击中”，则称第$i$次击中到第$i+1$次击中之间的状态为$i$。则两个状态间转移概率为：</p>
+<script type="math/tex; mode=display">
+    Pr(n_i \to n_{i+1}) = \frac{n-i}{n}</script><p>每个阶段到下个阶段投球数$n_i$是几何分布，所以</p>
+<script type="math/tex; mode=display">
+    E[n_i] = \frac{n}{n-i}</script><p>因此总共期望的投球数量为：</p>
+<script type="math/tex; mode=display">
+    E[ \sum_{i=0}^{n-1} n_i] = \sum_{i=0}^{n-1} E[n_i] = \sum_{i=0}^{n-1} \frac{n}{n-i} = n \sum_{i=1}^{n} \frac{1}{i} \approx n(\ln(n) + O(1))</script><hr>
+<h2><span id="在线雇佣问题">在线雇佣问题</span></h2><h3><span id="问题">问题</span></h3><p>有$n$个面试者，面试录取规则为：对前$k$个人，都不录取，取其最高值为阈值，之后从$k+1$开始，雇佣遇到的第一个高于阈值的人。求使得所雇佣的人是最好的人的k值。</p>
+<p>答案：$n/e$，雇佣的人是最好的概率为$1/e$</p>
+<h3><span id="思路">思路</span></h3><p>按照此法雇佣的人是最好的人的要求是：对第$i$位置而言，最好的人在该位置且前面出现的最大值在前$k$人中。</p>
+<h3><span id="证明">证明</span></h3><p>令事件$S_i$为在第$i$个位置雇佣到最好的人的事件，它可以分成两个事件：$B_i$，最好的人在第$i$个位置；$O_i$，在第$i$个位置之前都不会选择雇佣人，即前$i-1$个数中最大值在前$k$中。事实上，$B_i$与$O_i$是相互独立的，所以：</p>
+<script type="math/tex; mode=display">
+    Pr(S_i = 1) = P(B_i \cap O_i) = \frac{1}{n} \cdot \frac{k}{i-1}</script><p>则雇佣到最好的人的期望为：</p>
+<script type="math/tex; mode=display">
+    E[\sum_{i=k+1}^{n} S_i] = \sum_{i=k+1}^{n} E[S_i] = \sum_{i=k+1}^{n} \frac{1}{n} \cdot \frac{k}{i-1} = \frac{k}{n} \sum_{i=k}^{n-1} \frac{1}{i}</script><p>因为有不等式</p>
+<script type="math/tex; mode=display">
+    \int_k^n \frac{1}{x} dx \leq \sum_{i=k}^{n-1} \frac{1}{i} \leq \int_{k-1}^{n-1} \frac{1}{x} dx
+    \ln{n} - \ln{k} \leq \sum_{i=k}^{n-1} \frac{1}{i} \leq \ln(n-1) - \ln(k-1)</script><p>我们关心其下界，对其求偏导为：</p>
+<script type="math/tex; mode=display">
+    \frac{1}{n} (\ln{n} - \ln{k} + 1) = 0</script><p>解得$k = n/e$，概率下界为$1/e$</p>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTU5NTg2NzQyOSwxODI2ODk4MzBdfQ==
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2015/01/15/概率趣题/" data-id="cjmebnxf8000akcv4bac6mwt2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: "概率趣题",
+    owner: 'milkpku',
+    repo: 'blog',
+    oauth: {
+      client_id: '81e1fd6c525e8019860e',
+      client_secret: 'f27b35427bb21b651b0c59e60209405b3425ab06',
+    },
+  })
+  gitment.render('comments')
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/03/11/理想国第一卷浅析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          理想国第一卷浅析
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2018 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
