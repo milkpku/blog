@@ -79,6 +79,43 @@ ga('send', 'pageview');
       </div>
     </div>
   </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
 </header>
 <div class="outer">
   <section id="main-post"><article id="post-推荐：《独裁者手册》" class="article article-type-post" itemscope itemprop="blogPost">
@@ -124,7 +161,7 @@ eyJoaXN0b3J5IjpbNjMzNzg0MDEwXX0=
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2018/07/22/推荐：《独裁者手册》/" data-id="cjmebnxat0002kcv41py0mjuq" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2018/07/22/推荐：《独裁者手册》/" data-id="cjmefsthu0001bov4hwcl5bft" class="article-share-link">Share</a>
       
       
     </footer>

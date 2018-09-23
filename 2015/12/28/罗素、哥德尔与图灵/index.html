@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>罗素、哥德尔与图灵 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言 罗素悖论 图灵停机问题 算法与图灵机 通用图灵机(Universal Turning Machine) 图灵停机问题   哥德尔不完备性 个人对于 Penrose 论证的一些想法    前言Roger Penrose 在《皇帝新脑》中试图回击强AI观点，即人的思维过程等价于一套及其复杂的算法。他通过若干途径进行反驳，包括证明人脑活动的抽象模型高于算法、人脑活动的物理过程无法计算等等。在算">
+<meta name="keywords" content="Programming, Computer Science, Physics, Philosopy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="罗素、哥德尔与图灵">
+<meta property="og:url" content="http://milkpku.github.io/blog/2015/12/28/罗素、哥德尔与图灵/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="前言 罗素悖论 图灵停机问题 算法与图灵机 通用图灵机(Universal Turning Machine) 图灵停机问题   哥德尔不完备性 个人对于 Penrose 论证的一些想法    前言Roger Penrose 在《皇帝新脑》中试图回击强AI观点，即人的思维过程等价于一套及其复杂的算法。他通过若干途径进行反驳，包括证明人脑活动的抽象模型高于算法、人脑活动的物理过程无法计算等等。在算">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-09-23T05:30:12.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="罗素、哥德尔与图灵">
+<meta name="twitter:description" content="前言 罗素悖论 图灵停机问题 算法与图灵机 通用图灵机(Universal Turning Machine) 图灵停机问题   哥德尔不完备性 个人对于 Penrose 论证的一些想法    前言Roger Penrose 在《皇帝新脑》中试图回击强AI观点，即人的思维过程等价于一套及其复杂的算法。他通过若干途径进行反驳，包括证明人脑活动的抽象模型高于算法、人脑活动的物理过程无法计算等等。在算">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('https://s3-us-west-2.amazonaws.com/tabs.web.media/b/m/bm46/bm46-square-orig.jpg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">推荐：《独裁者手册》</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-罗素、哥德尔与图灵" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/12/28/罗素、哥德尔与图灵/" class="article-date">
+  <time datetime="2015-12-28T16:00:00.000Z" itemprop="datePublished">2015-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Computer-Science/">Computer Science</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      罗素、哥德尔与图灵
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#罗素悖论">罗素悖论</a></li>
+<li><a href="#图灵停机问题">图灵停机问题</a><ul>
+<li><a href="#算法与图灵机">算法与图灵机</a></li>
+<li><a href="#通用图灵机universal-turning-machine">通用图灵机(Universal Turning Machine)</a></li>
+<li><a href="#图灵停机问题-1">图灵停机问题</a></li>
+</ul>
+</li>
+<li><a href="#哥德尔不完备性">哥德尔不完备性</a></li>
+<li><a href="#个人对于-penrose-论证的一些想法">个人对于 Penrose 论证的一些想法</a></li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h2><span id="前言">前言</span></h2><p>Roger Penrose 在《皇帝新脑》中试图回击强AI观点，即人的思维过程等价于一套及其复杂的算法。他通过若干途径进行反驳，包括证明人脑活动的抽象模型高于算法、人脑活动的物理过程无法计算等等。在算法与人脑关系这部分，penrose主要侧重于阐述算法不能超越人脑。我将其单独抽离出来，作为一个一窥元数学深奥世界的小品。罗素悖论，哥德尔不完备定理，图灵停机问题，看上去都相隔很远，但它们都指向了逻辑系统中一个相似的困难。</p>
+<hr>
+<h2><span id="罗素悖论">罗素悖论</span></h2><p>一个集合是否能包含自身？这是集合论风行数学界若年后罗素提出的最有挑战的问题。罗素悖论点出了朴素集合论中存在的问题，即我们在以集合论为基石试图构建严密完整的数学大厦时，对基石本身的认识就是含糊不清的。</p>
+<p>设R={所有不包含自己的集合}，问R是否包含自身？如果R不包含自身，那么它就是一个不包含自身的集合，则根据定义R应该包含自身；如果R包含自身，那么根据定义，R不在集合R中。</p>
+<p>罗素采用了一个笨拙的办法来避免罗素悖论，即对每一个集合标定层级，每个集合只能包含层级低于自己的集合或元素。</p>
+<p>虽然罗素悖论和之后要讨论的主题略有差距，但相信了解了<strong>停机问题</strong>和<strong>不完备性定理</strong>后，我们会惊奇地发现，它们之间似乎有某种共通的东西，即数学对象在指向自己时会遇到的困境。</p>
+<hr>
+<h2><span id="图灵停机问题">图灵停机问题</span></h2><p>事实上，图灵停机问题是晚于哥德尔不完备性定理出现的，图灵本人也承认自己受哥德尔证明的启发，写下了停机问题。</p>
+<h3><span id="算法与图灵机">算法与图灵机</span></h3><p>希尔伯特提出过其著名的希尔伯特规划，即给定足够的公理，运用机械推导，能否对所有合法表述的表达式提供正误判断。这也是之前一篇文章中形式主义者所怀的梦想，但后来被哥德尔无情地击碎了。</p>
+<p>虽然梦不再了，但有新的问题出现。即是否存在能在原则上一个接一个解决所有数学问题的某种一般机械步骤？问题的关键在于什么是“机械推导”，图灵给出了他的定义，并从此打开了新世界的大门。</p>
+<p>图灵是这样定义的：想象一台在无限长磁带上的机器，其左侧有无限长的磁带，其右侧也有无限长的磁带。磁带由可以写入数字的格子连接而成，可以用磁头进行读写。机器内部还有一个记录内态的记录仪器，以及一张表，用于查询。现在我们在图灵机的右侧磁带上写入数据（比如打孔），然后打开开关，于是它开始工作了：每一回合，它读出磁头所指的格子内的数，m，并且知道自己的内态n，那么通过查找表格，得到$(n,m) \to (n’,m’,d)$，即将内态改为n’，格子内的数改为m’，并执行移动指令d(left, right or stay)。在机器最终停下来后，机器左侧就是输出的数据。</p>
+<p>使用图灵机即便是实现十分简单的运算都是十分麻烦的，但至少它给出了所谓“算法”的一个严格的定义，即能够由图灵机实现的操作。而且，我们可以将它的那张运行表${(n,m) \to (n’,m’,d)| n \in S, m \in Z}$通过一套编码规则一一映射到自然数集合上，也同样可以通过将自然数解码来构造图灵机，因此图灵机的总数和自然数的总数是一样的！即所谓的连续统$\xi_0$。</p>
+<h3><span id="通用图灵机universal-turning-machine">通用图灵机(Universal Turning Machine)</span></h3><p>我们将编码为n的图灵机称为$T_n$</p>
+<p>存在一个算法，能够模拟任何其他的图灵机，称为通用图灵机，用U表示。其运行性质为，输入数据分两个部分，$(n, k)$。$U(n,k) = T_n(k)$。事实上，所有现代的计算机都是通用图灵机。</p>
+<h3><span id="图灵停机问题">图灵停机问题</span></h3><p>是否存在一个算法，能够在有限时间内判定一对（算法，输入）的组合是否停机，我们称之为图灵停机问题。之所以这个问题重要，是因为最终我们将证明不存在这样一个算法，而人脑又能通过在系统之外的洞察判定这一对（算法，输入）的组合是否停机。</p>
+<p>假设存在这样一个算法H，能够在有限时间内判定一对（算法，输入）的组合是否停机，并且输出0或1</p>
+<script type="math/tex; mode=display">
+H(n,k) = \begin{cases}
+        0, ~ T_n(k)不停机 \\ 
+        1, ~T_n(k)停机 
+            \end{cases}</script><p>接下来我们通过将两个算法结合起来生成一个新的的算法：</p>
+<ul>
+<li>先通过$H(n,k)$判定是否停机</li>
+<li>如果停机，则输出 $T_n(k)$</li>
+<li>如果不停机，则输出 $0$</li>
+</ul>
+<p>可以表达为 $Q(n,k) = T_n(k) \times H(n, k) = U(n, k) \times H(n, k)$</p>
+<p>接下来，定义$T_w(k) = 1 + Q(k,k) = 1 + T_k(k) \times H(k, k)$， 则当计算<br>$T_w(w)$时，会遇上一个不可调和的矛盾：</p>
+<script type="math/tex; mode=display">T_w(w) = 1 + T_w(w) \times H(w, w)</script><ul>
+<li>如果$T_w(w)$会停机，那么最后得到的结果为$T_w(w) = 1 + T_w(w)$</li>
+<li>如果$T_w(w)$不会停机，那么会和其定义冲突，因为等式右边的表达式总能在有限时间内停机。</li>
+</ul>
+<p>所以不存在算法$H$，能够在有限时间内判定一对（算法，输入）的组合是否停机。</p>
+<hr>
+<h2><span id="哥德尔不完备性">哥德尔不完备性</span></h2><p>哥德尔的证明思路十分简单，其主要工作量在于将形式系统中的语言顺利地编码，Penrose略过了这一部分，我自然也没有能力去细说，让我们还是将精力集中在哥德尔思想最闪耀的那一点上。</p>
+<p>首先，令应用于w的第n个命题函数为$P_n(w)$。哥德尔的证明中主要的工作就是证明对于一套特定的符号系统，如何将其编号，在此我们直接接受其论断，即这样一个命题函数和变量w能够表示任何在这一套符号系统下的命题。</p>
+<p>接着，构成这一系统中某一定理证明的一串命题也可以进行编号，令$[\Pi]_n$表示第n个证明。</p>
+<p>考虑如下的依赖于w的命题函数：$\neg\exists[\Pi_x \Rightarrow P_w(w)]$，该命题论断不存在$P_w(w)$的证明。哥德尔通过他卓越的技巧证明了这一命题函数同样可以编码进前述的系统，我们姑且将其记为$P_k(w)$。</p>
+<p>现在我们来考察一个十分怪异的命题$P_k(k)$。将其展开可以得到 $\neg\exists x[\Pi_x \Rightarrow P_k(k)] = P_k(k)$。这个命题意味着：如果它为真，则不存在它的证明；如果它为假，则存在证明其为真的证明。即要么不完备，要么不一致。</p>
+<p>哥德尔定理对于形式系统而言，是一个驱之不散的幽灵。假如我们将通过外部洞察得到的$P<em>k(k)$作为新的附加公理加入符号系统，记为$G_0$，则会出现新的不一致，我们记为$G_1$。如果接着加下去，我们得到${ G_0, G_1, G_2 …}$ 这样一个无限的公理系统，将其作为附加公理，结果怎样？由于这个不断附加的过程是个完全系统化的方案，可以将其当做通常的公理和步骤法则的有限逻辑系统来重述，所以这个系统也有它自己的哥德尔命题，如$G_w$，那么接下来就有$G</em>{w+1} …$，我们回到了起点。</p>
+<hr>
+<h2><span id="个人对于-penrose-论证的一些想法">个人对于 Penrose 论证的一些想法</span></h2><p>Penrose 指出在图灵机上不存在可以判断停机的程序，那就说明人脑高于图灵机，因为他认为人脑可以对停机问题作出判断。然而人脑究竟有没有这样的能力，实在是很难说，事实上也并没有一个人脑能力的严格证明。</p>
+<p><a href="http://plato.stanford.edu/entries/principia-mathematica/#SOPM" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy</a></p>
+<hr>
+<p>Reference: <strong><em>The Emperor’s New Mind</em></strong>, Roger Penrose<br><!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE1NDk1OTc1NDgsMTQ4NjI3MjQyLC0xNz
+kzNjM1Mzk3LC0yMTM1MTgzMzgyLC0yNjcwOTI0ODIsMTE5MTcy
+NzEzNywtMTcxNDEzNTUzMSwtMjA3NTA1NDM1OSwxNzYzNzYzND
+YyXX0=
+--></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2015/12/28/罗素、哥德尔与图灵/" data-id="cjmefsti90007bov49dwpwq9b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: "罗素、哥德尔与图灵",
+    owner: 'milkpku',
+    repo: 'blog',
+    oauth: {
+      client_id: '81e1fd6c525e8019860e',
+      client_secret: 'f27b35427bb21b651b0c59e60209405b3425ab06',
+    },
+  })
+  gitment.render('comments')
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/12/15/C++线性运算库梳理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C++线性运算库梳理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/12/04/经典物理中的决定论与可计算性/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">经典物理中的决定论与可计算性</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2018 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>

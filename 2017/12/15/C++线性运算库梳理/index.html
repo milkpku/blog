@@ -77,6 +77,43 @@ ga('send', 'pageview');
       </div>
     </div>
   </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
 </header>
 <div class="outer">
   <section id="main-post"><article id="post-C++线性运算库梳理" class="article article-type-post" itemscope itemprop="blogPost">
@@ -170,7 +207,7 @@ Q0NjQ0OTI4NV19
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2017/12/15/C++线性运算库梳理/" data-id="cjmebnxao0001kcv48mynvrmr" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2017/12/15/C++线性运算库梳理/" data-id="cjmefsti10002bov4g1rqggpf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/c/">c++</a></li></ul>
@@ -207,9 +244,9 @@ Q0NjQ0OTI4NV19
     </a>
   
   
-    <a href="/blog/2015/03/11/理想国第一卷浅析/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2015/12/28/罗素、哥德尔与图灵/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">理想国第一卷浅析</div>
+      <div class="article-nav-title">罗素、哥德尔与图灵</div>
     </a>
   
 </nav>
