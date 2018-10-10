@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>How to calculate $TD(\lambda)$ in Reinforcement Learning | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Estimating state value in reinforcement learning is a hard task, since the sample process is very noisy. $TD(\lambda)$ learning try to take as much information as possible to estimate the state value.">
+<meta name="keywords" content="Programming, Computer Science, Physics, Philosopy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to calculate $TD(\lambda)$ in Reinforcement Learning">
+<meta property="og:url" content="http://milkpku.github.io/blog/2018/09/18/TD value in Reinforcement Learning/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="Estimating state value in reinforcement learning is a hard task, since the sample process is very noisy. $TD(\lambda)$ learning try to take as much information as possible to estimate the state value.">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-10-10T06:15:49.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to calculate $TD(\lambda)$ in Reinforcement Learning">
+<meta name="twitter:description" content="Estimating state value in reinforcement learning is a hard task, since the sample process is very noisy. $TD(\lambda)$ learning try to take as much information as possible to estimate the state value.">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">How to calculate $TD(\lambda)$ in Reinforcement Learning</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-TD value in Reinforcement Learning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/09/18/TD value in Reinforcement Learning/" class="article-date">
+  <time datetime="2018-09-18T16:00:00.000Z" itemprop="datePublished">2018-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      How to calculate $TD(\lambda)$ in Reinforcement Learning
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Estimating state value in reinforcement learning is a hard task, since the sample process is very noisy. $TD(\lambda)$ learning try to take as much information as possible to estimate the state value. In this note, I will briefly give the derivation of $TD(\lambda)$ and its pseudo-code for computing.</p>
+<!-- toc -->
+<ul>
+<li><a href="#definitions-in-reinforcement-learning">Definitions in Reinforcement Learning</a></li>
+<li><a href="#bellman-equation-and-update-rules">Bellman Equation and Update Rules</a></li>
+<li><a href="#derivation-of-tdlambda">Derivation of $TD(\lambda)$</a><ul>
+<li><a href="#tdn-learning">$TD(n)$ learning</a></li>
+<li><a href="#tdlambda-learning">$TD(\lambda)$ learning</a></li>
+</ul>
+</li>
+<li><a href="#psudo-code-for-computing-tdlambda">Psudo Code for Computing $TD(\lambda)$</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h1><span id="definitions-in-reinforcement-learning">Definitions in Reinforcement Learning</span></h1><p>We mainly regard reinforcement learning process as a Markov Decision Process(MDP): an agent interacts with environment by making decisions at every step/timestep, gets to next state and receives reward. This makes a state-action chain like </p>
+<script type="math/tex; mode=display">
+\mathbf{s}_0 \rightarrow \mathbf{a}_0 \rightarrow r_0 \rightarrow \mathbf{s}_1 \rightarrow \cdots,</script><p>Where $\mathbf{s}_t$ represents the agent’s state at time $t$, $\mathbf{a}_t$ represents the decision made by agent at time t with its state $\mathbf{s}_t$, $r_t$ represents the reward agent received between states $\mathbf{s}_t$ and $\mathbf{s}_{t+1}$ after action $\mathbf{a}_t$ was taken.</p>
+<p>To evaluate the quality of policy $\pi(\mathbf{a}_t|\mathbf{s}_t)$, accumulated reward for state $\mathbf{s}_T$ with decay ratio $\gamma$ is defined as following:</p>
+<script type="math/tex; mode=display">
+R(\mathbf{s}_T) = \mathbf{E}_{\mathbf{a}_t \sim \pi(\mathbf{a}_t|\mathbf{s}_t) } \left[\sum_{t = T}^{\infty} \gamma^{t-T} r_t\right].</script><p>Also, the $Q$ value for state $\mathbf{s}_T$ after taking action $\mathbf{a}_T$ is defined as </p>
+<script type="math/tex; mode=display">
+Q(\mathbf{s}_T, \mathbf{a}_T) = \mathbf{E}_{\mathbf{a}_t \sim \pi(\mathbf{a}_t|\mathbf{s}_t) } \left[r_T + \sum_{t = T+1}^{\infty} \gamma^{t-T} r_t\right].</script><hr>
+<h1><span id="bellman-equation-and-update-rules">Bellman Equation and Update Rules</span></h1><p>Assume we have an accurate estimation of accumulated reward $R$ of policy $\pi(\mathbf{a}_t|\mathbf{s}_t)$, denoted by $V_\pi^*$, then we will have a equilibrium like:</p>
+<script type="math/tex; mode=display">
+V_\pi^*(\mathbf{s}_t) = \mathbf{E}_{\mathbf{a}_t \sim \pi(\mathbf{a}_t|\mathbf{s}_t) } \left[r_t + \gamma V_\pi^*(\mathbf{s}_{t+1}) \right]</script><p>or</p>
+<script type="math/tex; mode=display">
+Q_\pi^*(\mathbf{s}_t, \mathbf{a}_t) = \mathbf{E}_{\mathbf{a}_{t+1} \sim \pi(\mathbf{a}_{t+1}|\mathbf{s}_{t+1}) } \left[r_t + \gamma Q_\pi^*(\mathbf{s}_{t+1}, \mathbf{a}_{t+1}) \right].</script><p>However, the accurate estimation is exactly what we don’t know, so we need to improve the accuracy of our estimation based on current samples. Assume we have a series of functions $V_\pi^{(n)}$ to approach to $V_\pi^*$, then we can update the function by</p>
+<script type="math/tex; mode=display">
+V_\pi^{(n+1)}(\mathbf{s}_t) = \mathbf{E}_{\mathbf{a}_t \sim \pi(\mathbf{a}_t|\mathbf{s}_t) } \left[r_t + \gamma V_\pi^{(n)}(\mathbf{s}_{t+1}) \right].</script><hr>
+<h1><span id="derivation-of-tdlambda">Derivation of $TD(\lambda)$</span></h1><h2><span id="tdn-learning">$TD(n)$ learning</span></h2><p>From a chain of samples, we can update the state value by </p>
+<script type="math/tex; mode=display">
+V(\mathbf{s}_t) \leftarrow r_t + \gamma V(\mathbf{s}_{t+1}).</script><p>But how about other states in the chian? The Bellman equation can be also written as any of the followings:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+V_\pi^*(\mathbf{s}_t) &= \mathbf{E}_{\mathbf{a}_t \sim \pi(\mathbf{a}_t|\mathbf{s}_t) } \left[r_t + \gamma r_{t+1} + \gamma^2 V_\pi^*(\mathbf{s}_{t+2}) \right] \\
+V_\pi^*(\mathbf{s}_t) &= \mathbf{E}_{\mathbf{a}_t \sim \pi(\mathbf{a}_t|\mathbf{s}_t) } \left[r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 V_\pi^*(\mathbf{s}_{t+2}) \right]  \\
+&\cdots
+\end{split}</script><p>Define $G_t^{(n)}$ as estimated state value considering $n$ step further.</p>
+<script type="math/tex; mode=display">
+\begin{split}
+G_t^{(1)} &= r_t + \gamma V(\mathbf{s}_{t+1}) \\
+G_t^{(2)} &= r_t + \gamma r_{t+1} + \gamma^2 V(\mathbf{s}_{t+2}) \\
+&\cdots \\
+G_t^{(n)} &= r_t + \gamma r_{t+1} + ... + \gamma^n V(\mathbf{s}_{t+n}) \\
+\end{split}</script><p>Using $G^{(n)}$ to update value can take $n$ steps into account, we call this $TD(n)$ learning (Temporal Difference Learning). </p>
+<h2><span id="tdlambda-learning">$TD(\lambda)$ learning</span></h2><p>What if we make a combination of all these $G^{(n)}$ ? By weighted averaging, we can get $G^{(\lambda)}$ as unbiased estimation of $R$, and takes all information into consideration.</p>
+<script type="math/tex; mode=display">
+G_t^{(\lambda)} = (1-\lambda) \sum_{n=1}\lambda^{n-1} G_t^{(n)}</script><p>So, how to calculate $G_t^{(\lambda)}$ when we know the sample chain ${\mathbf{s}_0, \mathbf{a}_0, r_0, \mathbf{s}_1, \cdots}$? Here is the formula derivation. (Lemma: $G_t^{(n)} = r_t + \gamma G_{t+1}^{(n-1)}$, I leave the proof for readers.)</p>
+<script type="math/tex; mode=display">
+\begin{split}
+    G_t^{(\lambda)} &= (1-\lambda) \sum_{n=1}\lambda^{n-1} G_t^{(n)} \\
+    &=(1-\lambda) \sum_{n=1}\lambda^{n-1} ( r_t + \gamma G_{t+1}^{(n-1)}) \\
+    &= (1-\lambda)\gamma G_{t+1}^{(0)} + r_t +  \lambda \gamma (1-\lambda) \sum_{n=1}\lambda^{n-1} G_{t+1}^{(n-1)} \\
+    &= (1-\lambda)\gamma V_{t+1} + r_t + \lambda \gamma  G_{t+1}^{(\lambda)} \\
+    &= G_t^{(1)} + \lambda \gamma (G_{t+1}^{(\lambda)} - V_{t+1})
+\end{split}</script><p>Define advantage function $\delta_t^{(n)} = G_t^{(n)} - V_t$, we can get the recurrent relation</p>
+<script type="math/tex; mode=display">
+\delta_t^{(\lambda)} = \delta_t^{(1)} + \lambda \gamma  \delta_{t+1}^{(\lambda)}</script><hr>
+<h1><span id="psudo-code-for-computing-tdlambda">Psudo Code for Computing $TD(\lambda)$</span></h1><p>When we have a sample chain </p>
+<script type="math/tex; mode=display">
+\mathbf{s}_0 \rightarrow \mathbf{a}_0 \rightarrow r_0 \rightarrow \mathbf{s}_1 \rightarrow \mathbf{a}_1 \rightarrow r_1 \rightarrow \cdots \mathbf{s}_{n-1} \rightarrow  \mathbf{a}_{n-1} \rightarrow r_{n-1} \rightarrow \mathbf{s}_{end}</script> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">TD_lambda</span><span class="params">(s, r, value_func, gamma, lam)</span>:</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">    Inputs:</span></span><br><span class="line"><span class="string">	    s    list of states </span></span><br><span class="line"><span class="string">	    r    list of rewards</span></span><br><span class="line"><span class="string">	    value_func    function predict accumulated reward for state</span></span><br><span class="line"><span class="string">	    gamma     reward decal factor</span></span><br><span class="line"><span class="string">	    lam       TD(lam) parameter</span></span><br><span class="line"><span class="string">	Outputs:</span></span><br><span class="line"><span class="string">	    TD_lam    list of TD(lam) value for each state</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        V[i] = value_func(s[i])  <span class="comment"># compute predicted value for each state</span></span><br><span class="line"></span><br><span class="line">	V[n] = <span class="number">0</span> <span class="keyword">if</span> (s[n] <span class="keyword">is</span> END) <span class="keyword">else</span> value_func(s[n]) <span class="comment"># predicted value for end state</span></span><br><span class="line">	delt_lam[n] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> reversed(range(n)): <span class="comment"># calculate in reversed order </span></span><br><span class="line">	    <span class="comment"># calculate delt(1) for each state</span></span><br><span class="line">	    delt_1[i] = r[i] + gamma * V[i+<span class="number">1</span>] - V[i]  </span><br><span class="line">	    <span class="comment"># calculate delt(lam) for each state</span></span><br><span class="line">	    delt_lam[i] = delt_1[i] + gamma * lam * delt_lam[i+<span class="number">1</span>] </span><br><span class="line">	    <span class="comment"># calculate TD(lam) for each state</span></span><br><span class="line">	    TD_lam[i] = delt_lam[i] + V[i]</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> TD_lam</span><br></pre></td></tr></table></figure>
+<h1><span id="reference">Reference</span></h1><ol>
+<li>Wikipedia Page: <a href="https://en.wikipedia.org/wiki/Temporal_difference_learning" target="_blank" rel="noopener">Temporal difference learning</a></li>
+<li>Alister Reis’s blog: <a href="https://amreis.github.io/ml/reinf-learn/2017/11/02/reinforcement-learning-eligibility-traces.html" target="_blank" rel="noopener">Reinforcement Learning: Eligibility Traces and TD(lambda)</a></li>
+<li>David Silver’s <a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/MC-TD.pdf" target="_blank" rel="noopener">slides</a></li>
+<li>Richard S. Sutton’s paper of TD(lam): <a href="">Learning to predict by the methods of temporal differences</a><!--stackedit_data:
+eyJoaXN0b3J5IjpbMTM4MTU0NDU1LC0xMDgwOTU2MTMxLDExNz
+I3NDI1NTAsMjg0NjUwMDI4LC0yMDkzOTQxMTUsLTk2Mjg3Njcx
+NSwtMTkzNzEwNjMxMCw0NzYxMjg3MCwtMTQyNDE0MTg4OSwxMT
+c0OTI5OTA3LC0xMTk3Mzc4NTg4LC0xOTcwMzk5NjM5LDE2MTkw
+Nzk2OTMsLTY1MTc1MjM2NSw3MjU5ODM0MzUsLTEzNzkzODIyNT
+YsNDE3MDQ0MDcsMTU1MjQ1MTM1NSwtNDYwODI0NzQxLDczMDk5
+ODExNl19
+--></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2018/09/18/TD value in Reinforcement Learning/" data-id="cjn2rhd840000jwv45xmyfu0k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: "How to calculate $TD(\lambda)$ in Reinforcement Learning",
+    owner: 'milkpku',
+    repo: 'blog',
+    oauth: {
+      client_id: '81e1fd6c525e8019860e',
+      client_secret: 'f27b35427bb21b651b0c59e60209405b3425ab06',
+    },
+  })
+  gitment.render('comments')
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2018/07/22/推荐：《独裁者手册》/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">推荐：《独裁者手册》</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2018 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
