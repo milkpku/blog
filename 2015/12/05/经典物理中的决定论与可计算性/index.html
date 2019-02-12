@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>经典物理中的决定论与可计算性 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="问题的来源 经典力学中的决定论 混沌：决定性不意味着可计算性 量子力学：海森堡测不准原理 小结    问题的来源从牛顿（Newton）建立起经典物理的大厦开始，有一个幽灵一直萦绕在物理学家和哲学家心头，那就是遵循牛顿力学的物质世界如何容许意识的存在。 如果相信世界是由纯粹的物质组成，并遵循确定的物理规律（并不一定是牛顿定律，只要是决定性的演化规则皆可），那么只要给定这个世界的初始状态（比如第一">
+<meta name="keywords" content="Programming, Computer Science, Physics, Philosopy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典物理中的决定论与可计算性">
+<meta property="og:url" content="http://milkpku.github.io/blog/2015/12/05/经典物理中的决定论与可计算性/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="问题的来源 经典力学中的决定论 混沌：决定性不意味着可计算性 量子力学：海森堡测不准原理 小结    问题的来源从牛顿（Newton）建立起经典物理的大厦开始，有一个幽灵一直萦绕在物理学家和哲学家心头，那就是遵循牛顿力学的物质世界如何容许意识的存在。 如果相信世界是由纯粹的物质组成，并遵循确定的物理规律（并不一定是牛顿定律，只要是决定性的演化规则皆可），那么只要给定这个世界的初始状态（比如第一">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-09-26T04:12:31.489Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典物理中的决定论与可计算性">
+<meta name="twitter:description" content="问题的来源 经典力学中的决定论 混沌：决定性不意味着可计算性 量子力学：海森堡测不准原理 小结    问题的来源从牛顿（Newton）建立起经典物理的大厦开始，有一个幽灵一直萦绕在物理学家和哲学家心头，那就是遵循牛顿力学的物质世界如何容许意识的存在。 如果相信世界是由纯粹的物质组成，并遵循确定的物理规律（并不一定是牛顿定律，只要是决定性的演化规则皆可），那么只要给定这个世界的初始状态（比如第一">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('http://www.compadre.org/informal/images/features/lorenzattractorsmallnew-8-2.jpg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">经典物理中的决定论与可计算性</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-经典物理中的决定论与可计算性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/12/05/经典物理中的决定论与可计算性/" class="article-date">
+  <time datetime="2015-12-04T16:00:00.000Z" itemprop="datePublished">2015-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Physics/">Physics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      经典物理中的决定论与可计算性
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#问题的来源">问题的来源</a></li>
+<li><a href="#经典力学中的决定论">经典力学中的决定论</a></li>
+<li><a href="#混沌决定性不意味着可计算性">混沌：决定性不意味着可计算性</a></li>
+<li><a href="#量子力学海森堡测不准原理">量子力学：海森堡测不准原理</a></li>
+<li><a href="#小结">小结</a></li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h2><span id="问题的来源">问题的来源</span></h2><p>从牛顿（Newton）建立起经典物理的大厦开始，有一个幽灵一直萦绕在物理学家和哲学家心头，那就是遵循牛顿力学的物质世界如何容许意识的存在。</p>
+<p>如果相信世界是由纯粹的物质组成，并遵循确定的物理规律（并不一定是牛顿定律，只要是决定性的演化规则皆可），那么只要给定这个世界的初始状态（比如第一推动），接下来它就会自行其是，不需要任何“人为”的干预即可进行演化。它的行为是确定的，似乎预示着，只要给定我们所需要的一切信息，我们就能在一台足够大的超级计算机上充当上帝的角色。拉普拉斯（Laplace）曾高兴地宣称，只要给定某一时刻世界上所有粒子的位置和动量，就能决定从此以后任何时刻的世界状态。</p>
+<p>如果这一理论是正确的，那么我们就会发现自己陷入了一个十分尴尬的境地：所谓的自我意识只是粒子碰撞的结果，这一切都是在宇宙形成的那一刻就决定好了的，这个世界是被决定的、确定的。我们只是不自觉地严格按照物理定律写就的剧本在时空这块舞台上表演，一边感叹着编剧的奇思妙想一边猜测着接下来的剧情，当然，我们如何猜测接下来的剧情也是写好了的。</p>
+<p>所以在经典力学建立的同时，物理学家们和哲学家们就在开始努力解决这一深刻的矛盾，试图挽救人类的尊严。《皇帝新脑》就是英国物理学家Roger Penrose为此所作的努力。这一篇读书笔记是《皇帝新脑》读书笔记中的一篇，结合Penrose与我之前的阅读和思考，将经典物理中的决定论单独提出作为讨论的对象。</p>
+<p>后文将主要说明以下观点：</p>
+<blockquote>
+<p><strong>即便物质的运动和相互作用规律是决定性的，我们也无法通过计算得到满意的解答。况且我们从理论上无法得到所需要的无穷精确的信息</strong></p>
+</blockquote>
+<hr>
+<h2><span id="经典力学中的决定论">经典力学中的决定论</span></h2><p>系统的<a href="https://zh.wikipedia.org/wiki/%E7%9B%B8%E7%A9%BA%E9%96%93" target="_blank" rel="noopener">相空间</a>中的每一个点代表一个经典系统的状态，这一状态唯一地决定系统下一刻在相空间中的位置。如有N个粒子的三维空间的相空间为6N维，其中3N维为粒子的坐标，3N维为粒子的动量。一个含有大量粒子的系统的相空间是极其庞大的，但这并不影响作为经典系统的决定性。</p>
+<p>在相空间中每一点都唯一地确定其下一刻运动方向，即在相空间中有一恒定的流场。给定一初始点（系统初始状态）则其接下来在相空间中的运动轨迹是<strong>唯一</strong>且<strong>确定</strong>的，这就是经典力学中决定性的来源。</p>
+<p>试想我们的宇宙作为含有大量粒子的系统，仍逃不出这一命运：只要其一诞生，就会在相空间中按照唯一且确定的运动轨迹运行。如果哪一天人类有能力获知所有粒子的运动状态，那么从理论上讲我们就获得了从此往后宇宙的未来，如果再能时间反演，我们甚至可以知道宇宙的过去。</p>
+<hr>
+<h2><span id="混沌决定性不意味着可计算性">混沌：决定性不意味着可计算性</span></h2><p>知道决定宇宙/系统状态的相轨迹是唯一的并不足够，因为这并没有告诉我们<strong>信息</strong>。要进行预测或者回溯，我们需要计算。事实上，预测未来的不可能性就体现在计算的困难上。</p>
+<p>虽然两体问题有解析解，但三体以上的问题就没有可解析求解的方法了（在此强行安利《三体》），人类所依靠的只能是计算机，或者说是确定状态机。然而从很早以前庞加莱的工作就揭示出，多体系统具有近乎无限的初值敏感性——初始值变动一小点就会导致系统在接下来的演化过程中出现完全不同的状态。在相空间中表现为，初始值很接近的两个点处在两个不同的轨道上，在一定时间后会出现在相空间中相隔很远的位置。</p>
+<p>在有限大小的计算机中，表示实数时误差是绝对存在的。这些误差在计算过程中不断累积，可以预见在一段时间内计算机所模拟的结果就与真实结果偏离到不可容忍的地步了。即便我们可以不断地提高测量精度和计算精度，只要有误差存在，可以预测的将来和追溯的过去都是有限的，即便我们知道真实的结果就存在在那里。套用直觉主义者的观点，在计算性可达方面，宇宙/系统的相轨迹是“不存在”的，因为我们不能指出它究竟是什么样的。</p>
+<p>如果我们可以精确地进行测量与完全没有误差地进行计算了呢？很遗憾，仍然不行。这牵扯到信息论的相关内容，简洁来说就是：计算的速度存在自然的上界，在得到要求精度的计算结果之前，系统已经走完了那段相轨迹。这样的“预测”没有任何突破性的意义。</p>
+<hr>
+<h2><span id="量子力学海森堡测不准原理">量子力学：海森堡测不准原理</span></h2><p>随着物理研究进入量子领域，有一个更深层次的自然法则被揭示：海森堡测不准原理。</p>
+<script type="math/tex; mode=display">\Delta p \Delta x \ge \hbar</script><p>这意味着，系统的状态实际上是弥散在相空间中的一小片区域中的，我们无法精确地确定系统在相空间中的位置。并且由量子力学所言的性质，每次测量都会使得系统的状态坍缩并重新在相空间中分布，我们无法从系统的历史轨迹缩小对其初始状态的搜索范围，而且因为测量带来的坍缩，系统之前的信息也无益于之后的预测了。</p>
+<p>即便量子力学的演化仍然是决定性的，且相空间中的轨道也遵循刘维尔定理（即相空间中的点是不可压缩流体），我们仍然无法得到满意的结果——因为在系统启动不久后，那弥散在一小片区域中的系统状态点就分布在相空间中的一大片地方了。</p>
+<hr>
+<h2><span id="小结">小结</span></h2><p>即便物质的运动和相互作用规律是决定性的，我们也无法通过计算得到满意的解答。因为测量和计算存在误差，混沌现象使得我们并不能走太远；对于精确的测量和计算，计算速度存在自然界限，无法在事件发生前对其进行预测。此外，我们无法得到所需要的无穷精确的信息，这被测不准原理所禁止。</p>
+<p>本篇读书笔记简略地概括了物理学家和哲学家在对<strong>可预测性</strong>研究的成果，说明了即便系统的相轨迹唯一确定，为什么我们仍不能预测未来。但最关键的自由意志仍然无容身之地，这将在之后的读书笔记中逐渐进行梳理。</p>
+<hr>
+<p>Reference: <strong><em>The Emperor’s New Mind</em></strong>, Roger Penrose<br><!--stackedit_data:
+eyJoaXN0b3J5IjpbMTI5MDI0MjczNywxMTU4ODg3NDEsLTE3Nj
+gwNjg5NTksOTIxNzY4ODY4LC0xNTE2MjI2NzcyLDE4MzE1MjIx
+MzgsMzE3MzAyMjc1XX0=
+--></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2015/12/05/经典物理中的决定论与可计算性/" data-id="cjs1ha8ga000mr4v4r0yraqac" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: "经典物理中的决定论与可计算性",
+    owner: 'milkpku',
+    repo: 'blog',
+    oauth: {
+      client_id: '81e1fd6c525e8019860e',
+      client_secret: 'f27b35427bb21b651b0c59e60209405b3425ab06',
+    },
+  })
+  gitment.render('comments')
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/12/29/罗素、哥德尔与图灵/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          罗素、哥德尔与图灵
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/03/11/理想国第一卷浅析/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">理想国第一卷浅析</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2019 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>

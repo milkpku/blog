@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>科研文献阅读写作小结 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Abstraction Introduction Related Works Overview and Methods Results Conclusion and Discussion Reference    Abstraction科研文献的阅读和写作是从事科研工作的重要技能，然而很多研究生在初次接触时总是苦于不得要领。笔者根据自己阅读科研文献的一些经验和领悟（以 Graphics 和 A">
+<meta name="keywords" content="Research">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科研文献阅读写作小结">
+<meta property="og:url" content="http://milkpku.github.io/blog/2018/12/08/科研文献阅读写作小结/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="Abstraction Introduction Related Works Overview and Methods Results Conclusion and Discussion Reference    Abstraction科研文献的阅读和写作是从事科研工作的重要技能，然而很多研究生在初次接触时总是苦于不得要领。笔者根据自己阅读科研文献的一些经验和领悟（以 Graphics 和 A">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-12-09T07:50:15.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="科研文献阅读写作小结">
+<meta name="twitter:description" content="Abstraction Introduction Related Works Overview and Methods Results Conclusion and Discussion Reference    Abstraction科研文献的阅读和写作是从事科研工作的重要技能，然而很多研究生在初次接触时总是苦于不得要领。笔者根据自己阅读科研文献的一些经验和领悟（以 Graphics 和 A">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('https://carleton.ca/coris/wp-content/uploads/shutterstock_168447536-1.jpg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">科研文献阅读写作小结</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-科研文献阅读写作小结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/12/08/科研文献阅读写作小结/" class="article-date">
+  <time datetime="2018-12-07T16:00:00.000Z" itemprop="datePublished">2018-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Essay/">Essay</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      科研文献阅读写作小结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#abstraction">Abstraction</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#related-works">Related Works</a></li>
+<li><a href="#overview-and-methods">Overview and Methods</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#conclusion-and-discussion">Conclusion and Discussion</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h1><span id="abstraction">Abstraction</span></h1><p>科研文献的阅读和写作是从事科研工作的重要技能，然而很多研究生在初次接触时总是苦于不得要领。笔者根据自己阅读科研文献的一些经验和领悟（以 Graphics 和 AI 方向论文为主），从作者和读者双方的角度出发，自己总结分析了科研文献中各个部分的关系和作用，以提高阅读和把握文献的能力。由于笔者涉猎有限，思考也不尽周密，所以所述经验和领悟不免会有局限，欢迎读者指正。</p>
+<hr>
+<h1><span id="introduction">Introduction</span></h1><p>Introduction 是作者向读者展示研究核心价值的章节。科研论文乃至其他任何文献写作的最终目的，就是让读者明白作者所作的研究是什么，这是一切的出发点。那么 Introduction 就需要集中精力阐述清楚三件事：<strong>研究课题的意义</strong>，<strong>研究的困难点</strong>，以及这篇文章<strong>所做的贡献</strong>。</p>
+<p>首先就是解释作这项研究的意义是什么。意义可以是研究对生产生活的重要影响，也可以是对其他科研工作的基础支持。如果不能很好的解释研究的意义，那么整个研究就是空中楼阁。作者面对的对象可能是同行，可能是大众，还有可能是手握基金审批权的官员。只有清楚地表明研究工作的重要性，研究才能得到关注、得到支持<del>以及骗到经费</del>。</p>
+<p>其次是作这项研究的难点。每一个研究课题都有其相应的难点，这是科研工作者的主要攻关对象。清楚阐述研究的难点，能够让读者了解科研工作者付出的努力，也让读者能够清楚地知道此项研究工作的重点。那么与此相应的，在文章的 Results 或者 Discussion 部分，就需要对应的去讨论这篇工作是否一一解决了此处所列出的困难。读者和评审在阅读后续章节时，也就会关注作者所列的困难是否得到了回应。</p>
+<p>最后就是介绍在这篇工作中研究者的贡献。在介绍完研究的难点之后，需要向读者说明研究者是通过什么方法解决这些问题的，在这期间为科学共同体作了什么贡献。对解决方案的描述务求一针见血，深入浅出，其目的是让读者以最直观简洁的方式理解研究者的意图。而对文章贡献的声明，应该有实事求是的态度，否则作者自己的科研信誉受到损失，得不偿失。</p>
+<p>作为读者，明白了 Introduction 在文章中的作用，也就清楚了该怎么去读懂它。笔者在 MSRA 图形组实习期间，我的 Mentor 之一刘洋老师就传授给我们读文献的三板斧：“key problem, key challenges, key observation”，其实就是上述的三点。我的另一 Mentor 童欣老师也经常教导我们，要好好读 Introduction。起初笔者并不理解，认为文章的核心应该在 Methods 部分，毕竟这里干货很多，篇幅也最大。后来笔者在逐渐扩展阅读和揣摩文意过程中才领悟到，一篇文献虽是线性的数据，但其组织却是层次性的，而这个层次的根节点，就是 Introduction。它就像硬盘中的分区表一样，虽然只有几百个字节，却组织着整个硬盘扇区的空间。所以 Introduction 一定要好好读，认真读。</p>
+<hr>
+<h1><span id="related-works">Related Works</span></h1><p>介绍 Related Works 的意义在于给研究工作定位，为读者指路。每一篇文献都是科研世界中的一个点，这些点连成网才构成了学术界，而 Related Works 就是刻画局部性质的坐标卡。</p>
+<p>对 Related Works 的介绍，反映了研究者对自己工作的认识和定位。科学研究不是独立的，而是科学共同体内部大家相互交流、互通有无来完成的。在一篇文章发表之前，一定有围绕着相同问题的其他研究工作存在，因此研究者需要将自己的工作放在同行的工作中进行比较，以确定它的位置。优秀的研究者不仅能去解决最有意义的研究课题，同时也善于将自己的研究摆放到恰到好处的位置。有一句话叫世界上没有真正的垃圾，只有放错地方的资源，对科研论文也同样适用。</p>
+<p>读者在浏览 Related Works 时，也希望得到围绕研究课题的学术信息。在 SIGGRAPH 的审稿意见中，引文质量是一项重要评价方面，可见学术界对高质量 Related Work 写作的重视。因为作为读者，不仅希望在阅读这篇文章的时候，了解作者所作的工作，也想了解相关领域其他人的进展。其他人的成果的优缺点是什么，与现在的工作关系如何，都是重要的信息。一个研究可能借鉴了前一研究的方法，可能引入了其他领域的工具，也需要详细说明。</p>
+<hr>
+<h1><span id="overview-and-methods">Overview and Methods</span></h1><p>在对工作提纲挈领的介绍完成后，就需要进一步展开来叙述：究竟使用了什么方法来解决提出的问题。这也是阅读文献的读者最想弄明白的，因为阅读文献的一大目的就是学习别人的方法，日后用于自己的研究。</p>
+<p>然而一项工作环节颇多，一下子铺陈开来容易让人摸不着头脑，所以仍然需要一个自上而下，层次展开的结构来进行叙述。所谓纲举目张，纲目在这里就分别是 Overview 和 Methods 章节了。</p>
+<p>Overview 章节的要义是对工作中使用的方法进行粗略但完整的描述。该略过的地方就应略过，要让读者在最短时间内熟悉全貌。务求使读者不至一开始就陷于细节而失全貌，导致丧失阅读的趣味。常用的方法是将内容分为几个独立的子模块，概括其作用，明确输入输出。至于更细节的叙述，则交给 Methods 章节进行详述。</p>
+<p>Methods 章节就是对 Overview 所述框架的进一步展开，也就是所谓的“干货”。这里是研究者们各显神通的地方，可以通过文字、公式、图像等等手段进行表现。但一定要做到文字准确、公式标识前后一致、配图有详尽的说明。总而言之，其最终目标就是让读者明白作者在研究中所采用的方法，详细程度应使得有一定基础的研究生照其叙述可对结果进行复现。</p>
+<p>其实叙述方式本不只这一种，但长期的实践中，Overview-Method 这种组织形式最能达到效果，因此也逐渐固化为八股文中的一个部分了。</p>
+<hr>
+<h1><span id="results">Results</span></h1><p>Results 部分的任务是向读者证明作者的理论和方法正确有效。不正确、不有效的工作是不会得到认可和借鉴的。实验结果的展示没有固定的格式，但其核心是逻辑严密地向读者展示自己的结果，说服读者接受作者的结论。</p>
+<p>笔者根据 Results 中实验的目的不同，归纳出三种主要类型：展示结果(show demo)、验证理论(validation)、同类方法比较(comparison)。</p>
+<p><strong>展示结果</strong>就是向读者展示这项工作的一个直观结果，这是最能说服读者的一种方式。以前没有人做过的问题或者没人做成的问题，如果做出来了，展现给读者，就是作者工作成功最好的证明。因为笔者所在领域是计算机图形学，很多问题没有一个可量化的比较指数，而图形学研究的问题本身又是直接和视觉效果相关的，所以相关文献的 Result 章节中有很多展示结果的实验。比如作者十分景仰的 DeepMind 所作相关工作 (DQN, AlphaGo) 就不仅写出了论文，还有实实在在的可演示原型，令人信服。</p>
+<p><strong>验证理论</strong>就是通过实验支持在文章中提出的论点，通常作为理论部分的补充实验出现。比如在前文中作者声称某一现有方法有缺陷，并在理论上指出其缺陷来源，那么就需要用实验数据证明这一论断。作者在行文时如果声明了一个不平凡的断言，就需要将自己代入读者的视角，问自己读者在读到这里时会产生什么样的疑问。那么作者就应该从最能解决读者疑问的角度来做实验证明之。没有实验支撑的理论是无力的，甚至是有害的（误导其他研究人员），而得到实验支撑的理论则会获得生命力。相对论的出现和证实就是一个经典的案例。计算机方向的研究同样是科学研究，所以作为支撑理论的实验一点也马虎不得。</p>
+<p><strong>同类方法比较</strong>就是将工作中提出的新方法同现有方法进行比较。要让读者认可作者的研究成果，那至少得在某些方面证明相比于同类方法的优越性。如现有的深度学习领域的相关研究，在有了比较基准 (Accuracy, F1, IU) 之后，各个模型的核心竞争就在提高这些指数上。虽然有同行抱怨深度学习科研沦为调参大赛，但也没有更好更公平客观的选择。</p>
+<hr>
+<h1><span id="conclusion-and-discussion">Conclusion and Discussion</span></h1><p>最后的总结除了再次重申作者的贡献外，需要讨论工作的局限性，以及未来设想。研究总是一步一步推进，得陇才能望蜀，希望诸君共勉。</p>
+<hr>
+<h1><span id="reference">Reference</span></h1><ol>
+<li><a href="http://www.deeplearningindaba.com/uploads/1/0/2/6/102657286/research-paper-writing.pdf" target="_blank" rel="noopener">How to write a great research paper</a>, Deep Learning Indaba.</li>
+<li>Keshav, S. (2007). <a href="https://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf" target="_blank" rel="noopener">How to read a paper</a>. _ACM SIGCOMM Computer Communication Review_, _37_(3), 83-84.<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIwODI1MjQ3MTEsLTIwMTgxMzY5ODgsMj
+Q3NjkxOTc0LDEwMTcwMzY0MDcsMTUxMDgzMDkyNCw1NDgxNTQ1
+MDgsLTE5MDk4NzcxODcsLTE2ODY1NzE3NzMsLTEyNjQ1NTA4MT
+ksLTExMjg5MTQ2ODMsLTE3NDAyMjQ0MzUsMTUwMTUwOTI2Niwt
+MzEzNDAyNDA5LC0xNDIzNDU1NTI5LDE3MTUzNjA1NjksLTE3NT
+g0MTMzMTAsLTEwMTQwODY1MTEsMTc5NDA0OTQwLC0xODIxMjY2
+MzA4LC01NzIzOTM1NjJdfQ==
+--></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2018/12/08/科研文献阅读写作小结/" data-id="cjs1ha8g4000fr4v4xariz2v8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research/">Research</a></li></ul>
+
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: "科研文献阅读写作小结",
+    owner: 'milkpku',
+    repo: 'blog',
+    oauth: {
+      client_id: '81e1fd6c525e8019860e',
+      client_secret: 'f27b35427bb21b651b0c59e60209405b3425ab06',
+    },
+  })
+  gitment.render('comments')
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2019/02/12/星际旅行与人类的未来/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          星际旅行与人类的未来
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/11/08/Arch Linux 安装与开发环境配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Arch Linux 安装与开发环境配置</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2019 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
