@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>博五科研复盘与反思 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta name="description" content="在刚刚过去的中秋国庆假期中，我终于投出了拖延近一年的文章，在最后时刻避免了烂尾。研究课题起于一时的突发奇想，迅速通过了简单测试，却在更困难的问题上难以突破。更悲惨的是19年冬到20年春的时间里，多个意外事件的同时发生，给我的生活带来了巨大的冲击，把一切事情全部打乱。我也因此一度陷入消沉和抑郁，停滞的项目也随着时间推移成为我沉重的心理负担。好在返学后两位合作老师全力帮助我，在最后时刻把文章完成并投出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博五科研复盘与反思">
+<meta property="og:url" content="http://milkpku.github.io/blog/2020/10/08/%E5%8D%9A%E4%BA%94%E7%A7%91%E7%A0%94%E5%A4%8D%E7%9B%98%E4%B8%8E%E5%8F%8D%E6%80%9D/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="在刚刚过去的中秋国庆假期中，我终于投出了拖延近一年的文章，在最后时刻避免了烂尾。研究课题起于一时的突发奇想，迅速通过了简单测试，却在更困难的问题上难以突破。更悲惨的是19年冬到20年春的时间里，多个意外事件的同时发生，给我的生活带来了巨大的冲击，把一切事情全部打乱。我也因此一度陷入消沉和抑郁，停滞的项目也随着时间推移成为我沉重的心理负担。好在返学后两位合作老师全力帮助我，在最后时刻把文章完成并投出">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-27T14:02:30.522Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content=" Computer Science">
+<meta property="article:tag" content=" Physics">
+<meta property="article:tag" content=" Philosopy">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('https://framexec.com/wp-content/uploads/2018/06/Finance-Operations-Research-banner.jpg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">博五科研复盘与反思</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-博五科研复盘与反思" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/10/08/%E5%8D%9A%E4%BA%94%E7%A7%91%E7%A0%94%E5%A4%8D%E7%9B%98%E4%B8%8E%E5%8F%8D%E6%80%9D/" class="article-date">
+  <time datetime="2020-10-07T16:00:00.000Z" itemprop="datePublished">2020-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Essay/">Essay</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      博五科研复盘与反思
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在刚刚过去的中秋国庆假期中，我终于投出了拖延近一年的文章，在最后时刻避免了烂尾。研究课题起于一时的突发奇想，迅速通过了简单测试，却在更困难的问题上难以突破。更悲惨的是19年冬到20年春的时间里，多个意外事件的同时发生，给我的生活带来了巨大的冲击，把一切事情全部打乱。我也因此一度陷入消沉和抑郁，停滞的项目也随着时间推移成为我沉重的心理负担。好在返学后两位合作老师全力帮助我，在最后时刻把文章完成并投出，算是有了个了结。这个项目做得很曲折，也给我带来了不小的伤害和相当的磨砺，所以我要认真复盘整个过程，反思改进我犯过的错，避免重蹈覆辙。</p>
+<!-- toc -->
+
+<ul>
+<li><a href="#1-时间表">1. 时间表</a></li>
+<li><a href="#2-失误与不足">2. 失误与不足</a><ul>
+<li><a href="#21-不严谨的选题和期望">2.1 不严谨的选题和期望</a></li>
+<li><a href="#22-忽视研究章法和项目管理">2.2 忽视研究章法和项目管理</a></li>
+<li><a href="#23-不考虑合作者感受">2.3 不考虑合作者感受</a></li>
+<li><a href="#24-没有主动求助">2.4 没有主动求助</a></li>
+<li><a href="#25-小结">2.5 小结</a></li>
+</ul>
+</li>
+<li><a href="#3-值得肯定之处">3. 值得肯定之处</a><ul>
+<li><a href="#31-理性接受变化">3.1 理性接受变化</a></li>
+<li><a href="#32-尝试自我救助">3.2 尝试自我救助</a></li>
+<li><a href="#33-接受爱与责任">3.3 接受爱与责任</a></li>
+<li><a href="#34-巨大的韧性">3.4 巨大的韧性</a></li>
+</ul>
+</li>
+<li><a href="#4-最后总结">4. 最后总结</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="1-时间表">1. 时间表</span></h1><ul>
+<li><strong>2019年6月</strong> 完成 <a href="https://milkpku.github.io/project/hairyball.html">Motion Direction</a> 项目的投稿与接收，继续推进 DeepMimic 的加速。</li>
+<li><strong>2019年7月</strong> 突发奇想，去除 imitation rewards，只保留用于剪枝的 bounds，得到与 DeepMimic 相似的结果，于是开始了 Spacetime Bounds 的项目。</li>
+<li><strong>2019年8月</strong> 完成 Spacetime Bounds 的基础实验，验证了有效性。</li>
+<li><strong>2019年9月</strong> 告别SFU，回到MSRA。</li>
+<li><strong>2019年10月</strong> 完成相关的 Ablation Study 实验，开始对 Spacetime Bounds 在 Style Exploration 上的作用进行探索。</li>
+<li><strong>2019年11月</strong> 初步得到 Style Exploration 的一些结果，但已经感到该方法调参很吃力。</li>
+<li><strong>2019年12月</strong> 因为打羽毛球不慎受伤，去校医院检查，得知为腰椎间盘突出。进一步去三院检查，确诊为腰椎离断，损伤不可恢复。</li>
+<li><strong>2020年1月</strong> 经过几天的冥思苦想，将问题的核心抽象为了 Spacetime Bounds，兴冲冲地将自造的体系加入论文。但因为 Style Exploration 结果不够，没有能赶上 SIGGRAPH 投稿。</li>
+<li><strong>2020年2-6月</strong>  过年返家，因疫情而困在家中。此时项目进展不顺，童老师加入协调。在多次尝试 Style Exploration 失败后，我产生厌倦情绪，项目几无进展，并错过 SIGGRAPH Asia 投稿。而感情方面，因为分隔两地冲突不断，和女友关系到了不绝如缕的地步。加上因腰椎损伤带来的心理创伤，我彻底倒下了。我变得非常嗜睡，每天睡得很晚，早上也不想起床，午觉经常睡两个小时。我的心理状态又在暴躁和抑郁间来回变换，对家人态度很不好，经常吼人。我的肠胃系统也出现问题，急性肠胃炎多次发作。</li>
+<li><strong>2020年7月</strong> 暂时将工作放下（其实完全是无事可干并且也无心做事），前往岳丈家订婚。在这段时间里，我融入了女友家庭，被岳父岳母亲切接待。</li>
+<li><strong>2020年8月</strong> 接到返校通知，在8月12日成都雨最大的那天乘高铁离开待了半年的家，回到学校搬入单人间。之后回到MSRA，同童老师进行了坦诚的谈话，释放了部分心理压力，开始进行恢复，并着手完成 Spacetime Bounds 项目论文。</li>
+<li><strong>2020年9月</strong> 不断打磨论文、添加修改图片、补做实验。在这个过程中多次犯错被训斥，心理压力逐渐积累。同时，毕业找工作的事情也萦绕心头。好在有实验室师兄帮忙内推，我得到了 Momenta 的面试机会，并在四轮面试后顺利收获第一枚offer，算是一点小小但重要的安慰。</li>
+<li><strong>2020年10月</strong> 在大家欢度中秋国庆假期时，我不得不守着电脑加班加点地赶论文赶实验。在截稿前两天最艰难的时候，我曾想过放弃一切，但转念想到家人和爱人，我又咬咬牙坚持了下来。虽然我的父母不一定理解我心中的苦闷与压力，但我明白他们是爱我的。最终论文在截稿前完成修改、成功上传，而我心中的担子，也暂时卸了下来。</li>
+</ul>
+<h1><span id="2-失误与不足">2. 失误与不足</span></h1><h2><span id="21-不严谨的选题和期望">2.1 不严谨的选题和期望</span></h2><p>Spacetime Bounds 项目的开始其实是我一个突发奇想的点子，但这个点子没有目的只有观察。虽然回过头来看，初期的进展让人觉得它很有希望，但把它定为选题是否急躁了一点？我觉得这里的失误是两方面的，一方面是我对研究要达到的深度估计过低，第二方面是我乐观的表态可能误导了老师。所以在做研究选题的时候，一方面要注意自己的观察是否独到，另一方面也要注意选择的问题是否有价值、有被解决的可能性。</p>
+<p>走到中期，我和老师对项目的期望已经产生了分歧，只是我们相互间不知道。我对 Spacetime Bounds 的期望就是能够复现 DeepMimic，然后能够有一点小的 style 即可。而老师对它的期望则是能够打开 Style Exploration 的大门，制造各种各样的 stylized motion。虽然在多次痛苦的沟通后我们统一了期望，但接下来就遇到这个方法的瓶颈。Spacetime Bounds 能够通过稀疏的约束构造 motor skill，但正因为它稀疏，所以对动作的控制不够精细，得到的小人表现得很不自然。动作的自然和约束的稀疏在现有的框架下是矛盾的，无法同时解决。我没有把这个困境和我的困惑很好的向老师表达清楚，导致我们的期望一直有差距，卡在瓶颈很久都过不去。</p>
+<p>在遇到瓶颈的时候，应该怎么去决策，是硬着头走下去还是果断止损？这需要系统的实验设计和规范的项目管理来处理，而我在这方面同样完全没有经验。</p>
+<h2><span id="22-忽视研究章法和项目管理">2.2 忽视研究章法和项目管理</span></h2><p>当一个项目脱离探索阶段，进入科研轨道后，就应该向着最终的成果前进，而我还在抱着探索的心态进行着工作，缺乏目标和计划。特别时在项目进行到 Style Exploration 阶段时，我遇到了困难，便开始了无头苍蝇式的乱撞。在这个阶段，不仅浪费了很多时间和精力、积压了心理压力，还打乱了之前的实验，造成最后在写作时的困难。</p>
+<p>首先是研究章法的问题。遇到困难在科研中是家常便饭的事，有的困难容易克服，有的困难克服不了，但归根到底需要系统有章法地去尝试解决。试图解决问题时，应该形成“观察问题-分析问题-提出方案-实验验证”这个闭环。很多时候我会不自主的跳过分析问题的这一步，变成头痛医头脚痛医脚，甚至错得更远。这次对 Spacetime Bounds 的进一步研究就是这里我没有做好，没有深入分析造成不自然结果的原因，而是无脑加各种 regularization term。另一点，试图解决问题时，要先尝试已有的办法，第二步才是在已有的办法不足处加以改进创新。如果上来就是第二步，创新是有了，但这会造成两个后果：其一，万一已有的办法能解决现在的困难，甚至比新提出的还好，那这样做岂不是在走弯路？其二，在最后形成论文阶段时，需要解释这么做的必要性，没有尝试已有的办法会成为巨大的漏洞。</p>
+<p>然后是项目管理的问题。项目管理主要需要回答两个问题：做到什么程度够；做到什么程度应该放弃。一个系统由很多小部件组成，而每个小部件都需要花时间去实现和打磨。一个部件当然打磨得越强越好，但这会消耗更多的时间，使得项目整体被拖累。所以需要在心中对项目有整体的把握，知道一个部件被打磨到什么程度就够了，以最快速度打通整个项目。另一方面，项目在一个地方被卡得太久后果也很严重，所以需要有一个止损的红线。当一个部件遇到的困难超过现有方法或者新方法的有效范围时，应该考虑绕过它或者放弃它，而不应该不计成本的死磕。不是所有的困难都能被解决，何况是在限定时间内。项目管理时还应该考虑部件失败的风险，将可能遇到的风险一并加入项目管理中，为意外做足准备。我在 Spacetime Bounds 的调优时就是没有做好风险管理，错失了及时止损的时机。</p>
+<h2><span id="23-不考虑合作者感受">2.3 不考虑合作者感受</span></h2><p>Spacetime Bounds 项目的恶化可能是从投稿前我突然给论文增添一个章节开始的。其实我的本意是好的，因为我挖掘到了让我感觉满意感觉兴奋的东西，想将它呈现出来。但我不知道的是，这会给我的合作者带来障碍，并给论文写作带来巨大的灾难。第一，它的突然出现打乱了之前的谋篇布局，而且因为加入新的章节没有事先和合作者商量，会让他们很吃惊。第二，我自己的写作能力不够强，导致加入新的章节错误百出、定义不清、符号混乱。最终新加的这个章节在投稿前被拿掉，我心里也的确不是个滋味。我得到的教训是，要好好锻炼英文阅读和学术写作的水平，从而避免在写作中引入错误或打乱文章结构。</p>
+<p>除了大的方面，还有各种合作的细节。</p>
+<ul>
+<li>改文章时要操作规范，绝对不碰他人的文字，就算要改，也得另起重写。</li>
+<li>邮件中所说的每一个要点，不论是否同意，都要有所回应。</li>
+<li>邮件直书要点，给他人节省时间。</li>
+<li>不清楚、不放心的地方，要多次确认，否则大概率返工。</li>
+<li>遇到困难或者哪里卡住了，要及时通知合作者一起想办法，而不是像掉线一样闷着头自己搞。<br>以上的几个合作时注意事项，全是我犯错犯过来的教训。</li>
+</ul>
+<h2><span id="24-没有主动求助">2.4 没有主动求助</span></h2><p>在我最困难的时候，心理压力巨大，躁郁的症状非常明显，但我都没有去求助，或者想到去求助。我不想向父母求助，因为我怕他们担心，也怕他们不理解进而进一步对我造成伤害。我无法向女友求助，因为她也很烦躁，我们正因为各种鸡毛蒜皮的小事而发生争吵。我也没法向老师求助，因为我觉得我在工作上的事情没做好，没有脸面来见老师。所有的压力都是我一个人在承担，那种压力让我窒息、让我迟钝、让我迷茫、让我万念俱灰。但在所有这些不利下，万幸我还有实验室师弟可以相互倾诉打气。可以说没有他这个渠道，我所有的出路都堵死了，在此特别感谢师弟。这件事也给我敲响了警钟，就是我没有几个能够倾诉或者疏导情绪的渠道。我自己太孤独，也给自己织了厚厚的茧。我能够去哪里寻找到有归属感的集体，是一个值得留意的问题。</p>
+<h2><span id="25-小结">2.5 小结</span></h2><p>成功都是相似的，而失败有各种各样的失败。这次的项目，可以说是相当失败了，但同时它也没有完全失败——我毕竟活过来还把文章投出去了。这段时间里，从选题、项目运作到论文写作，我踩了几乎所有的雷、犯下无数的错，可以说是一次性尝到了所有失败的味道。这里面有我自己的原因，也有科研本身的因素，还有疫情大环境的变数。我并不感谢这段经历，它让我感到痛苦并可能留下后遗症。但既然经历了，我就要充分利用它，不能白白付出代价。以上的分析总结，是尝到了痛苦后的反思，希望能在日后让我避免更大的损失。</p>
+<h1><span id="3-值得肯定之处">3. 值得肯定之处</span></h1><h2><span id="31-理性接受变化">3.1 理性接受变化</span></h2><p>腰椎损伤后我一度跌入低谷，认为自己不再是一个健康完整的人，害怕失去已有的一切。后来在家人和女友的安慰支持下，我逐渐接受了现在的自己，接受了不完美的自己。每天多出一个小时康复训练虽然恼人，但我没有失去更多。或许我以后再也无法打羽毛球了，但我还可以游泳，还可以和正常人一样的生活——话又说回来，这世界上又哪有完全健康完美的“正常人”呢？经过这次打击，我当然不能说我变得更好了，但在损失部分健康之外，我的性格变得更宽容更有韧性。</p>
+<h2><span id="32-尝试自我救助">3.2 尝试自我救助</span></h2><p>我在三月陷入失败的阴影无法自拔，出现了很严重的抑郁症状。陷入泥潭后一个月，也是疫情开始后的两个月，随着社会管制开始放松，我也逐步开始自我救助。</p>
+<p>首先是恢复了游泳锻炼，通过游泳来暂时忘却烦恼。在腰椎损伤后，游泳是为数不多对我安全的运动了。在各处寻找游泳池以及前去游泳的过程中，我从家中走出来，也从自己内心走出来，缓解了封闭带来的压力。而游泳过程本身帮助我放空了思绪。感谢我还有这么一门技术，不枉以前学游泳时被踹下水所遭的罪。</p>
+<p>其次，我通过控制自己的情绪，减少了对家人的伤害。当我又一次和妈妈吵架后，我终于意识到自己的情绪不对劲了。后来静下心去想，其实那些鸡毛蒜皮的小事只是由头，我真正怒气的来源是学业不顺。我把家人当作出气筒，把对自己的失望转化成对他们的伤害。明白了这一点，我便有意识地克制自己的冲动，尝试用亲情的温暖来融化心中的怨气。</p>
+<p>八月返校回到MSRA后，我也主动参加公司组织的心理学讲座，直面自己遭遇的问题。主讲老师谈到一个规律，我一下子就记住了：“焦虑的人大多肠胃不好”。这正是我的情况。从我去年回国后，反复几次急性肠炎，却又查不出什么病。三院的医生说我是肠应激，问题出在精神上，我当时还不太信。自从听完那次讲座，长久的心结被解开，我的肠胃感觉舒畅多了，还真很神奇。</p>
+<h2><span id="33-接受爱与责任">3.3 接受爱与责任</span></h2><p>疫情期间我走到了一个重要的人生里程碑——完成订婚。这是一个奇妙的过程，前一天还是大龄未婚男，后一天就成为了要担起家庭责任的准丈夫。曾经我很担心自己会被越来越多的责任榨干，而没有更多付出能力的我将无法得到更多的爱。但现在我不惧怕了，腰椎损伤后的经历让我重新审视了同家人的关系。我意识到我不需要用任何事物去换取他们的态度，因为亲人的爱是无条件的。我现在能够从和父母、女友的互动中读出他们对我的爱，不论是父母的唠唠叨叨还是女友的责备。我也从以前的“付出-得到”思维变为“接受-回应”思维，这种相处模式让我心理压力骤减，也促进我表露更多真情。</p>
+<h2><span id="34-巨大的韧性">3.4 巨大的韧性</span></h2><p>虽然我消沉过，但我仍然保持了韧性。我喜欢读中国历史，而从中国悠长的历史中我总结出一点——只要活下来留在牌桌上，就永远有翻盘的可能。我读博期间的挫折跟历史中人物所遇到的挫折相比，真的是太微不足道了。虽然我仍然感觉很痛苦，但我也一直相信，只要挺过去了我就能翻盘。这种信念让我保留了最后的韧性，并能够坚持到项目完结。</p>
+<h1><span id="4-最后总结">4. 最后总结</span></h1><p>人总会逐步上升到一个他无法再前进的位置，而我顺利了这么多年，这次似乎真的碰到了障碍。 Spacetime Bounds 项目遇到的这么多挫折，是我方方面面未适应博士生活问题的集中爆发。我在这一年里踩了很多坑，也做过很多努力，吸取了不少教训。经过以上的复盘分析，我清晰的认识到了自己的短板及长处。在以后的工作生活中，我会以此为经验教训，合理把控项目管控和与他人的合作，争取不让短板拖累我的长处。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2020/10/08/%E5%8D%9A%E4%BA%94%E7%A7%91%E7%A0%94%E5%A4%8D%E7%9B%98%E4%B8%8E%E5%8F%8D%E6%80%9D/" data-id="ckgs1zv7b0007l9vleruo25k0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: "博五科研复盘与反思",
+    owner: 'milkpku',
+    repo: 'blog',
+    oauth: {
+      client_id: '81e1fd6c525e8019860e',
+      client_secret: 'f27b35427bb21b651b0c59e60209405b3425ab06',
+    },
+  })
+  gitment.render('comments')
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2020/01/30/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%8C%E5%8D%B7%E6%B5%85%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">理想国第二卷浅析</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2020 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>

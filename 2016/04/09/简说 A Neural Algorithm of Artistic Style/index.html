@@ -21,19 +21,22 @@ ga('send', 'pageview');
   <title>简说 A Neural Algorithm of Artistic Style | Li-Ke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <meta name="description" content="今天给大家介绍一项有趣的研究，Leon A. Gatys,团队做的让神经网络学画画的工作。(http://arxiv.org/abs/1508.06576)   1. 什么是神经网络neural network在机器学习领域中，结构模仿生物的神经网络，通过调整网络中的参数来达到近似拟合高维复杂数据。 比如最简单的线性划分，判断$Wx+b$是否大于0，就是单层的Logistic Regression">
-<meta name="keywords" content="Programming, Computer Science, Physics, Philosopy">
+  <meta name="description" content="今天给大家介绍一项有趣的研究，Leon A. Gatys,团队做的让神经网络学画画的工作。(http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1508.06576)   1. 什么是神经网络neural network在机器学习领域中，结构模仿生物的神经网络，通过调整网络中的参数来达到近似拟合高维复杂数据。 比如最简单的线性划分，判断$Wx+b$是否大于0，就是单层的Logistic Regression">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简说 A Neural Algorithm of Artistic Style">
-<meta property="og:url" content="http://milkpku.github.io/blog/2016/04/09/简说 A Neural Algorithm of Artistic Style/index.html">
+<meta property="og:url" content="http://milkpku.github.io/blog/2016/04/09/%E7%AE%80%E8%AF%B4%20A%20Neural%20Algorithm%20of%20Artistic%20Style/index.html">
 <meta property="og:site_name" content="Li-Ke&#39;s blog">
-<meta property="og:description" content="今天给大家介绍一项有趣的研究，Leon A. Gatys,团队做的让神经网络学画画的工作。(http://arxiv.org/abs/1508.06576)   1. 什么是神经网络neural network在机器学习领域中，结构模仿生物的神经网络，通过调整网络中的参数来达到近似拟合高维复杂数据。 比如最简单的线性划分，判断$Wx+b$是否大于0，就是单层的Logistic Regression">
-<meta property="og:locale" content="en-US">
+<meta property="og:description" content="今天给大家介绍一项有趣的研究，Leon A. Gatys,团队做的让神经网络学画画的工作。(http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1508.06576)   1. 什么是神经网络neural network在机器学习领域中，结构模仿生物的神经网络，通过调整网络中的参数来达到近似拟合高维复杂数据。 比如最简单的线性划分，判断$Wx+b$是否大于0，就是单层的Logistic Regression">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rack.1.mshcdn.com/media/ZgkyMDE1LzA4LzI5Lzc3L3RybnNmcm0xLjMyYmFhLmpwZwpwCXRodW1iCTEyMDB4OTYwMD4/0759661a/74b/trnsfrm1.jpg">
-<meta property="og:updated_time" content="2018-09-26T04:13:25.519Z">
+<meta property="article:published_time" content="2016-04-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-06T10:40:51.368Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content=" Computer Science">
+<meta property="article:tag" content=" Physics">
+<meta property="article:tag" content=" Philosopy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简说 A Neural Algorithm of Artistic Style">
-<meta name="twitter:description" content="今天给大家介绍一项有趣的研究，Leon A. Gatys,团队做的让神经网络学画画的工作。(http://arxiv.org/abs/1508.06576)   1. 什么是神经网络neural network在机器学习领域中，结构模仿生物的神经网络，通过调整网络中的参数来达到近似拟合高维复杂数据。 比如最简单的线性划分，判断$Wx+b$是否大于0，就是单层的Logistic Regression">
 <meta name="twitter:image" content="http://rack.1.mshcdn.com/media/ZgkyMDE1LzA4LzI5Lzc3L3RybnNmcm0xLjMyYmFhLmpwZwpwCXRodW1iCTEyMDB4OTYwMD4/0759661a/74b/trnsfrm1.jpg">
   
     <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
@@ -44,8 +47,10 @@ ga('send', 'pageview');
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/blog/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container">
@@ -66,7 +71,7 @@ ga('send', 'pageview');
         
           <a class="main-nav-link" href="/blog/archives">Archives</a>
         
-          <a class="main-nav-link" href="/blog/About me.html">About Me</a>
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
         
       </nav>
       <nav id="sub-nav">
@@ -121,7 +126,7 @@ ga('send', 'pageview');
 <div class="outer">
   <section id="main-post"><article id="post-简说 A Neural Algorithm of Artistic Style" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/04/09/简说 A Neural Algorithm of Artistic Style/" class="article-date">
+    <a href="/blog/2016/04/09/%E7%AE%80%E8%AF%B4%20A%20Neural%20Algorithm%20of%20Artistic%20Style/" class="article-date">
   <time datetime="2016-04-08T16:00:00.000Z" itemprop="datePublished">2016-04-09</time>
 </a>
     
@@ -165,24 +170,18 @@ ga('send', 'pageview');
 <p>Google的团队利用了一个前人训练好的网络，VGG网络，来获取图像的feature。VGG模型在ImageNet数据库中训练而成，我们关注的是它结构中的5个卷积层。因为它是一个训练好的而且每层的feature都是有较好性质的网络，所以直接提取它对图像进行识别时的中间层为图像的feature即可。</p>
 <p>在VGG图像识别的中间层，数据为一个(c, h, w)的3维张量，对应c个feature，每个feature为一张(h, w)的二维数组，由于卷积神经网络的结构特性，feature中每个元素对局部的图像都有描述作用。Google团队就利用了这一点，使得对于图像feature的表征有了现成的工具。</p>
 <p>我们需要将图像$x$通过学习$y$的风格，得到图像$z$，则我们需要定义函数$L_{content}(z; x)$描述$z$和$x$内容的差异，函数$L_{texture}(z; y)$描述$z$和$y$风格的差异，然后优化$z$。</p>
-<p>设$F^{(n)}_{kj}$为第n层第k个feature的第i个元素(这里将(h, w)的二维数组视为一个1维向量)，则定义两个图像内容上是否相像(content loss)就有：</p>
-<script type="math/tex; mode=display">
-    L_{content}(z; x) = \sum_{l,i,j} \alpha_l (F^{(l)}_{ij} - P^{(l)}_{ij})^2</script><p>$F, P$分别为需要转化的图像$x$和转化后的图像$z$经过VGG时的中间层。</p>
-<p>接下来定义两个图像风格上是否相似，这里在content loss上再进了一小步，就是使用了Gram矩阵 $G^{(n)}_{ij} = \sum_k F^{(n)}_{ik} F^{(n)}_{jk}$,即认为相似的风格可以用不同feature间的相关度表示。于是定义了两个图像风格上是否相似(texture loss)：</p>
-<script type="math/tex; mode=display">
-L_{texture}(z; y) =\sum_{l,i,j} \frac{w_l}{4M_l^2N_l^2} (G^{(l)}_{ij} - A^{(l)}_{ij})^2</script><p>$G, A$ 分别为被模仿的图像$y$和转化后的图像$z$计算出的Gram矩阵</p>
-<p>所以需要优化的cost函数为：</p>
-<script type="math/tex; mode=display">
-L(z; x, y) = \alpha L_{content}(z;x) + \beta L_{texture}(z;y)</script><p>工作做完了。</p>
-<p>什么？没有看懂？回去再读一遍。<br><!--stackedit_data:
+<p>设$F^{(n)}<em>{kj}$为第n层第k个feature的第i个元素(这里将(h, w)的二维数组视为一个1维向量)，则定义两个图像内容上是否相像(content loss)就有：<br>$$<br>    L</em>{content}(z; x) = \sum_{l,i,j} \alpha_l (F^{(l)}<em>{ij} - P^{(l)}</em>{ij})^2<br>$$<br>$F, P$分别为需要转化的图像$x$和转化后的图像$z$经过VGG时的中间层。</p>
+<p>接下来定义两个图像风格上是否相似，这里在content loss上再进了一小步，就是使用了Gram矩阵 $G^{(n)}<em>{ij} = \sum_k F^{(n)}</em>{ik} F^{(n)}<em>{jk}$,即认为相似的风格可以用不同feature间的相关度表示。于是定义了两个图像风格上是否相似(texture loss)：<br>$$<br>L</em>{texture}(z; y) =\sum_{l,i,j} \frac{w_l}{4M_l^2N_l^2} (G^{(l)}<em>{ij} - A^{(l)}</em>{ij})^2<br>$$<br>$G, A$ 分别为被模仿的图像$y$和转化后的图像$z$计算出的Gram矩阵</p>
+<p>所以需要优化的cost函数为：<br>$$<br>L(z; x, y) = \alpha L_{content}(z;x) + \beta L_{texture}(z;y)<br>$$<br>工作做完了。</p>
+<p>什么？没有看懂？回去再读一遍。</p>
+<!--stackedit_data:
 eyJoaXN0b3J5IjpbLTE5NTEwMDg4NjcsLTE4OTY1MjI0ODgsMT
 Y1MzY0MzYwOV19
---></p>
-
+-->
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2016/04/09/简说 A Neural Algorithm of Artistic Style/" data-id="ckffh7j6x000q9kv44hj3h9xw" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2016/04/09/%E7%AE%80%E8%AF%B4%20A%20Neural%20Algorithm%20of%20Artistic%20Style/" data-id="ckgs1zv88000tl9vld7fw5db7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -207,7 +206,7 @@ Y1MzY0MzYwOV19
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/09/29/Finite Element Method for Soft Deformable Object Simulation/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/09/29/Finite%20Element%20Method%20for%20Soft%20Deformable%20Object%20Simulation/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -217,7 +216,7 @@ Y1MzY0MzYwOV19
     </a>
   
   
-    <a href="/blog/2015/12/29/罗素、哥德尔与图灵/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2015/12/29/%E7%BD%97%E7%B4%A0%E3%80%81%E5%93%A5%E5%BE%B7%E5%B0%94%E4%B8%8E%E5%9B%BE%E7%81%B5/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">罗素、哥德尔与图灵</div>
     </a>
@@ -246,7 +245,7 @@ Y1MzY0MzYwOV19
   
     <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="/blog/About me.html" class="mobile-nav-link">About Me</a>
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
   
 </nav>
     
@@ -254,11 +253,17 @@ Y1MzY0MzYwOV19
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
-  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/blog/js/script.js"></script>
+
 
 <!-- Google Analytics -->
 <script type="text/javascript">
