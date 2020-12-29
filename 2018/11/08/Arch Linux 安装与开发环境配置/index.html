@@ -21,21 +21,18 @@ ga('send', 'pageview');
   <title>Arch Linux 安装与开发环境配置 | Li-Ke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <meta name="description" content="笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。    我与 Arch 的相识 为什么选择 Arch 社区 稳定 可定制性   安装 Arch Linux 系统设置 开发环境配置       我与 Arch 的相识笔者第一次听到Arch这个名字的时候还是在2013年的大二。过完周末后的一天华仔跟我说，前几天累死了，跟着帆神装Arch，折腾了">
+  <meta name="description" content="笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。   我与 Arch 的相识 为什么选择 Arch 社区 稳定 可定制性   安装 Arch Linux 系统设置 开发环境配置      我与 Arch 的相识笔者第一次听到Arch这个名字的时候还是在2013年的大二。过完周末后的一天华仔跟我说，前几天累死了，跟着帆神装Arch，折腾了一天">
+<meta name="keywords" content="Programming, Computer Science, Physics, Philosopy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arch Linux 安装与开发环境配置">
-<meta property="og:url" content="http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:url" content="http://milkpku.github.io/blog/2018/11/08/Arch Linux 安装与开发环境配置/index.html">
 <meta property="og:site_name" content="Li-Ke&#39;s blog">
-<meta property="og:description" content="笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。    我与 Arch 的相识 为什么选择 Arch 社区 稳定 可定制性   安装 Arch Linux 系统设置 开发环境配置       我与 Arch 的相识笔者第一次听到Arch这个名字的时候还是在2013年的大二。过完周末后的一天华仔跟我说，前几天累死了，跟着帆神装Arch，折腾了">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2018-11-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-06T10:40:51.080Z">
-<meta property="article:author" content="Li-Ke Ma">
-<meta property="article:tag" content="Programming">
-<meta property="article:tag" content=" Computer Science">
-<meta property="article:tag" content=" Physics">
-<meta property="article:tag" content=" Philosopy">
+<meta property="og:description" content="笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。   我与 Arch 的相识 为什么选择 Arch 社区 稳定 可定制性   安装 Arch Linux 系统设置 开发环境配置      我与 Arch 的相识笔者第一次听到Arch这个名字的时候还是在2013年的大二。过完周末后的一天华仔跟我说，前几天累死了，跟着帆神装Arch，折腾了一天">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2019-11-22T12:55:28.059Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Arch Linux 安装与开发环境配置">
+<meta name="twitter:description" content="笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。   我与 Arch 的相识 为什么选择 Arch 社区 稳定 可定制性   安装 Arch Linux 系统设置 开发环境配置      我与 Arch 的相识笔者第一次听到Arch这个名字的时候还是在2013年的大二。过完周末后的一天华仔跟我说，前几天累死了，跟着帆神装Arch，折腾了一天">
   
     <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
   
@@ -45,10 +42,8 @@ ga('send', 'pageview');
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  
-<link rel="stylesheet" href="/blog/css/style.css">
-
-<meta name="generator" content="Hexo 4.2.1"></head>
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
 
 <body>
   <div id="container">
@@ -69,7 +64,7 @@ ga('send', 'pageview');
         
           <a class="main-nav-link" href="/blog/archives">Archives</a>
         
-          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+          <a class="main-nav-link" href="/blog/About me.html">About Me</a>
         
       </nav>
       <nav id="sub-nav">
@@ -124,7 +119,7 @@ ga('send', 'pageview');
 <div class="outer">
   <section id="main-post"><article id="post-Arch Linux 安装与开发环境配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+    <a href="/blog/2018/11/08/Arch Linux 安装与开发环境配置/" class="article-date">
   <time datetime="2018-11-07T16:00:00.000Z" itemprop="datePublished">2018-11-08</time>
 </a>
     
@@ -150,7 +145,6 @@ ga('send', 'pageview');
       
         <p>笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。</p>
 <!-- toc -->
-
 <ul>
 <li><a href="#我与-arch-的相识">我与 Arch 的相识</a></li>
 <li><a href="#为什么选择-arch">为什么选择 Arch</a><ul>
@@ -166,7 +160,6 @@ ga('send', 'pageview');
 </li>
 </ul>
 <!-- tocstop -->
-
 <hr>
 <h1><span id="我与-arch-的相识">我与 Arch 的相识</span></h1><p>笔者第一次听到Arch这个名字的时候还是在2013年的大二。过完周末后的一天华仔跟我说，前几天累死了，跟着帆神装Arch，折腾了一天，最后他放弃了。我好奇问了一下，原来Arch是一种Linux，也就没有再细想。后来大三暑假去的纽约城市大学找“教授”做暑期科研，用的也只是Ubuntu，在Google的帮助下跌跌撞撞上的路。然而大三的暑期科研彻底改变了我的轨迹，回来后我决心转行计算机。转行计算机第一件事，就是要有一个Linux系统。当时的我也考虑到社区支持的原因，选择了Ubuntu，并一直使用到研一。</p>
 <p>促使我开始关注Arch的因素主要是来自两个方面，一个是我的大学同学Catofes，还有一个是 Megvii 技术大神 Tim. Catofes是个胖宅Geek，平时就喜欢鼓捣一些酷炫Geek的东西。Sublime是他介绍给我的，Arch也是他多次安利给我的。看到他自己调教出来的动漫风Arch，别提我心里多痒痒了，但是惧于Linux的艰深难懂，我从来都只能望洋兴叹。后来在Megvii实习时候，和我一届的高中IO大神Tim就使劲安利我Arch，声称Arch拥有比Win10更强健的稳定性。当时的我正因为Ubuntu各种毛病头疼不已，于是抱着试一试的态度，把我2008年的电脑拿出来练手，居然照着安装说明把Arch装上了。后来食髓知味，尝到了Arch甜头的我就再也看不上其他任何Linux发行版了。</p>
@@ -199,12 +192,13 @@ ga('send', 'pageview');
 </ul>
 <p>此外youcompleteme推荐自行下载编译安装，可参见笔者另一篇文章中对ycm的配置：<a href="https://blog.csdn.net/milkpku/article/details/79808117" target="_blank" rel="noopener">Windows下开发环境配置</a></p>
 <ul>
-<li><p><strong>Oh-my-Zsh</strong><br>安装<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a>)，并安装<a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">font-powerline</a>，</p>
+<li><p><strong>Oh-my-Zsh</strong><br>安装<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a>，并安装<a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">font-powerline</a>，</p>
 </li>
 <li><p><strong>tmux</strong></p>
-<pre><code class="bash"><span class="built_in">set</span> -g prefix C<span class="_">-a</span>
+<pre><code class="lang-bash">set -g prefix C-a
 unbind-key C-b
-<span class="built_in">bind</span>-key C<span class="_">-a</span> send-prefix</code></pre>
+bind-key C-a send-prefix
+</code></pre>
 </li>
 <li><p><strong>搜狗输入法</strong><br>搜狗输入法支持linux，需要借助fctix。除了安装fctix外，还需要安装对图形界面qt、gtk的支持。推荐安装fctix-im，里面包含所有qt和gtk工具，省去了不必要的麻烦。</p>
 </li>
@@ -221,7 +215,7 @@ NTczNTk5NzBdfQ==
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="ckgs1zv7e000bl9vlarigebhz" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2018/11/08/Arch Linux 安装与开发环境配置/" data-id="ckja4vddv00011cv4c4k1jkfi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +240,7 @@ NTczNTk5NzBdfQ==
     
 <nav id="article-nav">
   
-    <a href="/blog/2018/12/08/%E7%A7%91%E7%A0%94%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%86%99%E4%BD%9C%E5%B0%8F%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2018/12/08/科研文献阅读写作小结/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -256,7 +250,7 @@ NTczNTk5NzBdfQ==
     </a>
   
   
-    <a href="/blog/2018/10/09/TD%20value%20in%20Reinforcement%20Learning/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2018/10/09/TD value in Reinforcement Learning/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">How to calculate TD(lam) in Reinforcement Learning</div>
     </a>
@@ -285,7 +279,7 @@ NTczNTk5NzBdfQ==
   
     <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+    <a href="/blog/About me.html" class="mobile-nav-link">About Me</a>
   
 </nav>
     
@@ -293,17 +287,11 @@ NTczNTk5NzBdfQ==
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
-
-  
-<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
-
-
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
 <script src="/blog/js/script.js"></script>
-
 
 <!-- Google Analytics -->
 <script type="text/javascript">
