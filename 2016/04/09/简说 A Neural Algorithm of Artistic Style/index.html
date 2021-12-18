@@ -30,12 +30,9 @@ ga('send', 'pageview');
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rack.1.mshcdn.com/media/ZgkyMDE1LzA4LzI5Lzc3L3RybnNmcm0xLjMyYmFhLmpwZwpwCXRodW1iCTEyMDB4OTYwMD4/0759661a/74b/trnsfrm1.jpg">
 <meta property="article:published_time" content="2016-04-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-18T13:43:52.990Z">
+<meta property="article:modified_time" content="2021-12-18T02:12:31.050Z">
 <meta property="article:author" content="Li-Ke Ma">
-<meta property="article:tag" content="Programming">
-<meta property="article:tag" content=" Computer Science">
-<meta property="article:tag" content=" Physics">
-<meta property="article:tag" content=" Philosopy">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://rack.1.mshcdn.com/media/ZgkyMDE1LzA4LzI5Lzc3L3RybnNmcm0xLjMyYmFhLmpwZwpwCXRodW1iCTEyMDB4OTYwMD4/0759661a/74b/trnsfrm1.jpg">
   
@@ -50,7 +47,7 @@ ga('send', 'pageview');
   
 <link rel="stylesheet" href="/blog/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container">
@@ -150,13 +147,13 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天给大家介绍一项有趣的研究，Leon A. Gatys,团队做的让神经网络学画画的工作。(<a href="http://arxiv.org/abs/1508.06576" target="_blank" rel="noopener">http://arxiv.org/abs/1508.06576</a>)</p>
+        <p>今天给大家介绍一项有趣的研究，Leon A. Gatys,团队做的让神经网络学画画的工作。(<a target="_blank" rel="noopener" href="http://arxiv.org/abs/1508.06576">http://arxiv.org/abs/1508.06576</a>)</p>
 <p><img src="http://rack.1.mshcdn.com/media/ZgkyMDE1LzA4LzI5Lzc3L3RybnNmcm0xLjMyYmFhLmpwZwpwCXRodW1iCTEyMDB4OTYwMD4/0759661a/74b/trnsfrm1.jpg" alt="nnet的杰作"></p>
 <hr>
-<h2><span id="1-什么是神经网络">1. 什么是神经网络</span></h2><p><a href="https://en.wikipedia.org/wiki/Artificial_neural_network" target="_blank" rel="noopener">neural network</a>在机器学习领域中，结构模仿生物的神经网络，通过调整网络中的参数来达到近似拟合高维复杂数据。</p>
+<h2><span id="1-什么是神经网络">1. 什么是神经网络</span></h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Artificial_neural_network">neural network</a>在机器学习领域中，结构模仿生物的神经网络，通过调整网络中的参数来达到近似拟合高维复杂数据。</p>
 <p>比如最简单的线性划分，判断$Wx+b$是否大于0，就是单层的Logistic Regression。可以想象，在网络的层数不断增加，非线性成分越来越多时，对于高维空间的划分就越复xi杂qi精gu细guai。</p>
 <p>神经网络学习的核心就是通过调整网络中的参数来达到一个目标函数的较优。目标函数cost可以是很多东西，比如预测和标注的互信息，或者简单的预测准确率、预测偏离的方差。注意这里是较优，因为神经网络太复杂了，参数空间也是很高维的，无法确定你找到的是不是一个最优，所以只能退而求其次，找到一些较优解。</p>
-<p>之前在神经网络上的工作主要是受两方面的限制：第一，计算速度；第二，编程难度。计算速度不用说，现在业界大量使用GPU（NVIDIA的出货量都涨了20%），就充分说明了CPU的不实用。编程难度主要是体现在神经网络的训练过程中，需要用到目标优化函数关于网络参数的导数，而在有现在如Caffe,Torch,Theano等工具包之前，所有这些运算都是需要人手！写！比如前人为了方便手写，就提出了什么<a href="https://en.wikipedia.org/wiki/Backpropagation" target="_blank" rel="noopener">back propagation</a>，利用上一层的导数来计算下一层。</p>
+<p>之前在神经网络上的工作主要是受两方面的限制：第一，计算速度；第二，编程难度。计算速度不用说，现在业界大量使用GPU（NVIDIA的出货量都涨了20%），就充分说明了CPU的不实用。编程难度主要是体现在神经网络的训练过程中，需要用到目标优化函数关于网络参数的导数，而在有现在如Caffe,Torch,Theano等工具包之前，所有这些运算都是需要人手！写！比如前人为了方便手写，就提出了什么<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Backpropagation">back propagation</a>，利用上一层的导数来计算下一层。</p>
 <hr>
 <h2><span id="2-神经网络工程实现的关注点">2. 神经网络工程实现的关注点</span></h2><p>神经网络在工程上实现起来，有很多细节决定了神经网络的成败，个人觉得最重要的是三个点：目标函数（loss function），网络结构设计，初始参数设置。</p>
 <ul>
@@ -181,7 +178,7 @@ Y1MzY0MzYwOV19
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2016/04/09/%E7%AE%80%E8%AF%B4%20A%20Neural%20Algorithm%20of%20Artistic%20Style/" data-id="cktpupxqy000tjivlct5t9v69" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2016/04/09/%E7%AE%80%E8%AF%B4%20A%20Neural%20Algorithm%20of%20Artistic%20Style/" data-id="ckxbarmto000tzate01ures0v" class="article-share-link">Share</a>
       
       
     </footer>

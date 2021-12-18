@@ -29,12 +29,9 @@ ga('send', 'pageview');
 <meta property="og:description" content="行星间的运输 星球间的时差 在宇宙中流浪    随着全球变暖的加剧，越来越多的科学家呼吁要珍爱我们的地球。但是，除了蜗居在这个小小的蓝色水星上，人类真的别无选择了吗？宇宙这么广袤，难道就没有别处可以安身吗？在很多科幻作品都有设想过人类走向宇宙或者外星人走向地球，比如阿西莫夫的《基地》，刘慈欣的《三体》，以及电影《星际穿越》等等。 笔者写这篇文章时也是突发脑洞，想要粗略估算一下星际旅行的可行性">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-02-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-18T13:43:52.990Z">
+<meta property="article:modified_time" content="2021-12-18T02:12:31.050Z">
 <meta property="article:author" content="Li-Ke Ma">
-<meta property="article:tag" content="Programming">
-<meta property="article:tag" content=" Computer Science">
-<meta property="article:tag" content=" Physics">
-<meta property="article:tag" content=" Philosopy">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
@@ -48,7 +45,7 @@ ga('send', 'pageview');
   
 <link rel="stylesheet" href="/blog/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container">
@@ -151,9 +148,9 @@ ga('send', 'pageview');
         <!-- toc -->
 
 <ul>
-<li><a href="#行星间的运输">行星间的运输</a></li>
-<li><a href="#星球间的时差">星球间的时差</a></li>
-<li><a href="#在宇宙中流浪">在宇宙中流浪</a></li>
+<li><a href="#%E8%A1%8C%E6%98%9F%E9%97%B4%E7%9A%84%E8%BF%90%E8%BE%93">行星间的运输</a></li>
+<li><a href="#%E6%98%9F%E7%90%83%E9%97%B4%E7%9A%84%E6%97%B6%E5%B7%AE">星球间的时差</a></li>
+<li><a href="#%E5%9C%A8%E5%AE%87%E5%AE%99%E4%B8%AD%E6%B5%81%E6%B5%AA">在宇宙中流浪</a></li>
 </ul>
 <!-- tocstop -->
 
@@ -162,7 +159,7 @@ ga('send', 'pageview');
 <hr>
 <h1><span id="行星间的运输">行星间的运输</span></h1><p>试想存在一个宇宙帝国，下辖多个殖民星，人们就有在殖民星间往返和货物运输的需求。</p>
 <p>假设我们使用宇宙飞船，在两颗距离1光年的星球A和B间通行。宇宙飞船具有最高的能量转化效率（$E=mc^2$），即将物质转化为光，从尾部喷出形成推力。那么我们需要消耗多少物质才能将一个人送到对面的星球呢？以下的计算取光速 $c=1$.</p>
-<p>假设从A到B过程中，加速和减速时间占比很小，人在飞船中感受到的时间流逝主要在平稳运行阶段，其<a href="https://en.wikipedia.org/wiki/Proper_time" target="_blank" rel="noopener">原时间隔</a>为 $T$。那么根据时间膨胀原理 $T = \sqrt{1-\beta^2} / {\beta}$，可以知道需要的飞船速度为<br>$$<br>\beta = 1/\sqrt{1+T^2}.<br>$$</p>
+<p>假设从A到B过程中，加速和减速时间占比很小，人在飞船中感受到的时间流逝主要在平稳运行阶段，其<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Proper_time">原时间隔</a>为 $T$。那么根据时间膨胀原理 $T = \sqrt{1-\beta^2} / {\beta}$，可以知道需要的飞船速度为<br>$$<br>\beta = 1/\sqrt{1+T^2}.<br>$$</p>
 <p>对于一个包含燃料总质量为$M$的宇宙飞船，它可以送达多少货物到对面的星球呢？我们可以先看加速阶段：假设完成加速后飞船和用于减速的燃料总静质量为 $m_0$， 动质量 $m’ = m_0 / \sqrt{1 - \beta^2}$，消耗的燃料质量为 $m_c$。那么根据能量和动量守恒，可以有如下方程：<br>$$<br>\begin{cases}<br>m’ + m_c = M \<br>m_c = m’\beta,<br>\end{cases}<br>$$</p>
 <p>得到宇宙飞船发射时的有效载荷比为<br>$$\frac{m_0}{M} =\sqrt{\frac{1 - \beta}{1+\beta}}.$$</p>
 <p>减速阶段可以看作在飞船参考系一个朝反方向的加速过程，因此最后到达目标星球的货物质量 $m$ 和发射质量 $M$ 间的比例为<br>$$<br>\frac{m}{M} =\frac{1 - \beta}{1+\beta}.<br>$$</p>
@@ -223,7 +220,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2019/02/12/%E6%98%9F%E9%99%85%E6%97%85%E8%A1%8C%E4%B8%8E%E4%BA%BA%E7%B1%BB%E7%9A%84%E6%9C%AA%E6%9D%A5/" data-id="cktpupxqo000fjivl6is50mp6" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2019/02/12/%E6%98%9F%E9%99%85%E6%97%85%E8%A1%8C%E4%B8%8E%E4%BA%BA%E7%B1%BB%E7%9A%84%E6%9C%AA%E6%9D%A5/" data-id="ckxbarmtg000fzatebtt2gbl9" class="article-share-link">Share</a>
       
       
     </footer>
