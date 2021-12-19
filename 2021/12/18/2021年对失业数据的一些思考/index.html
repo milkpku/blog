@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>2021年对失业数据的一些思考 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta name="description" content="1. 背景 2. 方法 2.1 直接法：官方统计失业人数&#x2F;失业率 2.2 间接法：全国失业保险基金收支情况   3. 结论 4. 参考文献    1. 背景近日网上流传一张上海市人社局发布的数据统计图，显示2021年第2季度上海领取失业金人数达到惊人的57万人，足足比往年的10万出头翻了5倍，凸显今年严峻的就业形势和惨淡的经济状况。看着堪忧的图片清晰度，笔者本能地怀疑是境外媒体在抹黑造谣，于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021年对失业数据的一些思考">
+<meta property="og:url" content="http://milkpku.github.io/blog/2021/12/18/2021%E5%B9%B4%E5%AF%B9%E5%A4%B1%E4%B8%9A%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="1. 背景 2. 方法 2.1 直接法：官方统计失业人数&#x2F;失业率 2.2 间接法：全国失业保险基金收支情况   3. 结论 4. 参考文献    1. 背景近日网上流传一张上海市人社局发布的数据统计图，显示2021年第2季度上海领取失业金人数达到惊人的57万人，足足比往年的10万出头翻了5倍，凸显今年严峻的就业形势和惨淡的经济状况。看着堪忧的图片清晰度，笔者本能地怀疑是境外媒体在抹黑造谣，于">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://milkpku.github.io/blog/images/2021_unemployment/shanghai.svg">
+<meta property="og:image" content="http://milkpku.github.io/blog/images/2021_unemployment/unemploy.svg">
+<meta property="og:image" content="http://milkpku.github.io/blog/images/2021_unemployment/insurance.svg">
+<meta property="article:published_time" content="2021-12-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-19T14:37:21.040Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://milkpku.github.io/blog/images/2021_unemployment/shanghai.svg">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('https://media.canadianunderwriter.ca/uploads/2020/04/unemployment-down-arrows.jpg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">2021年对失业数据的一些思考</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-2021年对失业数据的一些思考" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2021/12/18/2021%E5%B9%B4%E5%AF%B9%E5%A4%B1%E4%B8%9A%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" class="article-date">
+  <time datetime="2021-12-17T16:00:00.000Z" itemprop="datePublished">2021-12-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Economics/">Economics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2021年对失业数据的一些思考
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+
+<ul>
+<li><a href="#1-%E8%83%8C%E6%99%AF">1. 背景</a></li>
+<li><a href="#2-%E6%96%B9%E6%B3%95">2. 方法</a><ul>
+<li><a href="#21-%E7%9B%B4%E6%8E%A5%E6%B3%95%E5%AE%98%E6%96%B9%E7%BB%9F%E8%AE%A1%E5%A4%B1%E4%B8%9A%E4%BA%BA%E6%95%B0%E5%A4%B1%E4%B8%9A%E7%8E%87">2.1 直接法：官方统计失业人数/失业率</a></li>
+<li><a href="#22-%E9%97%B4%E6%8E%A5%E6%B3%95%E5%85%A8%E5%9B%BD%E5%A4%B1%E4%B8%9A%E4%BF%9D%E9%99%A9%E5%9F%BA%E9%87%91%E6%94%B6%E6%94%AF%E6%83%85%E5%86%B5">2.2 间接法：全国失业保险基金收支情况</a></li>
+</ul>
+</li>
+<li><a href="#3-%E7%BB%93%E8%AE%BA">3. 结论</a></li>
+<li><a href="#4-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">4. 参考文献</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="1-背景">1. 背景</span></h1><p>近日网上流传一张上海市人社局发布的数据统计图，显示2021年第2季度上海领取失业金人数达到惊人的57万人，足足比往年的10万出头翻了5倍，凸显今年严峻的就业形势和惨淡的经济状况。看着堪忧的图片清晰度，笔者本能地怀疑是境外媒体在抹黑造谣，于是认真检索了一番，真的找到了上海市人社局披露的2021年2季度失业保险金领取情况<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。通过严谨的对比，笔者得出结论——图是假的。</p>
+<blockquote>
+<p>因为上海人社官方从来没有发布过任何有关失业的图表。</p>
+</blockquote>
+<p>可是另一方面，官方发布的数据白纸黑字地写着“本市领取失业保险金人数57.06万人”。不仅如此，历年发布的数据也和图中数据对应得上。也就是说，民间有高手给做了一个合订版——图虽假，但事是真。在陷入深深忧虑的同时，笔者惊喜地发现2021年第3季度的领取失业保险金人数已经重回正常，大幅下落至17.35万人。可见政府已经采取行动，有效地消灭了失业人口。笔者上一次见到这样犀利的跌幅还是2020年春节——那年美股10天熔断了4次。</p>
+<p><img src="/blog/images/2021_unemployment/shanghai.svg"></p>
+<p>如今我们的经济状况究竟是<strong>大好还是小好</strong>，反映到失业形势上到底是<strong>大幅改善还是稳中向好</strong>？笔者打算稍稍做点探究。</p>
+<h1><span id="2-方法">2. 方法</span></h1><h2><span id="21-直接法官方统计失业人数失业率">2.1 直接法：官方统计失业人数/失业率</span></h2><p>国内最全面最权威的就业数据是国家统计局每年公布的统计年鉴<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>，笔者将一些数字摘抄下来，画出了过去十年我国的城镇登记失业人口数和失业率，以及领取失业保险金的人数。</p>
+<p><img src="/blog/images/2021_unemployment/unemploy.svg"></p>
+<p>我们的失业率一直稳中有降，失业人口也控制在一千万以内——除了2020年稍显艰难，但也仅仅比过去2012年高出0.1个百分点。相比于美国在2020年中接近15%的失业率，我们的社会主义政治经济体制的优越性得到了充分体现。或许正因为体察国家的负重前行与幸福生活的来之不易，</p>
+<blockquote>
+<p>即便到了最艰难的时候，也有八成的打工人不愿意给国家增加负担，去领取失业金。</p>
+</blockquote>
+<h2><span id="22-间接法全国失业保险基金收支情况">2.2 间接法：全国失业保险基金收支情况</span></h2><p>另一方面，失业保险基金的缴存和发放情况也可以一定程度上反映就业情况，而且由于账户资金变化更容易计量，应该拥有更高的准确性。因此，笔者也将过去十年我国失业保险基金的收支情况作图如下：</p>
+<p><img src="/blog/images/2021_unemployment/insurance.svg"></p>
+<p>可以看到在历经十多年的净增长后，失业保险基金终于在2019年收不抵支，迎来逆转。尤其是2020年，收入下跌300亿（25%），而支出狂涨800亿（57%）。如果保持2020年这样规模的缺口，笔者算了一下，</p>
+<blockquote>
+<p>现在的失业保险基金结余大概够撑3年。</p>
+</blockquote>
+<p>对于2020年失业保险基金收入持续减少、支出翻倍式地增长这一现象，成都市人社局解释道：主要原因是执行阶段性减免单位社保费政策<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>、新增失业补助金和稳岗返还支出增长等<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。</p>
+<p>此外，2019年失业保险金收支相抵后净支出49亿，但结余却减少了1000多亿。全国的失业基金结余一下子被划出来一千亿元，笔者竟然隔了两年才发觉。原来国务院在2019年中启动了一个“职业技能提升行动”，哗啦一下从失业保险基金划出1000亿，“用以支持地方调整和完善职业培训补贴政策，符合条件的劳动者都可以参加培训并获得补贴”<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>，并且该行动的第一关键点是</p>
+<blockquote>
+<p>确保培训规模。</p>
+</blockquote>
+<p>两年以后，深圳的大鹅们在两眼放光的网友面前，绝不会想到它们的命运竟是因这个遥远的通知而改变的<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。</p>
+<h1><span id="3-结论">3. 结论</span></h1><p>前不久，前财政部长楼继伟在一个视频会议上抱怨国家统计局的数据不能反映经济负面变化，恰巧国家统计局局长宁吉喆也在场发言。宁吉喆认为，</p>
+<blockquote>
+<p>中国数据造假的问题早在2018年就都已成为过去。</p>
+</blockquote>
+<p>同一个问题，笔者的两种分析方法却得出了截然相反的结论，只能暗自慨叹学艺不精，需要回炉重造。或许数据真的没有造假，只是换了个说法，因为</p>
+<blockquote>
+<p>目前我国灵活就业规模已达2亿人<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。</p>
+</blockquote>
+<p>最后，推荐大家关注一下人大代表郑秉文教授关于放宽失业金领取条件的提案<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。</p>
+<h1><span id="4-参考文献">4. 参考文献</span></h1><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://rsj.sh.gov.cn/tsbxxpl_17347/20210827/t0035_1402100.html">2021年2季度上海市社会保险基本情况</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://data.stats.gov.cn/easyquery.htm?cn=C01">国家数据</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://www.chinatax.gov.cn/chinatax/n810341/n810755/c5144708/content.html">关于阶段性减免企业社会保险费的通知</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://cdhrss.chengdu.gov.cn/cdrsj/c109733/2021-09/30/content_5a4f312638c2440ba9aff11b65313759.shtml">2020年成都市人力资源和社会保障事业发展统计公报</a></span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://www.scio.gov.cn/32344/32345/39620/40379/zy40383/Document/1654174/1654174.htm">1000亿元失业保险金结余实施职业技能提升方案即将出台</a></span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://www.sznews.com/content/mb/2021-11/26/content_24769548.htm">一只鹅引发的“血案”</a></span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="http://www.gov.cn/xinwen/2021-05/20/content_5609599.htm">中国政府网：目前我国灵活就业规模达2亿人</a></span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://www.yicai.com/news/100663284.html">失业保险基金“家底”骤降千亿，高失业风险群体亟待全覆盖</a></span><a href="#fnref:8" rev="footnote"> ↩</a></li></ol></div></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2021/12/18/2021%E5%B9%B4%E5%AF%B9%E5%A4%B1%E4%B8%9A%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" data-id="ckxdd4elq00018fteequa2kki" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: "2021年对失业数据的一些思考",
+    owner: 'milkpku',
+    repo: 'blog',
+    oauth: {
+      client_id: '81e1fd6c525e8019860e',
+      client_secret: 'f27b35427bb21b651b0c59e60209405b3425ab06',
+    },
+  })
+  gitment.render('comments')
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2021/09/18/%E7%90%86%E6%83%B3%E5%9B%BD%E5%A4%A7%E7%BA%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《理想国》大纲</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2021 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-115451279-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
