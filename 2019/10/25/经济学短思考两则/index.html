@@ -34,7 +34,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="http://milkpku.github.io/blog/images/1956_great_famine/death_rate.svg">
 <meta property="og:image" content="http://milkpku.github.io/blog/images/1956_great_famine/average_food.svg">
 <meta property="article:published_time" content="2019-10-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-26T09:41:20.819Z">
+<meta property="article:modified_time" content="2021-12-26T10:05:56.599Z">
 <meta property="article:author" content="Li-Ke Ma">
 <meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
 <meta name="twitter:card" content="summary">
@@ -186,8 +186,10 @@ ga('send', 'pageview');
 <p>在公社化后，一个规模为$N$的公社，其成员的劳动时间为 ${t_i}, i = 1, …, N$，其均衡方程为<br>$$<br> \frac{\partial}{\partial  t_i}U\left(\sum_{j=1}^N q(t_j) / N\right) = \frac{d}{dt_i}C(t_i),~\forall i = 1, …, N.<br>$$<br>由对称性和单调性不难推知，其Nash均衡为 $t_1 = t_2 = \cdots = t_N = \tilde{t}$，其中 $\tilde{t}$ 满足等式：<br>$$<br>  \frac{1}{N}\frac{d}{dt}U(q(t)) = \frac{d}{dt}C(t).<br>  \tag{2}<br>$$<br>对比方程(1)以及如图1所示，农民积极性被严重打击。</p>
 <h3><span id="122-生产积极性的反扭曲">1.2.2. 生产积极性的反扭曲</span></h3><p>如何使得 $\tilde{t}$ 恢复到 $t^\ast$ 的水平呢？假设 $U(q)$ 是关于 $q$ 的线性函数，那么立即可由方程 (2) 得，将生产函数 $q(t)$ 扭曲为 $\tilde{q}(t) = N q(t)$ 即可使 $\tilde{t}$ 恢复到 $t^\ast$，如图1所示。</p>
 <p>$U(q)$ 的线性假设是合理的。因为我们可以在一个小的范围内，如以原生产量 $q^\ast$ 为中心的小范围内，对其进行一阶展开。农民在计划生产时，并不是在全局都按照真实的效用函数来进行规划。在遇到超出过往经验的范围时，只能根据往年的收成进行粗略的线性估计。因此假设 $U(q)$ 是线性的是合理的。</p>
-<h3><span id="123-非线性情形">1.2.3. 非线性情形</span></h3><p>可以对方程 (1) 和 (2) 进行比较，得到生产函数的扭曲因子$\alpha$满足的约束，使得扭曲后生产函数 $\tilde{q}(t) = \alpha q(t)$ 能让生产恢复到 $t^\ast$:<br>$$<br> \frac{1}{N}\frac{d}{dt}U(\alpha q(t)) |<em>{t=t^\ast} = \frac{d}{dt}U(q(t)) |</em>{t=t^\ast} .<br>$$<br>化简后得到<br>$$<br>\alpha = N \cdot U’(q^\ast) / U’(\alpha q^\ast).<br>$$</p>
-<p>当然，除了线性假设外，也可以考虑一些其他情形，如 $U(q)$ 是抛物线 $\sqrt{q}$ 时，需要夸大产量 至 $N^2$ 倍才能将损失的生产积极性扭曲回来。</p>
+<h3><span id="123-非线性情形">1.2.3. 非线性情形</span></h3><p>可以对方程 (1) 和 (2) 进行比较，得到生产函数的扭曲因子$\alpha$满足的约束，使得扭曲后生产函数 $\tilde{q}(t) = \alpha q(t)$ 能让生产恢复到 $t^\ast$:</p>
+<p>$$<br>\frac{d}{dt}\bigg|_{t=t^\ast} \left(\frac{1}{N} U(\alpha q(t)) - U(q(t))\right)=0<br>$$</p>
+<p>化简后得到<br>$$<br>\alpha = N \cdot U’(q^\ast) / U’(\alpha q^\ast).<br>$$</p>
+<p>当然，除了线性假设外，也可以考虑一些其他情形，如 $U(q)$ 是抛物线 $\sqrt{q}$ 时，需要夸大产量至 $N^2$ 倍才能将损失的生产积极性扭曲回来。</p>
 <h2><span id="13-讨论">1.3 讨论</span></h2><p>人民公社化是必须要搞的，那生产积极性被打击是必然会遇到的。选择夸大产量来扭曲生产函数，看上去像是一个没有副作用的良药，然而从来实践是和理论相差甚远。虽然从理论上讲，扭曲了的生产函数可以让生产量回到大锅饭以前，但问题是农民根本没有被宣传打动，毕竟种了一辈子地，亩产多少心里是有数的。反而是在纸面上工作的国家机器，逐渐相信了这个为了反扭曲生产而虚构出来的假象，在后来的大跃进中一脚踏空。</p>
 <h1><span id="2-三年饥荒的教训">2. 三年饥荒的教训</span></h1><p>随着1958年6月8日第一颗粮食卫星上天而来的，是1958-1961三年饥荒。据可查的国家统计局数据<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>，除了粮食产量大跌以外（见图2），人口也经历了三年下降（见图3）。1959年粮食总产量相比最高时期1957年下降30% ，直到1962年粮食产量才回升到大跃进前。</p>
 <p>历史不能改变，但总得从中吸取教训。于是笔者就想从不多的数据中，大致描绘三年饥荒的情况，并简述一些现有文献对大饥荒成因的分析，以资后来者引以为鉴。 </p>
