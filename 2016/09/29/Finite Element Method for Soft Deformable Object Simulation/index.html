@@ -20,12 +20,12 @@
   <title>Finite Element Method for Soft Deformable Object Simulation | Li-Ke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <meta name="description" content="IntroductionThis note is based on SIGGRAPH course of 2012, which introduced basic techniques to simulate elastic material using FEM.    Elastisity in 3D Deformation and deformation gradient Strain ene">
+  <meta name="description" content="IntroductionThis note is based on SIGGRAPH course of 2012, which introduced basic techniques to simulate elastic material using FEM.   Elastisity in 3D Deformation and deformation gradient Strain ener">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Finite Element Method for Soft Deformable Object Simulation">
 <meta property="og:url" content="http://milkpku.github.io/blog/2016/09/29/Finite%20Element%20Method%20for%20Soft%20Deformable%20Object%20Simulation/index.html">
 <meta property="og:site_name" content="Li-Ke&#39;s blog">
-<meta property="og:description" content="IntroductionThis note is based on SIGGRAPH course of 2012, which introduced basic techniques to simulate elastic material using FEM.    Elastisity in 3D Deformation and deformation gradient Strain ene">
+<meta property="og:description" content="IntroductionThis note is based on SIGGRAPH course of 2012, which introduced basic techniques to simulate elastic material using FEM.   Elastisity in 3D Deformation and deformation gradient Strain ener">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-12-18T02:12:31.050Z">
@@ -146,7 +146,6 @@
       
         <h1><span id="introduction">Introduction</span></h1><p>This note is based on SIGGRAPH course of 2012, which introduced basic techniques to simulate elastic material using FEM.</p>
 <!-- toc -->
-
 <ul>
 <li><a href="#elastisity-in-3d">Elastisity in 3D</a><ul>
 <li><a href="#deformation-and-deformation-gradient">Deformation and deformation gradient</a></li>
@@ -173,71 +172,126 @@
 <li><a href="#reference">Reference</a></li>
 </ul>
 <!-- tocstop -->
-
 <hr>
 <h1><span id="elastisity-in-3d">Elastisity in 3D</span></h1><h2><span id="deformation-and-deformation-gradient">Deformation and deformation gradient</span></h2><p>$X \in \Omega$ is the location of material in undeformed position, and the deformation function $\phi: R^3 \to R^3$ transfer material to its current position.</p>
-<p>define deformation gradient $F$ as:<br>$$<br>    F = \frac{\partial(\phi_1, \phi_2, \phi_3)}{\partial(X_1, X_2, X_3)}, \<br>    F_{ij} = \frac{\partial \phi_i}{\partial X_j}<br>$$</p>
-<p>e.x. when the material is on its rest position, $F = I$</p>
-<h2><span id="strain-energy-and-hyperelasticity">Strain energy and hyperelasticity</span></h2><p>the deformation energy is defined as<br>$$<br>    E[\phi] = \int_{\Omega} \Psi[\phi; X] dX<br>$$</p>
-<p>since the local property is fully defined by deformation gradient<br>$$<br>    \phi(X) = \phi(X_*) + F(X_*) \cdot (X - X_*) = F(X_*) \cdot X + (\phi(X_*) - F(X_*) \cdot X_*) =  F(X_*) \cdot X + t_*<br>$$</p>
-<p>thus we can write $\Psi[\phi; X] = \Psi[F]$, there are many energy models such as<br>$$<br>    \Psi[F] = \frac{k}{2} ||F||^2_F,  \<br>    \Psi[F] = \frac{k}{2} ||F - I||^2_F<br>$$</p>
-<h2><span id="force-and-traction">Force and traction</span></h2><p>Since $f = -\frac{\partial E}{\partial x}$, the force inner and on boundaries are defined:</p>
+<p>define deformation gradient $F$ as:</p>
+<script type="math/tex; mode=display">
+    F = \frac{\partial(\phi_1, \phi_2, \phi_3)}{\partial(X_1, X_2, X_3)}, \\
+    F_{ij} = \frac{\partial \phi_i}{\partial X_j}</script><p>e.x. when the material is on its rest position, $F = I$</p>
+<h2><span id="strain-energy-and-hyperelasticity">Strain energy and hyperelasticity</span></h2><p>the deformation energy is defined as</p>
+<script type="math/tex; mode=display">
+    E[\phi] = \int_{\Omega} \Psi[\phi; X] dX</script><p>since the local property is fully defined by deformation gradient</p>
+<script type="math/tex; mode=display">
+    \phi(X) = \phi(X_*) + F(X_*) \cdot (X - X_*) = F(X_*) \cdot X + (\phi(X_*) - F(X_*) \cdot X_*) =  F(X_*) \cdot X + t_*</script><p>thus we can write $\Psi[\phi; X] = \Psi[F]$, there are many energy models such as </p>
+<script type="math/tex; mode=display">
+    \Psi[F] = \frac{k}{2} ||F||^2_F,  \\
+    \Psi[F] = \frac{k}{2} ||F - I||^2_F</script><h2><span id="force-and-traction">Force and traction</span></h2><p>Since $f = -\frac{\partial E}{\partial x}$, the force inner and on boundaries are defined:</p>
 <ul>
 <li>for the volume force, $f_{aggreagte}(A) = \int_A f(X) dX, A \subset \Omega$</li>
 <li>for the surface force, $f_{aggreagte}(B) = \int_B \tau(X) dS, B \subset \partial \Omega$</li>
 </ul>
-<h2><span id="first-piola-kirchhoff-stress-tensor">First Piola-Kirchhoff stress tensor</span></h2><p>$P$ is a $3\times3$ tensor, defined as<br>$$<br>    P[F] = \frac{\partial \Psi[F]}{\partial F}<br>$$</p>
-<ul>
+<h2><span id="first-piola-kirchhoff-stress-tensor">First Piola-Kirchhoff stress tensor</span></h2><p>$P$ is a $3\times3$ tensor, defined as</p>
+<script type="math/tex; mode=display">
+    P[F] = \frac{\partial \Psi[F]}{\partial F}</script><ul>
 <li>$\tau = - P \cdot N \iff \tau_j = - P_{ij} N_i$</li>
 <li>$f = \nabla_X \cdot P \iff f_i = \frac{\partial P_{ij}}{\partial X_j}$</li>
 </ul>
-<p>the formula can be derived by calculus of variations<br>$$<br>\begin{split}<br>\delta E &amp;= \delta \left[\int_\Omega \Psi[F] dX \right]<br>    = \int_\Omega \delta \Psi[F] dX<br>    =  \int_\Omega  \left[ \frac{\partial \Psi[F]}{\partial F} : \delta F \right] dX<br>    =  \int_\Omega [P : \delta F] dX \<br> &amp;= \int_\Omega P_{ij} \delta F_{ij} dX = \int_\Omega P_{ij} \frac{\partial \delta \phi_i}{\partial X_j} dX \<br> &amp;= \int_\Omega \frac{\partial}{\partial X_j}(P_{ij} \delta \phi_i) -  \frac{\partial P_{ij}}{\partial X_j} \delta \phi_i dX \<br> &amp;=  - \int_\Omega \frac{\partial P_{ij}}{\partial X_j} \delta \phi_i dX + \int_{\partial \Omega} P_{ij} N_j \delta \phi_i dS \<br> &amp;= -  \int_\Omega f_i  \delta \phi_i dX - \int_{\partial \Omega} \tau_i \delta \phi_i dS \<br> \end{split}<br>$$</p>
-<hr>
-<h1><span id="constitutive-models-of-material">Constitutive Models of Material</span></h1><h2><span id="strain-measures">Strain Measures</span></h2><p>Think of $\Psi(F) = ||F-I||^2_F$, this form of deform energy is not zero when $F$ is just a rigid rotation, so there is another measure to describe the deformation, named Green strain tensor<br>$$<br>    E = \frac{1}{2} (F^TF - I)<br>$$</p>
-<p>the Green strain tensor can handle both rest and rigid rotation situation.</p>
-<h2><span id="linear-elasticity-model">Linear Elasticity Model</span></h2><p>When $F$ is a small disturb,<br>$$<br>    \delta E |_{F = I} = \frac{1}{2} (\delta F^TF + F^T\delta F ) =   \frac{1}{2} (\delta F^T + \delta F )<br>$$</p>
-<p>$$<br>    \epsilon = E(F) \approx \frac{1}{2} ( F^T + F ) - I<br>$$<br>then the terms of the strain energy density is<br>$$<br>    \Psi(F) = \mu \epsilon : \epsilon +\frac{\lambda}{2} tr^2(\epsilon) \<br>    P(F) = 2\mu \epsilon + \lambda tr(\epsilon)I<br>$$</p>
-<h2><span id="st-vernan-kickoff-model">St. Vernan-Kickoff Model</span></h2><p>When the deformation is large and $F$ can no longer be represented by $\epsilon$, then the energy density is<br>$$<br>    \Psi(F) = \mu E: E +\frac{\lambda}{2} tr^2(E) \<br>    P(F) = F[2\mu E + \lambda tr(E)I]<br>$$</p>
-<p>There is a vital problem of StVK model, that when the material is compressed, the resistant force may decrease when deformation exceeds a threshold. This may results in the fail of the model.</p>
+<p>the formula can be derived by calculus of variations</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\delta E &= \delta \left[\int_\Omega \Psi[F] dX \right] 
+    = \int_\Omega \delta \Psi[F] dX 
+    =  \int_\Omega  \left[ \frac{\partial \Psi[F]}{\partial F} : \delta F \right] dX 
+    =  \int_\Omega [P : \delta F] dX \\
+ &= \int_\Omega P_{ij} \delta F_{ij} dX = \int_\Omega P_{ij} \frac{\partial \delta \phi_i}{\partial X_j} dX \\
+ &= \int_\Omega \frac{\partial}{\partial X_j}(P_{ij} \delta \phi_i) -  \frac{\partial P_{ij}}{\partial X_j} \delta \phi_i dX \\
+ &=  - \int_\Omega \frac{\partial P_{ij}}{\partial X_j} \delta \phi_i dX + \int_{\partial \Omega} P_{ij} N_j \delta \phi_i dS \\
+ &= -  \int_\Omega f_i  \delta \phi_i dX - \int_{\partial \Omega} \tau_i \delta \phi_i dS \\
+ \end{split}</script><hr>
+<h1><span id="constitutive-models-of-material">Constitutive Models of Material</span></h1><h2><span id="strain-measures">Strain Measures</span></h2><p>Think of $\Psi(F) = ||F-I||^2_F$, this form of deform energy is not zero when $F$ is just a rigid rotation, so there is another measure to describe the deformation, named Green strain tensor</p>
+<script type="math/tex; mode=display">
+    E = \frac{1}{2} (F^TF - I)</script><p>the Green strain tensor can handle both rest and rigid rotation situation.</p>
+<h2><span id="linear-elasticity-model">Linear Elasticity Model</span></h2><p>When $F$ is a small disturb, </p>
+<script type="math/tex; mode=display">
+    \delta E |_{F = I} = \frac{1}{2} (\delta F^TF + F^T\delta F ) =   \frac{1}{2} (\delta F^T + \delta F )</script><script type="math/tex; mode=display">
+    \epsilon = E(F) \approx \frac{1}{2} ( F^T + F ) - I</script><p>then the terms of the strain energy density is</p>
+<script type="math/tex; mode=display">
+    \Psi(F) = \mu \epsilon : \epsilon +\frac{\lambda}{2} tr^2(\epsilon) \\
+    P(F) = 2\mu \epsilon + \lambda tr(\epsilon)I</script><h2><span id="st-vernan-kickoff-model">St. Vernan-Kickoff Model</span></h2><p>When the deformation is large and $F$ can no longer be represented by $\epsilon$, then the energy density is</p>
+<script type="math/tex; mode=display">
+    \Psi(F) = \mu E: E +\frac{\lambda}{2} tr^2(E) \\
+    P(F) = F[2\mu E + \lambda tr(E)I]</script><p>There is a vital problem of StVK model, that when the material is compressed, the resistant force may decrease when deformation exceeds a threshold. This may results in the fail of the model.</p>
 <p>e.x. For a tetrahedron defined by $O(0, 0, 0), A(1, 0, 0), B(0,1,0), C(0,0,1)$, when $C$ is compressed along z-axis by ratio $l$, the energy on it becomes $\Psi = (\mu + \frac{\lambda}{2} )(\frac{l^2}{2} - 1)^2$, and the force becomes $f= - (\mu + \frac{\lambda}{2} )(l^2 - 2)l$</p>
 <h2><span id="corotation-model">Corotation Model</span></h2><p>Another way to handle rotation is to polar decompose $F = RS$ and compute $\Psi(F) = \Psi(S)$. However, since the decomposition is costly, corotation model is not used widely.</p>
 <h2><span id="isotropic-model">Isotropic Model</span></h2><p>An ideal energy function $\Psi(F)$ should remain const when a rigid rotation applied to $F$, namely $\Psi(RF) = \Psi(F)$. An isotropic model has another property that when the material coordinate rotate, the energy density remains const (isotropic), namely $\Psi(FQ) = \Psi(F)$. $F$ can be SVD decomposite to $U^T \Sigma V$, then $\Psi(F) = \Psi(\Sigma) = \Psi(\lambda_1, \lambda_2, \lambda_3)$</p>
-<p>there is another way to represent $\Psi$ by invariant<br>$$<br>\begin{split}<br>I_1 &amp;= tr(F^TF) = tr(\Sigma^2) = \sum_{i=1}^3 \lambda^2_i \<br>I_2 &amp;= tr(F^TFF^TF) = tr(\Sigma^4) = \sum_{i=1}^3 \lambda^4_i \<br>I_3 &amp;= det(F^TF) = \prod_{i=1}^3 \lambda^2_i<br>\end{split}<br>$$</p>
-<p>$$<br>    P(F) =  \frac{\partial \Psi}{\partial I_1} 2F+  \frac{\partial \Psi}{\partial I_2} 4FF^TF + \frac{\partial \Psi}{\partial I_3} 2I_3 F^{-T}<br>$$</p>
-<h2><span id="neo-hookean-model">Neo-hookean Model</span></h2><p>In order to get over compress problems of StVK model, we can introduce $\log |F|$ into energy density to punish its compression. Neo-hookean model is a specific type of isotropic model.</p>
-<p>$$<br>    \Psi(I_1. I_3) = \frac{\mu}{2}(I_1 - \log{I_3} - 3) + \frac{\lambda}{8} \log^2{I_3} \<br>    P(F) = \mu(F -F^{-T}) + \frac{\lambda}{2} \log{I_3} F^{-T}<br>$$</p>
-<hr>
-<h1><span id="dynamics-and-simulation">Dynamics and Simulation</span></h1><p>When we want to simulate the interaction of objects in computer, we get tetrahedron mesh representation of objects. Thus we model the whole continue material as piece-wise linear.<br>For each tetrahedron we can compute a const $F$ and then using<br>$$<br>    f = - \frac{\partial E}{\partial x} =  - \frac{\partial E}{\partial F}  \frac{\partial F}{\partial x} = - P \frac{\partial F}{\partial x}<br>$$ </p>
-<h2><span id="algorithms-for-elastic-force">Algorithms for Elastic Force</span></h2><p>Deformation gradient $F$ in each tetrahedron is uniform<br>$$<br>    F [X_1 - X_4, X_2 - X_4, X_1 - X_4]= [x_1 - x_4, x_2 - x_4, x_3 - x_4]<br>$$<br>$$<br>F = D_s \cdot B_m \<br>    D_s = [x_1 - x_4, x_2 - x_4, x_3 - x_4] , \<br>    B_m =  [X_1 - X_4, X_2 - X_4, X_1 - X_4]^{-1}<br>$$<br>there is a small tip for force computing:<br>$$<br>    H = [f_1, f_2, f_3] =  P(F) \cdot B_m^T<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">precompute</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Dm = [X1 - X4, X2 - X4, X3 - X4]</span><br><span class="line">		t.Bm = inverse(Dm)</span><br><span class="line">		t.V = determinant(Dm)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeForce</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		H = P(F) * t.Bm.transpose()</span><br><span class="line">		f1 += H[:,<span class="number">0</span>], f2 += H[:,<span class="number">1</span>], f3 += H[:,<span class="number">2</span>]</span><br><span class="line">		f4 -= H[:,<span class="number">0</span>] + H[:,<span class="number">1</span>] + H[:,<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<p>there is another way to represent $\Psi$ by invariant </p>
+<script type="math/tex; mode=display">
+\begin{split}
+I_1 &= tr(F^TF) = tr(\Sigma^2) = \sum_{i=1}^3 \lambda^2_i \\
+I_2 &= tr(F^TFF^TF) = tr(\Sigma^4) = \sum_{i=1}^3 \lambda^4_i \\
+I_3 &= det(F^TF) = \prod_{i=1}^3 \lambda^2_i 
+\end{split}</script><script type="math/tex; mode=display">
+    P(F) =  \frac{\partial \Psi}{\partial I_1} 2F+  \frac{\partial \Psi}{\partial I_2} 4FF^TF + \frac{\partial \Psi}{\partial I_3} 2I_3 F^{-T}</script><h2><span id="neo-hookean-model">Neo-hookean Model</span></h2><p>In order to get over compress problems of StVK model, we can introduce $\log |F|$ into energy density to punish its compression. Neo-hookean model is a specific type of isotropic model.</p>
+<script type="math/tex; mode=display">
+    \Psi(I_1. I_3) = \frac{\mu}{2}(I_1 - \log{I_3} - 3) + \frac{\lambda}{8} \log^2{I_3} \\
+    P(F) = \mu(F -F^{-T}) + \frac{\lambda}{2} \log{I_3} F^{-T}</script><hr>
+<h1><span id="dynamics-and-simulation">Dynamics and Simulation</span></h1><p>When we want to simulate the interaction of objects in computer, we get tetrahedron mesh representation of objects. Thus we model the whole continue material as piece-wise linear.<br>For each tetrahedron we can compute a const $F$ and then using </p>
+<script type="math/tex; mode=display">
+    f = - \frac{\partial E}{\partial x} =  - \frac{\partial E}{\partial F}  \frac{\partial F}{\partial x} = - P \frac{\partial F}{\partial x}</script><h2><span id="algorithms-for-elastic-force">Algorithms for Elastic Force</span></h2><p>Deformation gradient $F$ in each tetrahedron is uniform</p>
+<script type="math/tex; mode=display">
+    F [X_1 - X_4, X_2 - X_4, X_1 - X_4]= [x_1 - x_4, x_2 - x_4, x_3 - x_4]</script><script type="math/tex; mode=display">
+F = D_s \cdot B_m \\
+    D_s = [x_1 - x_4, x_2 - x_4, x_3 - x_4] , \\
+    B_m =  [X_1 - X_4, X_2 - X_4, X_1 - X_4]^{-1}</script><p>there is a small tip for force computing:</p>
+<script type="math/tex; mode=display">
+    H = [f_1, f_2, f_3] =  P(F) \cdot B_m^T</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">precompute</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Dm = [X1 - X4, X2 - X4, X3 - X4]</span><br><span class="line">		t.Bm = inverse(Dm)</span><br><span class="line">		t.V = determinant(Dm)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeForce</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		H = P(F) * t.Bm.transpose()</span><br><span class="line">		f1 += H[:,<span class="number">0</span>], f2 += H[:,<span class="number">1</span>], f3 += H[:,<span class="number">2</span>]</span><br><span class="line">		f4 -= H[:,<span class="number">0</span>] + H[:,<span class="number">1</span>] + H[:,<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2><span id="algorithms-for-stiffness-differential">Algorithms for Stiffness Differential</span></h2><p>The influence of $\delta x$ on $f$ for a single tetrahedron can be $12 \times 12$ matrix, since the 3-dim force on 4 vertices can be influenced by 3-dim position of 4 vertices. There is a way to compute this matrix column by column:</p>
-<p>$$<br>    \delta H = [\delta f_1 , \delta f_2, \delta f_3] = \delta P(F, \delta F) \cdot B_m^T \<br>    \delta P (F, \delta F) = P(F+\delta F) - P(F)<br>$$</p>
-<p>since $\delta P (F, \delta F)$ is linear for $\delta F$, namely $\delta P (F, \lambda \delta F) =\lambda \delta P (F, \delta F)$, we can feed different $\frac{\partial F}{\partial x_{ij}}$ into it. Where $x_{ij}$ is the $i$ th element of $j$ th vertex</p>
-<p>$$<br>    F_{ij} = \frac{\partial F}{\partial x_{ij}} =<br>    \begin{cases}<br>        \delta_{ij}, &amp;i = {1, 2, 3}, j \leq 3 \<br>         -\delta_{i1} -\delta_{i2} -\delta_{i3},  &amp;i = {1, 2, 3}, j = 4<br>         \end{cases}<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeGradient</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		<span class="keyword">for</span> dF <span class="keyword">in</span> F_ij:</span><br><span class="line">			dH = dP(F, dF) * t.Bm.transpose()</span><br><span class="line">			K(f1, x_ij) += dH[:,<span class="number">0</span>]</span><br><span class="line">			K(f2, x_ij) += dH[:,<span class="number">1</span>]</span><br><span class="line">			K(f3, x_ij) += dH[:,<span class="number">2</span>]</span><br><span class="line">			K(f4, x_ij) -= dH[:,<span class="number">0</span>] + dH[:,<span class="number">1</span>] + dH[:,<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
+<script type="math/tex; mode=display">
+    \delta H = [\delta f_1 , \delta f_2, \delta f_3] = \delta P(F, \delta F) \cdot B_m^T \\
+    \delta P (F, \delta F) = P(F+\delta F) - P(F)</script><p>since $\delta P (F, \delta F)$ is linear for $\delta F$, namely $\delta P (F, \lambda \delta F) =\lambda \delta P (F, \delta F)$, we can feed different $\frac{\partial F}{\partial x_{ij}}$ into it. Where $x_{ij}$ is the $i$ th element of $j$ th vertex</p>
+<script type="math/tex; mode=display">
+    F_{ij} = \frac{\partial F}{\partial x_{ij}} = 
+    \begin{cases} 
+        \delta_{ij}, &i = \{1, 2, 3\}, j \leq 3 \\
+         -\delta_{i1} -\delta_{i2} -\delta_{i3},  &i = \{1, 2, 3\}, j = 4
+         \end{cases}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeGradient</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		<span class="keyword">for</span> dF <span class="keyword">in</span> F_ij:</span><br><span class="line">			dH = dP(F, dF) * t.Bm.transpose()</span><br><span class="line">			K(f1, x_ij) += dH[:,<span class="number">0</span>]</span><br><span class="line">			K(f2, x_ij) += dH[:,<span class="number">1</span>]</span><br><span class="line">			K(f3, x_ij) += dH[:,<span class="number">2</span>]</span><br><span class="line">			K(f4, x_ij) -= dH[:,<span class="number">0</span>] + dH[:,<span class="number">1</span>] + dH[:,<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
 <p>the method used in <em>FEM simulation of 3D deformable solids: a practitioner’s guide to theory [1]</em> is implicit, namely they only computing $\delta f(x, \delta x)$, and then using iterative methods like conjugate gradient.</p>
 <p>However, I introduce a method to compute stiffness matrix explicitly, for the reason that iterative methods are too sloooooow. According to my experiment in practice, implemented in Eigen, CG method is slower than simple Newton Method in a magnitude of $10^2$ (3600 seconds vs 20 seconds )! So, I strongly recommend you to construct stiffness explicitly and use standard sparse linear algebra tools.</p>
-<h2><span id="dynamic-equation">Dynamic Equation</span></h2><p>The movement of objects obey Newton’s law<br>$$<br>    M \ddot{x} = f_{sum}(x, v)<br>$$ </p>
-<p>$$<br>\begin{cases}<br>    \dot{x} = v \<br>    M \dot{v} = f_{sum}(x, v)<br>\end{cases}<br>$$</p>
-<p>$$<br>\begin{cases}<br>    x_{t+1}  = x_t + \Delta t \cdot v_t \<br>    v_{t+1} = v_t + \Delta t \cdot M^{-1} f_{sum}(x_t, v_t)<br>\end{cases}<br>$$</p>
-<p>using backward Euler method<br>$$<br>\begin{cases}<br>    x_{t+1}  = x_t + \Delta t \cdot v_{t+1} \<br>    v_{t+1} = v_t + \Delta t \cdot M^{-1} f_{sum}(x_{t+1}, v_{t+1})<br>\end{cases}<br>$$</p>
-<p>for each time step $\Delta t$, we need to try the solutions $(x_{t+1}, v_{t+1})$ for backward Euler equation iteratively until converge, denoted as ${ x_{t+1}^{(0)}, x_{t+1}^{(1)}, …, x_{t+1}^{(k)}, …}$. Each iteration, we estimate $ f_{sum}(x_{t+1}^{(k+1)}, v_{t+1}^{(k+1)})$ by Taylor series approximation on $(x_{t+1}^{(k)}, v_{t+1}^{(k)})$</p>
+<h2><span id="dynamic-equation">Dynamic Equation</span></h2><p>The movement of objects obey Newton’s law</p>
+<script type="math/tex; mode=display">
+    M \ddot{x} = f_{sum}(x, v)</script><script type="math/tex; mode=display">
+\begin{cases}
+    \dot{x} = v \\
+    M \dot{v} = f_{sum}(x, v)    
+\end{cases}</script><script type="math/tex; mode=display">
+\begin{cases}
+    x_{t+1}  = x_t + \Delta t \cdot v_t \\
+    v_{t+1} = v_t + \Delta t \cdot M^{-1} f_{sum}(x_t, v_t)    
+\end{cases}</script><p>using backward Euler method</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    x_{t+1}  = x_t + \Delta t \cdot v_{t+1} \\
+    v_{t+1} = v_t + \Delta t \cdot M^{-1} f_{sum}(x_{t+1}, v_{t+1})    
+\end{cases}</script><p>for each time step $\Delta t$, we need to try the solutions $(x_{t+1}, v_{t+1})$ for backward Euler equation iteratively until converge, denoted as $\{ x_{t+1}^{(0)}, x_{t+1}^{(1)}, …, x_{t+1}^{(k)}, …\}$. Each iteration, we estimate $ f_{sum}(x_{t+1}^{(k+1)}, v_{t+1}^{(k+1)})$ by Taylor series approximation on $(x_{t+1}^{(k)}, v_{t+1}^{(k)})$</p>
 <p>define $\Delta x = x_{t+1}^{(k+1)} - x_{t+1}^{(k)}, \Delta v =  v_{t+1}^{(k+1)} - v_{t+1}^{(k)}$, then we can get:</p>
-<p>$$<br>\begin{split}<br>    f_{sum}(x_{t+1}^{(k+1)}, v_{t+1}^{(k+1)}) &amp;= f_{sum}(x_{t+1}^{(k)} + \Delta x, v_{t+1}^{(k)} + \Delta v) \<br>    &amp;\approx f_{sum}(x_{t+1}^{(k)} , v_{t+1}^{(k)}) -K \Delta x + \gamma K \Delta v<br>    \end{split}<br>$$<br>where $K = -\frac{\partial f_{elas}}{\partial x}\bigg|<em>{x = x</em>{t+1}^{(k)}}, K_{damp} = \frac{\partial f_{elas}}{\partial v}\bigg|<em>{x = x</em>{t+1}^{(k)}} =-\gamma K$</p>
+<script type="math/tex; mode=display">
+\begin{split}
+    f_{sum}(x_{t+1}^{(k+1)}, v_{t+1}^{(k+1)}) &= f_{sum}(x_{t+1}^{(k)} + \Delta x, v_{t+1}^{(k)} + \Delta v) \\
+    &\approx f_{sum}(x_{t+1}^{(k)} , v_{t+1}^{(k)}) -K \Delta x + \gamma K \Delta v
+    \end{split}</script><p>where $K = -\frac{\partial f_{elas}}{\partial x}\bigg|_{x = x_{t+1}^{(k)}}, K_{damp} = \frac{\partial f_{elas}}{\partial v}\bigg|_{x = x_{t+1}^{(k)}} =-\gamma K$</p>
 <p>since $v_{t+1}^{(k+1)} = v_{t+1}^{(k)} + \Delta v = v_{t+1}^{(k)} + \frac{\Delta x}{\Delta t}$</p>
-<p>$$<br>    v_{t+1}^{(k)} + \frac{\Delta x}{\Delta t} = v_t  + \Delta t \cdot M^{-1} \left(f_{sum}(x_{t+1}^{(k)}, v_{t+1}^{(k)}) -K \Delta x + \gamma K \frac{\Delta x}{\Delta t}\right)<br>$$</p>
-<p>then we can get the linear equation of $\Delta x = x_{t+1}^{(k+1)} - x_{t+1}^{(k)}$. Solve it, update, and enter next iteration, until converge.<br>$$<br>    \left[\frac{1}{\Delta t} - \Delta t \cdot  (1 -  \frac{\gamma}{\Delta t}) M^{-1} K\right] \Delta x= v_t -v_{t+1}^{(k)} + \Delta t \cdot M^{-1} f_{sum}(x_{t+1}^{(k)}, v_{t+1}^{(k)})<br>$$</p>
-<hr>
-<h1><span id="reference">Reference</span></h1><p>[1] Sifakis E, Barbic J. FEM simulation of 3D deformable solids: a practitioner’s guide to theory, discretization and model reduction[C]//ACM SIGGRAPH 2012 Courses. ACM, 2012: 20.</p>
-<!--stackedit_data:
+<script type="math/tex; mode=display">
+    v_{t+1}^{(k)} + \frac{\Delta x}{\Delta t} = v_t  + \Delta t \cdot M^{-1} \left(f_{sum}(x_{t+1}^{(k)}, v_{t+1}^{(k)}) -K \Delta x + \gamma K \frac{\Delta x}{\Delta t}\right)</script><p>then we can get the linear equation of $\Delta x = x_{t+1}^{(k+1)} - x_{t+1}^{(k)}$. Solve it, update, and enter next iteration, until converge.</p>
+<script type="math/tex; mode=display">
+    \left[\frac{1}{\Delta t} - \Delta t \cdot  (1 -  \frac{\gamma}{\Delta t}) M^{-1} K\right] \Delta x= v_t -v_{t+1}^{(k)} + \Delta t \cdot M^{-1} f_{sum}(x_{t+1}^{(k)}, v_{t+1}^{(k)})</script><hr>
+<h1><span id="reference">Reference</span></h1><p>[1] Sifakis E, Barbic J. FEM simulation of 3D deformable solids: a practitioner’s guide to theory, discretization and model reduction[C]//ACM SIGGRAPH 2012 Courses. ACM, 2012: 20.<br><!--stackedit_data:
 eyJoaXN0b3J5IjpbNDU5ODAwMTUzLC03ODM5ODk3NzBdfQ==
--->
+--></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2016/09/29/Finite%20Element%20Method%20for%20Soft%20Deformable%20Object%20Simulation/" data-id="ckxdd4elz00058ftef2s55vys" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2016/09/29/Finite%20Element%20Method%20for%20Soft%20Deformable%20Object%20Simulation/" data-id="clev3uiew0006lvteh4ju7iom" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,7 +337,7 @@ eyJoaXN0b3J5IjpbNDU5ODAwMTUzLC03ODM5ODk3NzBdfQ==
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      Copyright &copy; 2022 Li-Ke Ma
+      Copyright &copy; 2023 Li-Ke Ma
     </div>
   </div>
 </footer>
