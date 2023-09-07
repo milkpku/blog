@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Li-Ke&#39;s blog</title>
+  
+  <subtitle>A Programmer and Idealist&#39;s World</subtitle>
+  <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
+  
+  <link href="http://milkpku.github.io/blog/"/>
+  <updated>2023-08-25T14:15:16.800Z</updated>
+  <id>http://milkpku.github.io/blog/</id>
+  
+  <author>
+    <name>Li-Ke Ma</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对未来五年中国经济的展望</title>
+    <link href="http://milkpku.github.io/blog/2023/08/22/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E4%BA%94%E5%B9%B4%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E%E7%9A%84%E5%B1%95%E6%9C%9B/"/>
+    <id>http://milkpku.github.io/blog/2023/08/22/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E4%BA%94%E5%B9%B4%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E%E7%9A%84%E5%B1%95%E6%9C%9B/</id>
+    <published>2023-08-21T16:00:00.000Z</published>
+    <updated>2023-08-25T14:15:16.800Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;疫情过后的中国经济出现过小幅反弹，但7月社融数据透露出一丝不祥，紧接着8月国家统计局宣布暂停公布青年失业率，经济衰退出现端倪。未来中国经济将何去何从？本文将尝试对中国经济未来一段较长时间的走势作出一定的的预测，总体分析思路为：先分析影响巨大而且确定性非常高的长期变量，然后预测在此基础上可能出台的政策及其影响，最后讨论个人投资者应当作出的行动。&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-经济基础的变化&quot;&gt;1. 经济基础的变化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-整体预期与政策干预&quot;&gt;2. 整体预期与政策干预&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3-个人行动指南&quot;&gt;3. 个人行动指南&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ilya与黄老板关于ChatGPT的对话观后感</title>
+    <link href="http://milkpku.github.io/blog/2023/04/22/OpenAI%E5%AF%B9%E8%AF%9D%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    <id>http://milkpku.github.io/blog/2023/04/22/OpenAI%E5%AF%B9%E8%AF%9D%E8%A7%82%E5%90%8E%E6%84%9F/</id>
+    <published>2023-04-21T16:00:00.000Z</published>
+    <updated>2023-04-22T02:04:17.700Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Nvidia官方博客链接：&lt;a href=&quot;https://blogs.nvidia.com/blog/2023/03/22/sutskever-openai-gtc/&quot;&gt;&lt;em&gt;AI Opener: OpenAI’s Sutskever in Conversation With Jensen Huang&lt;/em&gt;&lt;/a&gt;。&lt;br&gt;有公众号翻译了整场对话 &lt;a href=&quot;https://www.geekpark.net/news/316735&quot;&gt;&lt;em&gt;黄仁勋对话 ChatGPT 之父：改变世界的 AI 是如何诞生的&lt;/em&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;h1&gt;&lt;span id=&quot;part-1缘起&quot;&gt;Part 1：缘起&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;Ilya</summary>
+        
+      
+    
+    
+    
+    <category term="Essay" scheme="http://milkpku.github.io/blog/categories/Essay/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>理想国第五卷浅析</title>
+    <link href="http://milkpku.github.io/blog/2023/03/18/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%94%E5%8D%B7%E6%B5%85%E6%9E%90/"/>
+    <id>http://milkpku.github.io/blog/2023/03/18/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%94%E5%8D%B7%E6%B5%85%E6%9E%90/</id>
+    <published>2023-03-17T16:00:00.000Z</published>
+    <updated>2023-03-18T07:45:05.180Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-两次浪潮&quot;&gt;1. 两次浪潮&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#11-浪潮一男女平等&quot;&gt;1.1 浪潮一：男女平等&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#12-浪潮二共产共妻&quot;&gt;1.2 浪潮二：共产共妻&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-回应多得的挑战&quot;&gt;2. 回应“多得”的挑战&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#21-护卫者的根本困难&quot;&gt;2.1 护卫者的根本困难&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#22-公有制解决方案&quot;&gt;2.2 公有制解决方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#23-彻底解决多得&quot;&gt;2.3</summary>
+        
+      
+    
+    
+    
+    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从两个数据看2022年底国内经济环境</title>
+    <link href="http://milkpku.github.io/blog/2023/03/05/%E4%BB%8E%E4%B8%A4%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%9C%8B2022%E5%B9%B4%E5%BA%95%E5%9B%BD%E5%86%85%E7%BB%8F%E6%B5%8E%E7%8E%AF%E5%A2%83/"/>
+    <id>http://milkpku.github.io/blog/2023/03/05/%E4%BB%8E%E4%B8%A4%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%9C%8B2022%E5%B9%B4%E5%BA%95%E5%9B%BD%E5%86%85%E7%BB%8F%E6%B5%8E%E7%8E%AF%E5%A2%83/</id>
+    <published>2023-03-04T16:00:00.000Z</published>
+    <updated>2023-03-05T07:56:16.200Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;2022年对于几乎所有人来讲都不太好过——年初开始的上海封控到年底的换届大戏，中间夹着俄乌战争引发的全球动荡，还有美联储一次比一次高的加息，都在一下下捶打着本不稳定的经济。国内就业形势究竟多严峻，我已在去年的文章&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;中讨论过了，那么今年的情况会是怎样？笔者打算从两个角度谈一谈：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;房地产一直是经济的重要支柱，那么今年的楼市究竟冷热如何？&lt;/li&gt;
+&lt;li&gt;政府投资拉动经济是许多地方重要的发展模式，那么今年及以后政府投资还能继续吗？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;&lt;span id=&quot;1-新增房贷的断崖式下跌&quot;&gt;1. </summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2022新冠致死率及死亡数预测</title>
+    <link href="http://milkpku.github.io/blog/2022/11/13/2022%E6%96%B0%E5%86%A0%E8%87%B4%E6%AD%BB%E7%8E%87%E5%8F%8A%E6%AD%BB%E4%BA%A1%E6%95%B0%E9%A2%84%E6%B5%8B/"/>
+    <id>http://milkpku.github.io/blog/2022/11/13/2022%E6%96%B0%E5%86%A0%E8%87%B4%E6%AD%BB%E7%8E%87%E5%8F%8A%E6%AD%BB%E4%BA%A1%E6%95%B0%E9%A2%84%E6%B5%8B/</id>
+    <published>2022-11-12T16:00:00.000Z</published>
+    <updated>2022-11-14T10:00:00.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;近日国家卫健委发文“二十条”&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;，释出放松防控的信号，获得民间舆论一致支持。但仍有不少网络账号鼓吹致死率、后遗症甚至针对亚洲人的基因武器这种阴谋论。那么时至今日，经历多次变异后的COVID-19，在内地放开之后会掀起多大的风浪，是每个人都想知道答案的问题。笔者利用近期公开数据尝试粗略估计放开之后国内COVID-19致死数。&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-方法&quot;&gt;1. 方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-数据&quot;&gt;2. 数据&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#21-韩日台与英美cfr对比&quot;&gt;2.1</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>理想国前四卷回顾</title>
+    <link href="http://milkpku.github.io/blog/2022/08/28/%E7%90%86%E6%83%B3%E5%9B%BD%E5%89%8D%E5%9B%9B%E5%8D%B7%E5%9B%9E%E9%A1%BE/"/>
+    <id>http://milkpku.github.io/blog/2022/08/28/%E7%90%86%E6%83%B3%E5%9B%BD%E5%89%8D%E5%9B%9B%E5%8D%B7%E5%9B%9E%E9%A1%BE/</id>
+    <published>2022-08-27T16:00:00.000Z</published>
+    <updated>2022-08-28T06:00:34.540Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-最初的困难&quot;&gt;1. 最初的困难&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#11-力量与善&quot;&gt;1.1 力量与善&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#12-正义非技艺&quot;&gt;1.2 正义非技艺&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#13-更大的问题&quot;&gt;1.3 更大的问题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-重塑后的困难&quot;&gt;2. 重塑后的困难&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#21-自然与习俗&quot;&gt;2.1 自然与习俗&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#22-灵魂与意见&quot;&gt;2.2 灵魂与意见&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Fast Algorithm for Stiffness Matrix Computing in Deformable Object Simulation</title>
+    <link href="http://milkpku.github.io/blog/2022/06/04/fast_stiffness_matrix/"/>
+    <id>http://milkpku.github.io/blog/2022/06/04/fast_stiffness_matrix/</id>
+    <published>2022-06-03T16:00:00.000Z</published>
+    <updated>2022-06-04T09:15:19.400Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Constructing Stiffness matrix is quite a time-consuming part in FEM-based deformable object simulation. This blog provides a fast method to compute stiffness matrix for neo-hookean model, with minimal redundancy in computing. This algorithm has been implemented in &lt;a href=&quot;https://github.com/milkpku/IGsim&quot;&gt;IGsim&lt;/a&gt;. Beyond neo-hookean model,</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>理想国第四卷浅析</title>
+    <link href="http://milkpku.github.io/blog/2022/05/14/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E5%9B%9B%E5%8D%B7%E6%B5%85%E6%9E%90/"/>
+    <id>http://milkpku.github.io/blog/2022/05/14/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E5%9B%9B%E5%8D%B7%E6%B5%85%E6%9E%90/</id>
+    <published>2022-05-13T16:00:00.000Z</published>
+    <updated>2022-05-14T13:27:25.260Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在完成理想城邦的建设后，众人的讨论进入寻找正义的阶段。沿着在第二卷中Socrates提出的路线，先看大字，再看小字，揭示灵魂中正义的模样。在这一过程中一行人究竟会遇到什么样的困难？Socrates的论述又是否能让听众满意呢？&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-寻找城邦中的正义&quot;&gt;1. 寻找城邦中的正义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-从城邦到灵魂&quot;&gt;2. 从城邦到灵魂&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3-区别正义和节制&quot;&gt;3. 区别正义和节制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#4-回应glaucon的挑战&quot;&gt;4. 回应Glaucon的挑战&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>理想国第二三卷浅析</title>
+    <link href="http://milkpku.github.io/blog/2022/03/05/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%8C%E4%B8%89%E5%8D%B7%E6%B5%85%E6%9E%90/"/>
+    <id>http://milkpku.github.io/blog/2022/03/05/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%8C%E4%B8%89%E5%8D%B7%E6%B5%85%E6%9E%90/</id>
+    <published>2022-03-04T16:00:00.000Z</published>
+    <updated>2022-03-05T13:50:21.917Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在前一篇文章&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;中我们分析了Glaucon和Adeimantus所提出的挑战，一方面揭示了正义问题来源于城邦生活中力量与善之间的张力，另一方面进入了灵魂的视野。本篇将进一步阐释Glaucon与Adeimantus所提出的挑战中所蕴含的对灵魂的多层次理解，并对Socrates所构建的城邦进行分析，揭示意见对城邦和灵魂的巨大影响。&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-什么是灵魂&quot;&gt;1. 什么是灵魂&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#11-希腊诗歌中的灵魂&quot;&gt;1.1 希腊诗歌中的灵魂&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021年对失业数据的一些思考</title>
+    <link href="http://milkpku.github.io/blog/2021/12/18/2021%E5%B9%B4%E5%AF%B9%E5%A4%B1%E4%B8%9A%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    <id>http://milkpku.github.io/blog/2021/12/18/2021%E5%B9%B4%E5%AF%B9%E5%A4%B1%E4%B8%9A%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</id>
+    <published>2021-12-17T16:00:00.000Z</published>
+    <updated>2021-12-19T14:37:21.040Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-背景&quot;&gt;1. 背景&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-方法&quot;&gt;2. 方法&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#21-直接法官方统计失业人数失业率&quot;&gt;2.1 直接法：官方统计失业人数/失业率&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#22-间接法全国失业保险基金收支情况&quot;&gt;2.2 间接法：全国失业保险基金收支情况&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3-结论&quot;&gt;3. 结论&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#4-参考文献&quot;&gt;4. 参考文献&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
+&lt;h1&gt;&lt;span id=&quot;1-背景&quot;&gt;1.</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《理想国》大纲</title>
+    <link href="http://milkpku.github.io/blog/2021/09/18/%E7%90%86%E6%83%B3%E5%9B%BD%E5%A4%A7%E7%BA%B2/"/>
+    <id>http://milkpku.github.io/blog/2021/09/18/%E7%90%86%E6%83%B3%E5%9B%BD%E5%A4%A7%E7%BA%B2/</id>
+    <published>2021-09-17T16:00:00.000Z</published>
+    <updated>2021-12-18T05:25:56.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-前景327-3b&quot;&gt;1. 前景（327-3B）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-关于正义的争论328b-368c&quot;&gt;2. 关于正义的争论（328B-368C）&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#20-话题缘起328b-331b&quot;&gt;2.0 话题缘起（328B-331B）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#21-cephles331b-331e&quot;&gt;2.1 Cephles（331B-331E）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#22-polemachus331e-336b&quot;&gt;2.2 Polemachus（331E-336B）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>博五科研复盘与反思</title>
+    <link href="http://milkpku.github.io/blog/2020/10/08/%E5%8D%9A%E4%BA%94%E7%A7%91%E7%A0%94%E5%A4%8D%E7%9B%98%E4%B8%8E%E5%8F%8D%E6%80%9D/"/>
+    <id>http://milkpku.github.io/blog/2020/10/08/%E5%8D%9A%E4%BA%94%E7%A7%91%E7%A0%94%E5%A4%8D%E7%9B%98%E4%B8%8E%E5%8F%8D%E6%80%9D/</id>
+    <published>2020-10-07T16:00:00.000Z</published>
+    <updated>2021-12-18T02:12:31.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在刚刚过去的中秋国庆假期中，我终于投出了拖延近一年的文章，在最后时刻避免了烂尾。研究课题起于一时的突发奇想，迅速通过了简单测试，却在更困难的问题上难以突破。更悲惨的是19年冬到20年春的时间里，多个意外事件的同时发生，给我的生活带来了巨大的冲击，把一切事情全部打乱。我也因此一度陷入消沉和抑郁，停滞的项目也随着时间推移成为我沉重的心理负担。好在返学后两位合作老师全力帮助我，在最后时刻把文章完成并投出，算是有了个了结。这个项目做得很曲折，也给我带来了不小的伤害和相当的磨砺，所以我要认真复盘整个过程，反思改进我犯过的错，避免重蹈覆辙。&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-时间表&quot;&gt;1. 时间表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Essay" scheme="http://milkpku.github.io/blog/categories/Essay/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>理想国第二卷浅析</title>
+    <link href="http://milkpku.github.io/blog/2020/01/30/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%8C%E5%8D%B7%E6%B5%85%E6%9E%90/"/>
+    <id>http://milkpku.github.io/blog/2020/01/30/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%8C%E5%8D%B7%E6%B5%85%E6%9E%90/</id>
+    <published>2020-01-29T16:00:00.000Z</published>
+    <updated>2021-12-18T02:12:31.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在第一卷中众人初次探讨了正义，Socrates 依次击败了老年商人 Cephalus，商人的儿子Polemarchus，以及诡辩家 Thrasymachus，但却没有能告诉众人，究竟什么是正义。不熟悉这一部分的读者可以先阅读我的&lt;a href=&quot;https://milkpku.github.io/blog/2015/03/11/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%B8%80%E5%8D%B7%E6%B5%85%E6%9E%90/&quot;&gt;理想国第一卷浅析&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;一旁的 Glaucon 和 Adeimantus 兄弟明显感到不满意。他们是雅典著名公民 Ariston 的儿子（也是</summary>
+        
+      
+    
+    
+    
+    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2019年对房价的一些思考</title>
+    <link href="http://milkpku.github.io/blog/2019/11/22/%E5%AF%B9%E6%88%BF%E4%BB%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    <id>http://milkpku.github.io/blog/2019/11/22/%E5%AF%B9%E6%88%BF%E4%BB%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</id>
+    <published>2019-11-21T16:00:00.000Z</published>
+    <updated>2021-12-26T03:48:28.650Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-主要矛盾和问题&quot;&gt;1. 主要矛盾和问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-基本模型&quot;&gt;2. 基本模型&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#21-基本假设&quot;&gt;2.1 基本假设&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#22-基本数据&quot;&gt;2.2 基本数据&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#23-分期分析&quot;&gt;2.3 分期分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#24-基本结论&quot;&gt;2.4 基本结论&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#25-敏感度分析&quot;&gt;2.5 敏感度分析&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#房价变化&quot;&gt;房价变化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>经济学短思考两则</title>
+    <link href="http://milkpku.github.io/blog/2019/10/25/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9F%AD%E6%80%9D%E8%80%83%E4%B8%A4%E5%88%99/"/>
+    <id>http://milkpku.github.io/blog/2019/10/25/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9F%AD%E6%80%9D%E8%80%83%E4%B8%A4%E5%88%99/</id>
+    <published>2019-10-24T16:00:00.000Z</published>
+    <updated>2021-12-26T10:05:56.599Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-大跃进时期人民公社化与放卫星&quot;&gt;1. 大跃进时期人民公社化与放卫星&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#11-定性描述&quot;&gt;1.1. 定性描述&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#12-数学模型&quot;&gt;1.2. 数学模型&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#121-生产积极性被打击&quot;&gt;1.2.1. 生产积极性被打击&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#122-生产积极性的反扭曲&quot;&gt;1.2.2. 生产积极性的反扭曲&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#123-非线性情形&quot;&gt;1.2.3. 非线性情形&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>纪念我的两台笔记本</title>
+    <link href="http://milkpku.github.io/blog/2019/09/20/%E7%BA%AA%E5%BF%B5%E6%88%91%E7%9A%84%E4%B8%A4%E5%8F%B0%E7%AC%94%E8%AE%B0%E6%9C%AC/"/>
+    <id>http://milkpku.github.io/blog/2019/09/20/%E7%BA%AA%E5%BF%B5%E6%88%91%E7%9A%84%E4%B8%A4%E5%8F%B0%E7%AC%94%E8%AE%B0%E6%9C%AC/</id>
+    <published>2019-09-19T16:00:00.000Z</published>
+    <updated>2021-12-18T02:12:31.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;京东的回收车已经就绪，只需要按下“去结算”就能把堆放了十几年的老掉牙电脑拿去回收了，但是我却迟迟点不下鼠标。我的思绪飘回了第一次拿到笔记本那个遥远的下午。&lt;/p&gt;
+&lt;h1&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="Essay" scheme="http://milkpku.github.io/blog/categories/Essay/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>星际旅行与人类的未来</title>
+    <link href="http://milkpku.github.io/blog/2019/02/12/%E6%98%9F%E9%99%85%E6%97%85%E8%A1%8C%E4%B8%8E%E4%BA%BA%E7%B1%BB%E7%9A%84%E6%9C%AA%E6%9D%A5/"/>
+    <id>http://milkpku.github.io/blog/2019/02/12/%E6%98%9F%E9%99%85%E6%97%85%E8%A1%8C%E4%B8%8E%E4%BA%BA%E7%B1%BB%E7%9A%84%E6%9C%AA%E6%9D%A5/</id>
+    <published>2019-02-11T16:00:00.000Z</published>
+    <updated>2021-12-18T02:12:31.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#行星间的运输&quot;&gt;行星间的运输&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#星球间的时差&quot;&gt;星球间的时差&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#在宇宙中流浪&quot;&gt;在宇宙中流浪&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop</summary>
+        
+      
+    
+    
+    
+    <category term="Physics" scheme="http://milkpku.github.io/blog/categories/Physics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>科研文献阅读写作小结</title>
+    <link href="http://milkpku.github.io/blog/2018/12/08/%E7%A7%91%E7%A0%94%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%86%99%E4%BD%9C%E5%B0%8F%E7%BB%93/"/>
+    <id>http://milkpku.github.io/blog/2018/12/08/%E7%A7%91%E7%A0%94%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E5%86%99%E4%BD%9C%E5%B0%8F%E7%BB%93/</id>
+    <published>2018-12-07T16:00:00.000Z</published>
+    <updated>2021-12-18T02:12:31.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#abstraction&quot;&gt;Abstraction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#related-works&quot;&gt;Related Works&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#overview-and-methods&quot;&gt;Overview and Methods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#results&quot;&gt;Results&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#conclusion-and-discussion&quot;&gt;Conclusion and</summary>
+        
+      
+    
+    
+    
+    <category term="Essay" scheme="http://milkpku.github.io/blog/categories/Essay/"/>
+    
+    
+    <category term="Research" scheme="http://milkpku.github.io/blog/tags/Research/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Arch Linux 安装与开发环境配置</title>
+    <link href="http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
+    <published>2018-11-07T16:00:00.000Z</published>
+    <updated>2021-12-18T02:12:31.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#我与-arch-的相识&quot;&gt;我与 Arch 的相识&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#为什么选择-arch&quot;&gt;为什么选择 Arch&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#社区&quot;&gt;社区&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#稳定&quot;&gt;稳定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#可定制性&quot;&gt;可定制性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#安装-arch-linux&quot;&gt;安装 Arch Linux&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>How to calculate TD(lam) in Reinforcement Learning</title>
+    <link href="http://milkpku.github.io/blog/2018/10/09/TD%20value%20in%20Reinforcement%20Learning/"/>
+    <id>http://milkpku.github.io/blog/2018/10/09/TD%20value%20in%20Reinforcement%20Learning/</id>
+    <published>2018-10-08T16:00:00.000Z</published>
+    <updated>2021-12-18T02:12:31.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Estimating state value in reinforcement learning is a hard task, since the sample process is very noisy. $TD(\lambda)$ learning try to take as much information as possible to estimate the state value. In this note, I will briefly give the derivation of $TD(\lambda)$ and its pseudo-code for computing.&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+    <category term="Reinforcement Learning" scheme="http://milkpku.github.io/blog/tags/Reinforcement-Learning/"/>
+    
+  </entry>
+  
+</feed>
