@@ -28,7 +28,7 @@
 <meta property="og:description" content="IntroductionThis note is based on SIGGRAPH course of 2012, which introduced basic techniques to simulate elastic material using FEM.   Elastisity in 3D Deformation and deformation gradient Strain ener">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-09-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-18T02:12:31.050Z">
+<meta property="article:modified_time" content="2024-02-12T03:35:28.863Z">
 <meta property="article:author" content="Li-Ke Ma">
 <meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
 <meta name="twitter:card" content="summary">
@@ -44,7 +44,7 @@
   
 <link rel="stylesheet" href="/blog/css/style.css">
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 7.1.1"></head>
 
 <body>
   <div id="container">
@@ -244,7 +244,7 @@ F = D_s \cdot B_m \\
     D_s = [x_1 - x_4, x_2 - x_4, x_3 - x_4] , \\
     B_m =  [X_1 - X_4, X_2 - X_4, X_1 - X_4]^{-1}</script><p>there is a small tip for force computing:</p>
 <script type="math/tex; mode=display">
-    H = [f_1, f_2, f_3] =  P(F) \cdot B_m^T</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">precompute</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Dm = [X1 - X4, X2 - X4, X3 - X4]</span><br><span class="line">		t.Bm = inverse(Dm)</span><br><span class="line">		t.V = determinant(Dm)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeForce</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		H = P(F) * t.Bm.transpose()</span><br><span class="line">		f1 += H[:,<span class="number">0</span>], f2 += H[:,<span class="number">1</span>], f3 += H[:,<span class="number">2</span>]</span><br><span class="line">		f4 -= H[:,<span class="number">0</span>] + H[:,<span class="number">1</span>] + H[:,<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    H = [f_1, f_2, f_3] =  P(F) \cdot B_m^T</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">precompute</span>():</span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Dm = [X1 - X4, X2 - X4, X3 - X4]</span><br><span class="line">		t.Bm = inverse(Dm)</span><br><span class="line">		t.V = determinant(Dm)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">computeForce</span>():</span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		H = P(F) * t.Bm.transpose()</span><br><span class="line">		f1 += H[:,<span class="number">0</span>], f2 += H[:,<span class="number">1</span>], f3 += H[:,<span class="number">2</span>]</span><br><span class="line">		f4 -= H[:,<span class="number">0</span>] + H[:,<span class="number">1</span>] + H[:,<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2><span id="algorithms-for-stiffness-differential">Algorithms for Stiffness Differential</span></h2><p>The influence of $\delta x$ on $f$ for a single tetrahedron can be $12 \times 12$ matrix, since the 3-dim force on 4 vertices can be influenced by 3-dim position of 4 vertices. There is a way to compute this matrix column by column:</p>
 <script type="math/tex; mode=display">
     \delta H = [\delta f_1 , \delta f_2, \delta f_3] = \delta P(F, \delta F) \cdot B_m^T \\
@@ -254,7 +254,7 @@ F = D_s \cdot B_m \\
     \begin{cases} 
         \delta_{ij}, &i = \{1, 2, 3\}, j \leq 3 \\
          -\delta_{i1} -\delta_{i2} -\delta_{i3},  &i = \{1, 2, 3\}, j = 4
-         \end{cases}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeGradient</span>():</span></span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		<span class="keyword">for</span> dF <span class="keyword">in</span> F_ij:</span><br><span class="line">			dH = dP(F, dF) * t.Bm.transpose()</span><br><span class="line">			K(f1, x_ij) += dH[:,<span class="number">0</span>]</span><br><span class="line">			K(f2, x_ij) += dH[:,<span class="number">1</span>]</span><br><span class="line">			K(f3, x_ij) += dH[:,<span class="number">2</span>]</span><br><span class="line">			K(f4, x_ij) -= dH[:,<span class="number">0</span>] + dH[:,<span class="number">1</span>] + dH[:,<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+         \end{cases}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">computeGradient</span>():</span><br><span class="line">	<span class="keyword">for</span> each tetrahedron t:</span><br><span class="line">		Ds = [x1 - x4, x2 - x4, x3 - x4]</span><br><span class="line">		F = Ds * t.Bm</span><br><span class="line">		<span class="keyword">for</span> dF <span class="keyword">in</span> F_ij:</span><br><span class="line">			dH = dP(F, dF) * t.Bm.transpose()</span><br><span class="line">			K(f1, x_ij) += dH[:,<span class="number">0</span>]</span><br><span class="line">			K(f2, x_ij) += dH[:,<span class="number">1</span>]</span><br><span class="line">			K(f3, x_ij) += dH[:,<span class="number">2</span>]</span><br><span class="line">			K(f4, x_ij) -= dH[:,<span class="number">0</span>] + dH[:,<span class="number">1</span>] + dH[:,<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
 <p>the method used in <em>FEM simulation of 3D deformable solids: a practitioner’s guide to theory [1]</em> is implicit, namely they only computing $\delta f(x, \delta x)$, and then using iterative methods like conjugate gradient.</p>
 <p>However, I introduce a method to compute stiffness matrix explicitly, for the reason that iterative methods are too sloooooow. According to my experiment in practice, implemented in Eigen, CG method is slower than simple Newton Method in a magnitude of $10^2$ (3600 seconds vs 20 seconds )! So, I strongly recommend you to construct stiffness explicitly and use standard sparse linear algebra tools.</p>
 <h2><span id="dynamic-equation">Dynamic Equation</span></h2><p>The movement of objects obey Newton’s law</p>
@@ -291,7 +291,7 @@ eyJoaXN0b3J5IjpbNDU5ODAwMTUzLC03ODM5ODk3NzBdfQ==
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2016/09/29/Finite%20Element%20Method%20for%20Soft%20Deformable%20Object%20Simulation/" data-id="cllqod9ib0006a4te34qk14lh" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2016/09/29/Finite%20Element%20Method%20for%20Soft%20Deformable%20Object%20Simulation/" data-id="clsiga63m0006cgsxc1g91r6l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -337,7 +337,7 @@ eyJoaXN0b3J5IjpbNDU5ODAwMTUzLC03ODM5ODk3NzBdfQ==
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      Copyright &copy; 2023 Li-Ke Ma
+      Copyright &copy; 2024 Li-Ke Ma
     </div>
   </div>
 </footer>

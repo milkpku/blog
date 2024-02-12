@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="455.81824"
+   height="389.99496"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="timeline.svg"
+   version="1.0"
+   viewBox="0 0 227.90912 194.99748"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient151"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#80e177;stop-opacity:1;"
+         offset="0"
+         id="stop151" />
+      <stop
+         style="stop-color:#457bb8;stop-opacity:1;"
+         offset="1"
+         id="stop152" />
+    </linearGradient>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1.5"
+       preserveAspectRatio="xMidYMid"
+       id="pattern31"
+       patternTransform="matrix(0.17320508,0.1,-0.1,0.17320508,0,0)"
+       x="0"
+       y="0"
+       width="13" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="2.5"
+       height="1"
+       patternTransform="translate(0,0) scale(2,2)"
+       preserveAspectRatio="xMidYMid"
+       id="Strips1_1.5"
+       style="fill:#000000"
+       inkscape:stockid="Stripes 02 (2:3)"
+       inkscape:isstock="true"
+       inkscape:label="Stripes 02 (2:3)">
+      <rect
+         style="stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect140" />
+    </pattern>
+    <linearGradient
+       id="swatch10"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#b3b3b3;stop-opacity:1;"
+         offset="0"
+         id="stop10" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient151"
+       id="linearGradient152"
+       x1="237.2449"
+       y1="195.625"
+       x2="274.3801"
+       y2="195.625"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0164054,0,0,1.001315,-4.1591967,-0.054083)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.3"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="365"
+     inkscape:cy="291.5"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     width="12.8cm"
+     height="9.6cm"
+     units="cm"
+     showgrid="true"
+     gridspacingx="2mm"
+     gridspacingy="2mm"
+     grid_units="mm"
+     gridempspacing="5"
+     inkscape:object-paths="false"
+     inkscape:grid-points="true"
+     inkscape:grid-bbox="true"
+     inkscape:guide-points="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       orientation="vertical"
+       position="-25.925386,-33.914671"
+       id="guide3573"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="-54.163652,-28.396849"
+       id="guide3579"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="-54.163652,-21.905294"
+       id="guide3886"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="-54.163652,108.89954"
+       id="guide3988"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="-54.163652,117.66314"
+       id="guide4081"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-108.32731,-77.330647)">
+    <g
+       id="g75"
+       inkscape:label="失效">
+      <path
+         style="fill:url(#pattern31);fill-opacity:1;stroke-width:1.75748"
+         d="M 123.21782,93.437817 V 252.15633 h 17.5272 V 125.89559"
+         id="path5" />
+      <text
+         xml:space="preserve"
+         style="font-size:8px;fill:#000000;fill-opacity:1;stroke-width:1.75748"
+         x="127.9787"
+         y="158.58368"
+         id="text31"><tspan
+           sodipodi:role="line"
+           id="tspan31"
+           x="127.9787"
+           y="158.58368"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">广</tspan><tspan
+           sodipodi:role="line"
+           x="127.9787"
+           y="168.78516"
+           id="tspan32"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">义</tspan><tspan
+           sodipodi:role="line"
+           x="127.9787"
+           y="178.98665"
+           id="tspan33"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">相</tspan><tspan
+           sodipodi:role="line"
+           x="127.9787"
+           y="189.18813"
+           id="tspan34"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">对</tspan><tspan
+           sodipodi:role="line"
+           x="127.9787"
+           y="199.38962"
+           id="tspan35"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">论</tspan><tspan
+           sodipodi:role="line"
+           x="127.9787"
+           y="209.59109"
+           id="tspan36"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">失</tspan><tspan
+           sodipodi:role="line"
+           x="127.9787"
+           y="219.79259"
+           id="tspan37"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">效</tspan></text>
+    </g>
+    <g
+       id="g76"
+       inkscape:label="热平衡"
+       transform="translate(0.03912709,0.02740834)">
+      <path
+         style="mix-blend-mode:normal;fill:#ff6755;fill-opacity:1;stroke-width:1.75748"
+         d="m 140.70445,125.93616 v 126.2105 h 16.1664 V 149.63034"
+         id="path37" />
+      <text
+         xml:space="preserve"
+         style="font-size:8px;fill:#000000;fill-opacity:1;stroke-width:1.75748"
+         x="144.69357"
+         y="187.78035"
+         id="text31-0"><tspan
+           sodipodi:role="line"
+           x="144.69357"
+           y="187.78035"
+           id="tspan37-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1">热</tspan><tspan
+           sodipodi:role="line"
+           x="144.69357"
+           y="197.98183"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan43">平</tspan><tspan
+           sodipodi:role="line"
+           x="144.69357"
+           y="208.18332"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan44">衡</tspan></text>
+    </g>
+    <g
+       id="g12"
+       inkscape:label="对称性"
+       transform="translate(-0.04245291,-0.02209709)">
+      <path
+         style="fill:#ffda55;fill-opacity:1;stroke-width:1.8983"
+         d="m 156.93334,149.79263 v 102.41141 h 15.9043 v -92.3495"
+         id="path1"
+         inkscape:label="path1" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.33333px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#ffdd55;stroke-width:1.75748"
+         x="162.22166"
+         y="173.00304"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           x="162.22166"
+           y="173.00304"
+           style="font-size:5.33333px;fill:#000000">对</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="179.66969"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan2">称</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="186.33636"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan3">性</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="193.00302"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan5">破</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="199.66969"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan4">缺</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="206.33635"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan8">残</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="213.00301"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan20">留</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="219.66968"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan21">中</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="226.33633"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan9">子</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="233.00301"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan10">质</tspan><tspan
+           sodipodi:role="line"
+           x="162.22166"
+           y="239.66966"
+           style="font-size:5.33333px;fill:#000000"
+           id="tspan11">子</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#61ffc5;fill-opacity:1;stroke-width:1.75748"
+       x="26.374981"
+       y="266.36148"
+       id="text13"
+       transform="rotate(-45)"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         x="26.374981"
+         y="266.36148"
+         style="fill:#000000">中微子退耦</tspan></text>
+    <g
+       id="g142"
+       inkscape:label="原初核"
+       transform="translate(-0.00390625)">
+      <path
+         style="fill:#80e177;fill-opacity:1;stroke-width:1.75748"
+         d="m 203.30425,172.19155 v 79.98041 H 237.375 V 178.5"
+         id="path13" />
+      <text
+         xml:space="preserve"
+         style="font-size:8px;fill:#000000;fill-opacity:1;stroke-width:1.75748"
+         x="216.23444"
+         y="196.711"
+         id="text31-0-0"><tspan
+           sodipodi:role="line"
+           x="216.23444"
+           y="196.711"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan44-0">原</tspan><tspan
+           sodipodi:role="line"
+           x="216.23444"
+           y="206.91248"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan15">初</tspan><tspan
+           sodipodi:role="line"
+           x="216.23444"
+           y="217.11397"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan16">核</tspan><tspan
+           sodipodi:role="line"
+           x="216.23444"
+           y="227.31544"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan17">形</tspan><tspan
+           sodipodi:role="line"
+           x="216.23444"
+           y="237.51694"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan18">成</tspan></text>
+    </g>
+    <g
+       id="g141"
+       inkscape:label="正负电子">
+      <path
+         style="fill:#d8ff61;fill-opacity:1;stroke-width:1.88147"
+         d="m 172.78125,159.84375 v 92.32812 H 203.2932 V 172.1805"
+         id="path12" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.66667px;fill:#000000;fill-opacity:1;stroke-width:1.75748"
+         x="184.44531"
+         y="182.16016"
+         id="text31-0-0-2"><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="182.16016"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan18-4">正</tspan><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="190.66139"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan25">负</tspan><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="199.16264"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan26">电</tspan><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="207.66388"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan27">子</tspan><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="216.16512"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan28">生</tspan><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="224.66637"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan29">成</tspan><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="233.1676"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan30">湮</tspan><tspan
+           sodipodi:role="line"
+           x="184.44531"
+           y="241.66884"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.66667px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1"
+           id="tspan38">灭</tspan></text>
+    </g>
+    <g
+       id="g143"
+       inkscape:label="宇宙透明"
+       transform="translate(0,0.1875)">
+      <path
+         style="fill:#457bb8;fill-opacity:1;stroke-width:1.75748"
+         d="M 274.5,212.25 V 252 H 326 v -25.25"
+         id="path50" />
+      <text
+         xml:space="preserve"
+         style="font-size:8px;fill:#ffffff;fill-opacity:1;stroke-width:1.75748"
+         x="276.44531"
+         y="236.41016"
+         id="text31-0-0-5"><tspan
+           sodipodi:role="line"
+           x="276.44531"
+           y="236.41016"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#ffffff;fill-opacity:1"
+           id="tspan46">中性原子生成</tspan><tspan
+           sodipodi:role="line"
+           x="276.44531"
+           y="246.61163"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#ffffff;fill-opacity:1"
+           id="tspan6">宇宙变得透明</tspan><tspan
+           sodipodi:role="line"
+           x="276.44531"
+           y="256.81311"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#ffffff;fill-opacity:1"
+           id="tspan49" /></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#61ffc5;fill-opacity:1;stroke-width:1.75748"
+       x="47.755886"
+       y="345.86774"
+       id="text13-3"
+       transform="rotate(-45)"><tspan
+         sodipodi:role="line"
+         id="tspan13-5"
+         x="47.755886"
+         y="345.86774"
+         style="fill:#000000">光子退耦</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:1.75748"
+       x="238.63446"
+       y="176.8947"
+       id="text138"><tspan
+         sodipodi:role="line"
+         id="tspan138"
+         x="238.63446"
+         y="176.8947"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000">T=10<tspan
+   style="font-size:4px;line-height:0.1;baseline-shift:super;fill:#000000"
+   id="tspan139">9</tspan>K</tspan><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="177.71089"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan152" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="178.24422"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan153" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="178.77756"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan154" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="179.3109"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan155" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="179.84422"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan156" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="180.37756"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan157" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="180.91089"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan158" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="181.44423"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan159" /><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="181.97755"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan160">  </tspan><tspan
+         sodipodi:role="line"
+         x="238.63446"
+         y="182.51089"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000"
+         id="tspan161">  =1MeV</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:1.75748"
+       x="251.13803"
+       y="218.23489"
+       id="text138-6"><tspan
+         sodipodi:role="line"
+         id="tspan138-6"
+         x="251.13803"
+         y="218.23489"
+         style="font-size:5.33333px;line-height:0.1;fill:#000000">T=3000K</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#333333;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="205.50369"
+       y="127.40382"
+       id="text144"><tspan
+         sodipodi:role="line"
+         id="tspan144"
+         x="205.50369"
+         y="127.40382"
+         style="font-size:8px;line-height:0"><tspan
+   style="font-size:5.33333px;line-height:0;baseline-shift:super"
+   id="tspan145">4</tspan>He丰度</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;line-height:0.1;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#333333;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="276.42157"
+       y="127.09483"
+       id="text146"><tspan
+         sodipodi:role="line"
+         id="tspan146"
+         x="276.42157"
+         y="127.09483"
+         style="font-size:8px">微波背景辐射</tspan></text>
+    <path
+       style="fill:#80e177;fill-opacity:1;stroke:#80e177;stroke-width:0.747584;stroke-dasharray:2.99033, 0.747584;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 203.67188,172.22567 V 109.05761"
+       id="path150" />
+    <path
+       style="fill:#457bb8;fill-opacity:1;stroke:#457bb8;stroke-width:0.963533;stroke-dasharray:3.85413, 0.963533;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 275.00878,213.99039 V 109.05761"
+       id="path150-4" />
+    <path
+       style="fill:#80e177;fill-opacity:1;stroke:#457bb8;stroke-width:1.04678;stroke-dasharray:4.18711, 1.04678;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 325.48978,232.90549 V 109.05761"
+       id="path150-3" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#80e177;stroke-width:0.794007;stroke-dasharray:3.17602, 0.794007;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 237.00295,180.3145 V 109.05761"
+       id="path150-9" />
+    <path
+       style="fill:#457bb8;fill-opacity:1;stroke:url(#linearGradient152);stroke-width:0.760763;stroke-linecap:round;stroke-dasharray:0.760763, 1.52153;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 237.23705,179.05616 37.22584,33.54405"
+       id="path151" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(-108.32731,-77.330647)">
+    <g
+       id="g5"
+       inkscape:label="坐标轴">
+      <rect
+         style="fill:#000000;stroke-width:1.16246"
+         id="rect2"
+         width="1.1360222"
+         height="170.07874"
+         x="122.07304"
+         y="83.211197" />
+      <path
+         style="fill:#000000;stroke-width:1.75748"
+         d="m 122.44695,77.330647 -3.00234,9.250465 6.08583,-0.08114"
+         id="path4" />
+      <rect
+         style="fill:#000000;stroke-width:1.28094"
+         id="rect2-0"
+         width="1.1360222"
+         height="206.51363"
+         x="252.17334"
+         y="-328.69189"
+         transform="rotate(90)" />
+      <path
+         style="fill:#000000;stroke-width:1.75748"
+         d="m 336.23642,252.54725 -9.25046,-3.00234 0.0811,6.08583"
+         id="path4-3" />
+      <rect
+         style="fill:#000000;stroke-width:0.150103"
+         id="rect2-0-8"
+         width="0.81144446"
+         height="3.9700642"
+         x="140.41357"
+         y="248.89941" />
+    </g>
+    <rect
+       style="fill:#000000;stroke-width:0.150103"
+       id="rect2-0-8-7"
+       width="0.81144446"
+       height="3.9700642"
+       x="156.50412"
+       y="248.89941" />
+    <rect
+       style="fill:#000000;stroke-width:0.150103"
+       id="rect2-0-8-1"
+       width="0.81144446"
+       height="3.9700642"
+       x="172.38258"
+       y="248.89941" />
+    <rect
+       style="fill:#000000;stroke-width:0.150103"
+       id="rect2-0-8-6"
+       width="0.81144446"
+       height="3.9700642"
+       x="202.89821"
+       y="248.89941" />
+    <rect
+       style="fill:#000000;stroke-width:0.150103"
+       id="rect2-0-8-8"
+       width="0.81144446"
+       height="3.9700642"
+       x="236.9529"
+       y="248.89941" />
+    <rect
+       style="fill:#000000;stroke-width:0.150103"
+       id="rect2-0-8-10"
+       width="0.81144446"
+       height="3.9700642"
+       x="274.13257"
+       y="248.89941" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="136.0625"
+       y="258.9595"
+       id="text147"><tspan
+         sodipodi:role="line"
+         id="tspan147"
+         x="136.0625"
+         y="258.9595"
+         style="font-size:5.33333px;fill:#000000">10<tspan
+   style="font-size:4px;baseline-shift:super;fill:#000000"
+   id="tspan148">-43<tspan
+   style="baseline-shift:baseline;fill:#000000"
+   id="tspan149" /></tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="152.01042"
+       y="258.9595"
+       id="text147-2"><tspan
+         sodipodi:role="line"
+         id="tspan147-0"
+         x="152.01042"
+         y="258.9595"
+         style="font-size:5.33333px;fill:#000000">10<tspan
+   style="font-size:4px;baseline-shift:super;fill:#000000"
+   id="tspan148-4">-6</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="168.01042"
+       y="258.9595"
+       id="text147-5"><tspan
+         sodipodi:role="line"
+         id="tspan147-04"
+         x="168.01042"
+         y="258.9595"
+         style="font-size:5.33333px;fill:#000000">10<tspan
+   style="font-size:4px;baseline-shift:super;fill:#000000"
+   id="tspan148-1">-2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="198.9827"
+       y="258.9595"
+       id="text147-5-1"><tspan
+         sodipodi:role="line"
+         id="tspan147-04-3"
+         x="198.9827"
+         y="258.9595"
+         style="font-size:5.33333px;fill:#000000">10<tspan
+   style="font-size:4px;baseline-shift:super;fill:#000000"
+   id="tspan148-1-8">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="232.69792"
+       y="258.9595"
+       id="text147-5-0"><tspan
+         sodipodi:role="line"
+         id="tspan147-04-2"
+         x="232.69792"
+         y="258.9595"
+         style="font-size:5.33333px;fill:#000000">10<tspan
+   style="font-size:4px;baseline-shift:super;fill:#000000"
+   id="tspan148-1-4">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.33333px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;fill-opacity:1;stroke-width:37.7953;stroke-dasharray:none"
+       x="269.76434"
+       y="258.9595"
+       id="text147-5-6"><tspan
+         sodipodi:role="line"
+         id="tspan147-04-1"
+         x="269.76434"
+         y="258.9595"
+         style="font-size:5.33333px;fill:#000000">10<tspan
+   style="font-size:4px;baseline-shift:super;fill:#000000"
+   id="tspan148-1-2">13</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:none;stroke:none;stroke-width:0.737008;stroke-linecap:round;stroke-dasharray:none"
+       x="154.75"
+       y="271.19922"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="154.75"
+         y="271.19922"
+         style="font-weight:normal;font-size:8px;fill:#000000;stroke:none">早期宇宙</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:none;stroke:none;stroke-width:0.737008;stroke-linecap:round;stroke-dasharray:none"
+       x="220.8125"
+       y="271.19922"
+       id="text7-8"><tspan
+         sodipodi:role="line"
+         id="tspan7-2"
+         x="220.8125"
+         y="271.19922"
+         style="font-weight:normal;font-size:8px;fill:#000000;stroke:none">中期宇宙</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:none;stroke:none;stroke-width:0.737008;stroke-linecap:round;stroke-dasharray:none"
+       x="286.0625"
+       y="271.19922"
+       id="text7-9"><tspan
+         sodipodi:role="line"
+         id="tspan7-6"
+         x="286.0625"
+         y="271.19922"
+         style="font-weight:normal;font-size:8px;fill:#000000;stroke:none">晚期宇宙</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.66667px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;stroke:none;stroke-width:0.737008;stroke-linecap:round;stroke-dasharray:none"
+       x="317.46951"
+       y="260.98303"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         x="317.46951"
+         y="260.98303"
+         style="font-size:6.66667px">t(s)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.66667px;line-height:0;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei';fill:#000000;stroke:none;stroke-width:0.737008;stroke-linecap:round;stroke-dasharray:none"
+       x="108.18733"
+       y="95.812973"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         x="108.18733"
+         y="95.812973"
+         style="font-size:6.66667px">T(K)</tspan></text>
+  </g>
+</svg>

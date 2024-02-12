@@ -28,7 +28,7 @@
 <meta property="og:description" content="笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。   我与 Arch 的相识 为什么选择 Arch 社区 稳定 可定制性   安装 Arch Linux 系统设置 开发环境配置      我与 Arch 的相识笔者第一次听到Arch这个名字的时候还是在2013年的大二。过完周末后的一天华仔跟我说，前几天累死了，跟着帆神装Arch，折腾了一天">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-11-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-18T02:12:31.050Z">
+<meta property="article:modified_time" content="2024-02-12T03:35:28.863Z">
 <meta property="article:author" content="Li-Ke Ma">
 <meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
 <meta name="twitter:card" content="summary">
@@ -44,7 +44,7 @@
   
 <link rel="stylesheet" href="/blog/css/style.css">
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 7.1.1"></head>
 
 <body>
   <div id="container">
@@ -171,29 +171,29 @@
 <h2><span id="可定制性">可定制性</span></h2><p>Ubuntu虽大而全，但更新依赖Canonical公司，一些系统软件有复杂的依赖关系，想增添或删除都有导致系统不稳定的风险；而Arch没有版本一说，软件组合都由用户决定，并且滚动更新最新的软件。Ubuntu的软件配置由发行方Canonical决定，每一个版本中参数和软件间的互相依赖都很复杂，经常出现遇到问题用户无法修改，只能等待Canonical出更新或发布新版本。跟Ubuntu的大而全相比，Arch只提供Linux运行的最基本组件，剩下的部分由用户自行添加，所以Arch相比于Ubuntu有更好的定制性。而且由于Arch的最小依赖设计思路，增添删减软件都十分稳定，不会因为一处的改动影响另一处的软件。</p>
 <p>此外，Arch不那么友好的安装过程，在笔者看来反而是一个优点。主要有两方面原因：第一，我可以在安装过程中深度定制安装细节，如何硬盘分区，如何boot等。第二，我可以在安装Arch过程中学习Linux的基础知识，深入理解计算机操作系统。</p>
 <hr>
-<h1><span id="安装-arch-linux">安装 Arch Linux</span></h1><p>安装Arch Linux最好的说明是官网给出的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/installation_guide">Installation guide</a>，接下来主要记录一些在 installation guide 之外需要注意的事项。</p>
+<h1><span id="安装-arch-linux">安装 Arch Linux</span></h1><p>安装Arch Linux最好的说明是官网给出的 <a href="https://wiki.archlinux.org/index.php/installation_guide">Installation guide</a>，接下来主要记录一些在 installation guide 之外需要注意的事项。</p>
 <ul>
-<li><p><strong>准备安装盘</strong><br><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/USB_flash_installation_media">USB flash install</a> 笔者使用Rufus，十分方便。要注意U盘的盘符得是ARCH_XXXXYY，后面XY是Arch的镜像版本号，否则boot时找不到系统。</p>
+<li><p><strong>准备安装盘</strong><br><a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media">USB flash install</a> 笔者使用Rufus，十分方便。要注意U盘的盘符得是ARCH_XXXXYY，后面XY是Arch的镜像版本号，否则boot时找不到系统。</p>
 </li>
 <li><p><strong>BIOS 设定</strong><br>启用UEFI boot，关闭Legacy boot。一定要关闭Secure boot，否则会启动失败。</p>
 </li>
-<li><p><strong>硬盘分区</strong><br>一般情况下笔者喜欢分为两个区，一个分给根目录，一个分给home目录用于数据储存。在此之前，要注意需要额外分一个区用于UEFI启动 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/EFI_system_partition">EFI system partition</a>，并格式化文件系统为fat32</p>
+<li><p><strong>硬盘分区</strong><br>一般情况下笔者喜欢分为两个区，一个分给根目录，一个分给home目录用于数据储存。在此之前，要注意需要额外分一个区用于UEFI启动 <a href="https://wiki.archlinux.org/index.php/EFI_system_partition">EFI system partition</a>，并格式化文件系统为fat32</p>
 </li>
 <li><p><strong>Arch/Windows双系统</strong><br>将Windos的系统盘挂载到Arch中，安装os-prober工具，之后在grub-mkconfig时即可探测到Windows分区。</p>
 </li>
 </ul>
 <h2><span id="系统设置">系统设置</span></h2><p>安装完Arch后，它只是一个最小版的Linux发行版，没有GUI。如果是用于个人电脑，推荐安装gnome和gnome-shell</p>
 <ul>
-<li><strong>gdm</strong><br><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/GDM">gdm</a>是gnome桌面的启动引导，用于进入系统后启动gnome桌面。由于wayland与nvidia驱动有冲突，所以推荐关闭/etc/gdm/costum.conf下的wayland。</li>
-<li><strong>网络</strong><br>安装<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/NetworkManager">networkmanager</a>，并在systemctl中启用NetworkManager.service。这样它会自动扫描可用网络并连接，不用每次使用dhcpcd。</li>
+<li><strong>gdm</strong><br><a href="https://wiki.archlinux.org/index.php/GDM">gdm</a>是gnome桌面的启动引导，用于进入系统后启动gnome桌面。由于wayland与nvidia驱动有冲突，所以推荐关闭/etc/gdm/costum.conf下的wayland。</li>
+<li><strong>网络</strong><br>安装<a href="https://wiki.archlinux.org/index.php/NetworkManager">networkmanager</a>，并在systemctl中启用NetworkManager.service。这样它会自动扫描可用网络并连接，不用每次使用dhcpcd。</li>
 <li><strong>ssh</strong><br>安装openssh，用systemctl开启sshd.service，之后即可通过ssh连接主机。</li>
 </ul>
 <h2><span id="开发环境配置">开发环境配置</span></h2><ul>
-<li><strong>Vim &amp; YouCompleteMe</strong><br>Vim的风格有多种配置方法，笔者推荐一个叫 <a target="_blank" rel="noopener" href="https://github.com/amix/vimrc">The Ultimate vimrc</a> 的配置。</li>
+<li><strong>Vim &amp; YouCompleteMe</strong><br>Vim的风格有多种配置方法，笔者推荐一个叫 <a href="https://github.com/amix/vimrc">The Ultimate vimrc</a> 的配置。</li>
 </ul>
-<p>此外youcompleteme推荐自行下载编译安装，可参见笔者另一篇文章中对ycm的配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/milkpku/article/details/79808117">Windows下开发环境配置</a></p>
+<p>此外youcompleteme推荐自行下载编译安装，可参见笔者另一篇文章中对ycm的配置：<a href="https://blog.csdn.net/milkpku/article/details/79808117">Windows下开发环境配置</a></p>
 <ul>
-<li><p><strong>Oh-my-Zsh</strong><br>安装<a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>，并安装<a target="_blank" rel="noopener" href="https://github.com/powerline/fonts">font-powerline</a>，</p>
+<li><p><strong>Oh-my-Zsh</strong><br>安装<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>，并安装<a href="https://github.com/powerline/fonts">font-powerline</a>，</p>
 </li>
 <li><p><strong>tmux</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> -g prefix C-a</span><br><span class="line">unbind-key C-b</span><br><span class="line">bind-key C-a send-prefix</span><br></pre></td></tr></table></figure>
@@ -213,7 +213,7 @@ NTczNTk5NzBdfQ==
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="cllqod9i90004a4te3op63lz6" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="clsiga63l0004cgsxd5kee9xu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -259,7 +259,7 @@ NTczNTk5NzBdfQ==
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      Copyright &copy; 2023 Li-Ke Ma
+      Copyright &copy; 2024 Li-Ke Ma
     </div>
   </div>
 </footer>
