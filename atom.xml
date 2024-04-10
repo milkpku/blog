@@ -6,7 +6,7 @@
   <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
   
   <link href="http://milkpku.github.io/blog/"/>
-  <updated>2024-02-12T15:03:03.484Z</updated>
+  <updated>2024-04-10T14:01:08.565Z</updated>
   <id>http://milkpku.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Stable Diffusion Paper 精读</title>
+    <link href="http://milkpku.github.io/blog/2024/04/10/Stable%20Diffusion%20Paper%20%E7%B2%BE%E8%AF%BB/"/>
+    <id>http://milkpku.github.io/blog/2024/04/10/Stable%20Diffusion%20Paper%20%E7%B2%BE%E8%AF%BB/</id>
+    <published>2024-04-09T16:00:00.000Z</published>
+    <updated>2024-04-10T14:01:08.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;随着 GPT-3 和 Stable Diffusion 的成功，AI技术进入大模型时代，Large Language Model (LLM) 和 Diffusiom Model (DM) 成为大模型的核心技术。作为为 Stable Diffusion 提供最重要技术突破的论文 &lt;em&gt;High-Resolution Image Synthesis with Latent Diffusion Models&lt;/em&gt;，迄今引用已经达到6k+，具有重要的学习价值。本文为该工作的阅读笔记，主要记录笔者对工作的整体理解和一些细节展开。&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-主要内容和贡献&quot;&gt;1. 主要内容和贡献&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>从广义相对论到宇宙标准模型</title>
@@ -571,40 +598,6 @@
     
     
     <category term="Research" scheme="http://milkpku.github.io/blog/tags/Research/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arch Linux 安装与开发环境配置</title>
-    <link href="http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    <id>http://milkpku.github.io/blog/2018/11/08/Arch%20Linux%20%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
-    <published>2018-11-07T16:00:00.000Z</published>
-    <updated>2024-02-12T03:35:28.863Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;笔者由于工作学习需要，时不时就要安装新系统，为了方便工作，避免重复查找，特此将一些安装中注意事项记录在此。&lt;/p&gt;
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#我与-arch-的相识&quot;&gt;我与 Arch 的相识&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#为什么选择-arch&quot;&gt;为什么选择 Arch&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#社区&quot;&gt;社区&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#稳定&quot;&gt;稳定&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#可定制性&quot;&gt;可定制性&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#安装-arch-linux&quot;&gt;安装 Arch Linux&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
-    
     
   </entry>
   

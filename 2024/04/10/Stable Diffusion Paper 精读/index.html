@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Stable Diffusion Paper 精读 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta name="description" content="随着 GPT-3 和 Stable Diffusion 的成功，AI技术进入大模型时代，Large Language Model (LLM) 和 Diffusiom Model (DM) 成为大模型的核心技术。作为为 Stable Diffusion 提供最重要技术突破的论文 High-Resolution Image Synthesis with Latent Diffusion Models，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stable Diffusion Paper 精读">
+<meta property="og:url" content="http://milkpku.github.io/blog/2024/04/10/Stable%20Diffusion%20Paper%20%E7%B2%BE%E8%AF%BB/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="随着 GPT-3 和 Stable Diffusion 的成功，AI技术进入大模型时代，Large Language Model (LLM) 和 Diffusiom Model (DM) 成为大模型的核心技术。作为为 Stable Diffusion 提供最重要技术突破的论文 High-Resolution Image Synthesis with Latent Diffusion Models，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-10T14:01:08.565Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('/blog/images/2024_stable_diffusion/banner.png') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">Stable Diffusion Paper 精读</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-Stable Diffusion Paper 精读" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2024/04/10/Stable%20Diffusion%20Paper%20%E7%B2%BE%E8%AF%BB/" class="article-date">
+  <time datetime="2024-04-09T16:00:00.000Z" itemprop="datePublished">2024-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Computer-Science/">Computer Science</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Stable Diffusion Paper 精读
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着 GPT-3 和 Stable Diffusion 的成功，AI技术进入大模型时代，Large Language Model (LLM) 和 Diffusiom Model (DM) 成为大模型的核心技术。作为为 Stable Diffusion 提供最重要技术突破的论文 <em>High-Resolution Image Synthesis with Latent Diffusion Models</em>，迄今引用已经达到6k+，具有重要的学习价值。本文为该工作的阅读笔记，主要记录笔者对工作的整体理解和一些细节展开。</p>
+<!-- toc -->
+<ul>
+<li><a href="#1-主要内容和贡献">1. 主要内容和贡献</a></li>
+<li><a href="#2-重要依赖组件">2. 重要依赖组件</a><ul>
+<li><a href="#21-vq-vae">2.1 VQ-VAE</a></li>
+<li><a href="#22-u-net">2.2 U-net</a></li>
+<li><a href="#23-diffusion-model">2.3 Diffusion Model</a></li>
+<li><a href="#24-transformer">2.4 Transformer</a></li>
+</ul>
+</li>
+<li><a href="#3-实现细节和结果">3. 实现细节和结果</a><ul>
+<li><a href="#31-encoder的预训练">3.1 Encoder的预训练</a></li>
+<li><a href="#32-conditional-diffusion-model的结构">3.2 Conditional Diffusion Model的结构</a></li>
+</ul>
+</li>
+<li><a href="#4-未来发展">4. 未来发展</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<!-- tocstop -->
+<h1><span id="1-主要内容和贡献">1. 主要内容和贡献</span></h1><p>基于 Diffusion Model 的生成式模型，因为是直接学习分布，因此比依赖对抗学习的GAN更稳定。除图像生成外，DM还实现了图像超分辨<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>、图像修复<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>等功能。但现有DM通常是在像素空间进行操作的，使得训练和推理需要的计算量都很大。该工作主要贡献有两点：</p>
+<ul>
+<li>提出两阶段模型，即LDM：第一阶段通过 Auto Encoder 学习 latent space representation，将图像压缩至隐空间；第二阶段在隐空间训练DM，从而大大降低运算量。两阶段模型不仅降低了训练和推理阶段的运算量，还避免了联合训练需要平衡AE和DM训练目标的问题<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</li>
+<li>设计了一种通用的添加 condition 的结构：在U-net内部feature中加入QKV Attention层，以cross attention的形式提取condition信息。该结构实现了class-conditional, text-to-image和layout-to-image等任务，都达到了SOTA，并且可以多模态地训练。</li>
+</ul>
+<p>笔者个人认为，第一个贡献点是比较容易想到的。因为在Vahdat et. al.<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>的工作中，已经有了在latent space训练DM的方法，区别是在该工作中AE和DM是同时训练，因此训练时运算开销很大，还需要平衡两者的训练目标。于是很自然地想到可以将联合训练拆分为两阶段训练，这里的难点就变成了如何得到一个较好的encoder。作者们精心设计的训练方法使得encoder达到最小perceptual distortion，取得了足以服众的压缩效果，也是很亮眼。</p>
+<p>第二个贡献点是很重大的，具备广泛的可控性让LDM一下子有了成为image领域大统一模型的潜力。如果只有第一个贡献点，本文将只是一个改进DM训练推理效率的一般文章，只能做image synthesis这一个任务。但作者们通过提出一个通用的添加condition的结构，实现了各种任务的统一：image synthesis, class-conditional image synthesis, text-to-image, layout-to-image, super-resolution, semantic synthesis, inpainting 等等。因此这篇读书笔记也会主要去关注第二个贡献点的实现细节。</p>
+<h1><span id="2-重要依赖组件">2. 重要依赖组件</span></h1><h2><span id="21-vq-vae">2.1 VQ-VAE</span></h2><p>第一阶段的 encoder 和用以解码LDM输出的 decoder 的训练采用了VQ-VAE，即使用 Vector Quantilization（向量量化）进行图像的压缩表征，主要参考文献 <em>Neural Discrete Representation Learning</em>。原始图像 $W \times H \times 3$ 在经过若干层CNN后，成为 $w \times h \times c$，然后通过查询code book $K \times c$ 中最近元素得到每个位置feature的编码，并以code book中feature替换之，最后经过decoder还原图像。</p>
+<p>训练过程中主要用到一个trick叫梯度直传，用以解决量化code不能反传梯度的问题，其简洁实现如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quantile</span>(<span class="params">x, code_book</span>):</span><br><span class="line">    z = nearest(x, code_book)</span><br><span class="line">    <span class="keyword">return</span> x + tf.stop_gradient(z - x)</span><br></pre></td></tr></table></figure></p>
+<p>笔者推测选择VQ-VAE是因为量化离散能够提供较为鲁棒的decoder。该过程将LDM的输出重新投影到量化空间，对微小变动是鲁棒的，并且可以处理数值超出表示范围的情况。所以相比于连续空间，离散的量化空间能提供更高容错。</p>
+<h2><span id="22-u-net">2.2 U-net</span></h2><p>LDM的 diffusion model 中函数$\epsilon_\theta(x, t)$的结构主体为U-net。U-net首先由Ronneberger等人<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>在医疗图像分割中使用。在最新使用DM的图像生成<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>和图像超分辨<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>工作中$\epsilon_\theta(x, t)$正是使用U-net结构来表达。其中图像生成任务中U-net已经引入了attention结构，而超分辨任务中作为condition的低分辨率图像通过concatenation $X_t$进入$\epsilon_\theta(x, t)$。可以明显看到LDM的结构除引入cross attention外，其他部分和这两篇工作几乎一模一样。可以合理推测LDM作者们是在此基础上对U-net结构进行改进，引入了对 semantic feature 的 cross attention，从而得到一个更普适的 conditional U-net。Conditional U-net 的通用结构如下，区别在于如何结合context：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">unet_call</span>(<span class="params">self, x, time_emb, context</span>):</span><br><span class="line">    h = x</span><br><span class="line">    <span class="keyword">for</span> module <span class="keyword">in</span> self.down_blocks:</span><br><span class="line">        h = module(h, time_emb, context)</span><br><span class="line">        hs.append(h)</span><br><span class="line">    h = self.middle_block(h, time_emb, context)</span><br><span class="line">    <span class="keyword">for</span> module <span class="keyword">in</span> self.up_blocks:</span><br><span class="line">        h = tf.cat([h, hs.pop()], axis=-<span class="number">1</span>)</span><br><span class="line">        h = module(h, time_emb, context)</span><br><span class="line">    <span class="keyword">return</span> h</span><br></pre></td></tr></table></figure></p>
+<h2><span id="23-diffusion-model">2.3 Diffusion Model</span></h2><p>在diffusion model<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>出现之前，对于分布的学习主要依赖于GAN或者Norm Flow等方法。Diffusion model将任意的分布通过扩散过程（Diffusion Process）与高斯分布联系在一起，然后以Deep Learning的方法反解对应的随机微分方程，得到扩散过程的逆过程，从而可以从高斯分布还原原始分布。DM具有很高的稳定性和精确性，在提出之后迅速得到学术界的重视。</p>
+<p>对于一个 sample $X_0$，$1 &gt; \bar{\alpha}_0 &gt; \bar{\alpha}_1 … &gt; \bar{\alpha}_T \approx 0$描述了扩散过程中不同时刻的 $X_t \sim N(\sqrt{\bar{\alpha}_t} X_0, (1-\bar{\alpha}_t) I)$，训练阶段的优化目标为</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_\theta = \|\epsilon_t - \epsilon_\theta(X_t, t)\|_2^2，X_t = \sqrt{\bar\alpha_t} X_0 + \sqrt{1 - \bar\alpha_t} \epsilon_t,</script><p>推理阶段则有</p>
+<script type="math/tex; mode=display">
+X_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left(X_t - \frac{1-\alpha_t}{\sqrt{1-\bar\alpha_t}} \epsilon_\theta(X_t, t) \right) + \sigma_t z.</script><p>其中$\alpha_t = \frac{1-\bar\alpha_t}{1-\bar\alpha_{t-1}}, z \sim N(0, I).$ OpenAI员工Lilian有关diffusion model的<a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">博客</a>非常适合用于深入了解diffusion model.</p>
+<h2><span id="24-transformer">2.4 Transformer</span></h2><p>Transformer 结构最早由 <em>Attention is All You Need</em><sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>提出，通过注意力机制解决传统NLP解决方案中RNN网络结构不能处理长程关联的问题。不久后OpenAI和DeepMind各自基于该工作提出了General Pre-trained Transformer （GPT）和 BERT，刷新了NLP task的得分。不仅如此，OpenAI的后续研究<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>揭示Transformer具有相当好的规模化效应（scaling law），拥有可随着模型增大、训练数据变多、训练算力增长而变强的能力。随着2022年Chat-GPT的横空出世，证明了 Transformer 结构是一条可能通往通用人工智能（AGI）的新道路，对学术界外乃至整个社会都产生了颠覆性的冲击。LDM这篇文章就是和Chat-GPT同时代的工作，作者们敏锐地察觉到 Transformer 结构和LLM所蕴含的通用能力，便将其引入图像生成领域，促成了 Stable Diffusion 的诞生。</p>
+<h1><span id="3-实现细节和结果">3. 实现细节和结果</span></h1><h2><span id="31-encoder的预训练">3.1 Encoder的预训练</span></h2><p>LDM的Encoder-Decoder训练是基于同一作者的早期工作<sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup>。不同于使用基于像素的$L_2$或者$L_1$损失，作者使用了一种结合perceptual distortion和patch-based adversarial的训练方法。这种方法能够保证重建图像落在真实数据流形上，且避免了基于像素的损失会产生的模糊结果。</p>
+<p>$E, G, Z, D$ 分别表示Encoder, Generator(Decoder), Code Book和Discriminator。$\hat{x} = G(z) = G(VQ(E(x), Z))$ 为经编码后重建的图像，则VQ-VAE的优化目标为</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{VQ}(E, G, Z) = \mathcal{L}_{rec}(x, \hat{x}) + \|sg[E(x)] - z\|^2_2 + \|sg[z] - E(x)\|^2_2,</script><p>此处$\mathcal{L}_{rec}(x, \hat{x})$为重建误差，在VQ-VAE论文中为pixle-wise $L_2$ norm，但此处被替换为perceptual loss<sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup>，即将图像输入VGG-net等深度神经网络后观察各feature layer的加权$L_2$距离。Patch-based adversaial 训练loss为</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{GAN}(D) = \log D(x) + \log(1-D(\hat x)) .</script><p>则总优化问题定义为</p>
+<script type="math/tex; mode=display">
+\operatorname*{argmin}_{E,G,Z} \max_{D} E_{x\sim p(x)} [\mathcal L_{VQ} + \lambda \mathcal L_{GAN}(D)],</script><p>其中$\lambda = \frac{\nabla_{G_L}[\mathcal L_{rec}]}{\nabla_{G_L}[\mathcal L_{GAN}] + \delta}$，$\nabla_{G_L}$表示Generator最后一层的梯度，用以平衡两个优化目标。</p>
+<p>从作者在Github公开的repo <a href="https://github.com/CompVis/latent-diffusion"><code>CompVis/latent-diffusion</code></a> 可知最终用于大多数任务（text-to-image, layout-to-image, inpainting, …）的设定为VQ-VAE。code book大小为 $8192 \times 3$；降采样倍率为4；Encoder内部结构为3层down-sample layer，Res-Attn-Res中间层，还有kernel=3的conv输出层；每层 down-sample layer 中有两个 residual 结构；每降采样一层，channel数就涨一倍，从而保证每一层总feature数基本不变。</p>
+<h2><span id="32-conditional-diffusion-model的结构">3.2 Conditional Diffusion Model的结构</span></h2><p>构成$\epsilon_\theta(x, t)$的U-net基础组成模块除ResnetBlock外，就是AttentionBlock。AttentionBlock有两种结构，一种是self-attention，另一种是cross-attention。AttentionBlock通常置于U-net每一层的最后，输入为$H\times W \times C$，在attention运算时，将每个像素位上维度为$C$的vector作为一个token。因此 self-attention 时是 <script type="math/tex">Q=K=V=(H*W)\times C</script>，而 cross-attention 时 $Q=(H*W)\times C,K=V= M \times C$ 。</p>
+<p>U-net 的 condition 输入分为两种：图像形式（sematic map, low-resolution image, …），语义形式（text, layout, class）。</p>
+<ul>
+<li>图像形式的condition因为和输入的latent code map具有相同的长宽，因此可以直接在channel层concatenate即可。</li>
+<li>语义形式的condition首先经过一个LLM生成 $M \times C$ 的token，然后通过AttentionBlock和U-net产生联系。</li>
+</ul>
+<p>U-net还有一个输入是time embedding，其实现为在每个ResnetBlock中通过MLP层将time映射为一个embedding，然后concatenate到feature的每一个像素位后。</p>
+<p>笔者比较奇怪的一点是，其他的使用Transformer进行图像处理的模型比如ViT系列，都是会给每个图像patch一个positional embedding，而奇怪的是LDM和其前序工作中使用attention时都没有给token以position位置信息，不知道为何这么做，也不知道这样一来attention如何区别不同位置的信息。</p>
+<h1><span id="4-未来发展">4. 未来发展</span></h1><p>未来的发展方向有两个：</p>
+<ul>
+<li>寻找更加scalable的$\epsilon_\theta(x)$结构，能够吸收更多的数据、随算力的增长而成长。</li>
+<li>从2D走向2D+time，即对视频进行类似的操作。</li>
+</ul>
+<p>幸运的是这两个发展方向已经成为了现实：2024年2月，SORA<sup id="fnref:10"><a href="#fn:10" rel="footnote">10</a></sup>的发布标志着LDM生成长视频能力的成功。在诸多分析报告中，大家一致推测SORA通过使用Diffusion Transformers<sup id="fnref:11"><a href="#fn:11" rel="footnote">11</a></sup>获得更强的scale能力，并将视频tokenize化为三维tensor进行了处理，但即便进行了latent representation的压缩，SORA的训练和推理运算量也十分庞大。</p>
+<h1><span id="reference">Reference</span></h1><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Jonathan Ho, Ajay Jain, and Pieter Abbeel. <em>Denoising diffusion probabilistic models</em>. In NeurIPS, 2020.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Chitwan Saharia, Jonathan Ho, William Chan, Tim Salimans, David J. Fleet, and Mohammad Norouzi. <em>Image super-resolution via iterative refinement</em>. CoRR, abs/2104.07636, 2021.</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">Arash Vahdat, Karsten Kreis, and Jan Kautz. <em>Score-based generative modeling in latent space</em>. CoRR, abs/2106.05931, 2021</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">Olaf Ronneberger, Philipp Fischer, and Thomas Brox. <em>U-net: Convolutional networks for biomedical image segmen- tation</em>. In MICCAI (3), volume 9351 of Lecture Notes in Computer Science, pages 234–241. Springer, 2015.</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">Jascha Sohl-Dickstein, Eric A. Weiss, Niru Maheswaranathan, and Surya Ganguli. <em>Deep unsupervised learning using nonequilibrium thermodynamics</em>. CoRR, abs/1503.03585, 2015.</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. <em>Attention is all you need</em>. In NIPS, pages 5998–6008, 2017.</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">Jared Kaplan, Sam McCandlish, Tom Henighan, et al. <em>Scaling laws for neural language models</em>. CoRR, abs/2001.08361, 2020.</span><a href="#fnref:7" rev="footnote"> ↩</a></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">8.</span><span style="display: inline-block; vertical-align: top;">Patrick Esser, Robin Rombach, and Bj¨orn Ommer. <em>Taming transformers for high-resolution image synthesis</em>. CoRR, abs/2012.09841, 2020.</span><a href="#fnref:8" rev="footnote"> ↩</a></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">9.</span><span style="display: inline-block; vertical-align: top;">Richard Zhang, Phillip Isola, Alexei A Efros, Eli Shechtman, and Oliver Wang. <em>The Unreasonable Effectiveness of Deep Features as a Perceptual Metric</em>. In CVPR, 2018.</span><a href="#fnref:9" rev="footnote"> ↩</a></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">10.</span><span style="display: inline-block; vertical-align: top;">https://openai.com/sora</span><a href="#fnref:10" rev="footnote"> ↩</a></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">11.</span><span style="display: inline-block; vertical-align: top;">William Peebles, and Saining Xie. <em>Scalable Diffusion Models with Transformers</em>. Proceedings of the IEEE/CVF International Conference on Computer Vision. 2023: 4195-4205.</span><a href="#fnref:11" rev="footnote"> ↩</a></li></ol></div></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2024/04/10/Stable%20Diffusion%20Paper%20%E7%B2%BE%E8%AF%BB/" data-id="clututgq5000050sggq3j3kbz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<script src="https://utteranc.es/client.js"
+        repo="milkpku/blog"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2024/02/12/%E4%BB%8E%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%88%B0%E5%AE%87%E5%AE%99%E6%A0%87%E5%87%86%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">从广义相对论到宇宙标准模型</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2024 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
