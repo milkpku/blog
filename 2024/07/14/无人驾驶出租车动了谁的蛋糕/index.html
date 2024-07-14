@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>无人驾驶出租车动了谁的蛋糕 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta name="description" content="近期百度无人驾驶出租车在武汉大规模运营，引发出租车司机联名抗议。网友也大致按观点分成了两派进行激烈辩论：  无人驾驶抢了出租车、网约车从业者的饭碗，而现在经济形势不好，不应该抢夺底层劳动者的饭碗。 无人驾驶替代出租车就像织布机替代了织布工，应该拥抱生产力的发展。  作为一个一毕业就选择投身自动驾驶领域的研发工程师，我无疑正处在这个巨大漩涡的最中心。我觉得同大家分享自己的所思所想，有助于更理性地看待">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无人驾驶出租车动了谁的蛋糕">
+<meta property="og:url" content="http://milkpku.github.io/blog/2024/07/14/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E5%87%BA%E7%A7%9F%E8%BD%A6%E5%8A%A8%E4%BA%86%E8%B0%81%E7%9A%84%E8%9B%8B%E7%B3%95/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="近期百度无人驾驶出租车在武汉大规模运营，引发出租车司机联名抗议。网友也大致按观点分成了两派进行激烈辩论：  无人驾驶抢了出租车、网约车从业者的饭碗，而现在经济形势不好，不应该抢夺底层劳动者的饭碗。 无人驾驶替代出租车就像织布机替代了织布工，应该拥抱生产力的发展。  作为一个一毕业就选择投身自动驾驶领域的研发工程师，我无疑正处在这个巨大漩涡的最中心。我觉得同大家分享自己的所思所想，有助于更理性地看待">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-14T11:34:29.550Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('https://x0.ifengimg.com/res/2023/79E5CA05425120890EA622E75192A6165474C661_size432_w1239_h544.png') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">无人驾驶出租车动了谁的蛋糕</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-无人驾驶出租车动了谁的蛋糕" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2024/07/14/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E5%87%BA%E7%A7%9F%E8%BD%A6%E5%8A%A8%E4%BA%86%E8%B0%81%E7%9A%84%E8%9B%8B%E7%B3%95/" class="article-date">
+  <time datetime="2024-07-13T16:00:00.000Z" itemprop="datePublished">2024-07-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Essay/">Essay</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      无人驾驶出租车动了谁的蛋糕
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期百度无人驾驶出租车在武汉大规模运营，引发出租车司机联名抗议。网友也大致按观点分成了两派进行激烈辩论：</p>
+<ol>
+<li>无人驾驶抢了出租车、网约车从业者的饭碗，而现在经济形势不好，不应该抢夺底层劳动者的饭碗。</li>
+<li>无人驾驶替代出租车就像织布机替代了织布工，应该拥抱生产力的发展。</li>
+</ol>
+<p>作为一个一毕业就选择投身自动驾驶领域的研发工程师，我无疑正处在这个巨大漩涡的最中心。我觉得同大家分享自己的所思所想，有助于更理性地看待当下的发展，并一起推动社会的发展进步。</p>
+<p>首先，这两个论点都是真的，只是看待问题的时间尺度不同。第一个观点是从短期的视角，认为出租车网约车行业在骤然的冲击下会产生失业，让一部分司机失去收入，经历痛苦的再就业过程甚至就此长期失业，进而影响上千家庭的生计。而第二个观点是从长期的视角，认为无人驾驶技术能够提高出行服务的效率，从而增进社会整体福祉。这两个观点恰巧对应了宏观经济分析的两个时间尺度，即短期与长期。在宏观经济分析中有一个重要的结论：GDP增长短期看需求，长期看供给。就是说因为需求的波动比供给的波动更大，所以在短期来看是影响GDP增长的主要影响因素。但如果把眼光放长远，从长期来看，一个社会的GDP最终还是取决于供给端能够提供多少消费品。</p>
+<p>从长期来看，能够改善所有人生活的一定是推动自动驾驶技术的普及而非裹足不前，这是<strong>企业的使命</strong>。我的老板特别喜欢《黑客与画家》这本书，时常提到里面的一个观点：“财富是被创造出来的，一个社会应该去奖励创造财富的人，让他们变富。”虽然我隐约觉得老板有故意回避分配问题的嫌疑（而这正是员工所关心的），但总体上是十分认同这个观点的。再引用阿根廷总统米莱的话：“如果你赚钱，那是因为你以更优惠的价格，提供了更好的产品，从而有助于普遍的福祉。”这正是资本主义的美妙之处——（得到合适监管的）资本正是通过不断提高消费者的体验来追求自身利益的。（需要特别指出靠行政垄断地位赚钱的企业不算。）如果无人驾驶技术在未来能以更低的成本提供服务，那么由它占领市场对所有人来说是个好事。因此，无论中间的过程如何，从总量来讲，无人驾驶技术能够提高生产力，进而增进社会福祉。</p>
+<p>就事物的演化路径而言，应该配合分配手段以缓解新旧生产力间的矛盾，从而加速新旧转化，这是<strong>政府的职责</strong>。自动驾驶出租车带来的挤出本质上是更高生产力部门相对低生产力部门的扩张，这种扩张带来摩擦失业。被挤出的劳动者并不会像经济学中抽象的那样很快投入到新的产业中。失业会打击他们的自尊，转业会对之前的技能重新洗牌。他们是活生生的人，有不同的年龄、不同的技能、背后还有一个个家庭。可应该就此停止自动驾驶技术的发展吗？这是不对的，不应该阻碍生产力发展，我们有办法去缓解这种矛盾。这就涉及到宏观经济中分配公平性的讨论。在社会总供给分配到各个部门过程中，有两个分配阶段：第一个阶段是按生产资料（资本/劳动）的边际收益分配，讲的是效率；第二个阶段是税收和转移支付产生的二次分配，讲的是公平。政府的各种福利政策，本质上是一种转移支付，用于保障低收入人群的基本生活权利，防止贫富差距扩大。所以福利政策并不是某些人口中的“养懒汉”，而是一种弥合社会在发展过程中产生的裂痕的制度安排。我国当下的分配制度在政府收入方面严重依赖流转税，而流转税是累退的；在政府支出方面用于民生支出占比又很小（配合着对低收入者“懒汉”的污名化）。这一进一出让二次分配没有起到应有的作用。</p>
+<p>回到我们的中心话题，我作为一个从业者是怎么看待的。我有前同事因为不忍看到自动驾驶抢了出租车行业的饭碗而辞职，但我并不这么看。我看到了自动驾驶能够为所有人提供价值、为每个人节省时间，所以才投身到这一领域。正因为在这一过程中我能够为他人创造价值，所以也能收获财富。如果有人因为我的贡献而失业，我不会感到愧疚。作为一个企业端的研发工程师，我的职责、我为社会作出的贡献就是让自动驾驶尽快成为现实，大幅降低出行成本、改善出行体验。真正使得他们失业的是经济规律，是自然的法则。但这并不意味着我乐得看到他们落得如此下场。我十分愿意分享技术进步、生产力提高带来的收益。理想情况是通过税收这一二次分配手段，我所获得的收益能够转移到对他们的失业金、再就业培训等社会保障的补贴上。只可惜现实是我国居民收入占GDP比重低（当前/历史同期/历史低点都大幅低于欧美日韩）、社会福利占政府开销比重低（还随着经济下行进一步削减）。所以与其请愿限制和减缓自动驾驶技术的发展，更应该做的是推动税收支柱向资产税转移、政府支出向民生领域倾斜，让政府站出来真正担好分配的职责，从而取得共赢局面。</p>
+<p>究其根源，激化矛盾的是分配而不是发展。如果有稳定的社会保障，相信这些因为不走运而处于落后生产部门的人能够在发展过程中经受更少的痛苦。现在正处经济下行时期，如何协调两方的利益，更是考验当政者的政治智慧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2024/07/14/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E5%87%BA%E7%A7%9F%E8%BD%A6%E5%8A%A8%E4%BA%86%E8%B0%81%E7%9A%84%E8%9B%8B%E7%B3%95/" data-id="clylhab9j0000clsg7imqdbah" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<script src="https://utteranc.es/client.js"
+        repo="milkpku/blog"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2024/06/20/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《渐行渐远的红利》笔记 - 第五章 货币信用周期</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2024 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
