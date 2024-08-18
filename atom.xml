@@ -6,7 +6,7 @@
   <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
   
   <link href="http://milkpku.github.io/blog/"/>
-  <updated>2024-07-31T13:29:58.860Z</updated>
+  <updated>2024-08-18T14:16:29.840Z</updated>
   <id>http://milkpku.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《软件设计哲学》读书笔记</title>
+    <link href="http://milkpku.github.io/blog/2024/08/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"/>
+    <id>http://milkpku.github.io/blog/2024/08/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/</id>
+    <published>2024-08-17T16:00:00.000Z</published>
+    <updated>2024-08-18T14:16:29.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;斯坦福教授、Tcl 语言发明者 John Ousterhout 的著作《A Philosophy of Software Design》，自出版以来，好评如潮。冠名为“哲学”，意为这本书讲授的是一些通用的原则和方法论，这些原则和方法论串起来，能够形成一个体系。用一句话概括《A Philosophy of Software Design》——软件设计的核心在于降低复杂性。&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#一-复杂性的来源&quot;&gt;一、复杂性的来源&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#二-如何正确工作&quot;&gt;二、如何正确工作&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#21-战略编程与战术编程&quot;&gt;2.1</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>《渐行渐远的红利》笔记 - 第十章 “新中间路线”—转型的政策路径</title>
@@ -583,40 +611,6 @@
     
     
     <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>理想国前四卷回顾</title>
-    <link href="http://milkpku.github.io/blog/2022/08/28/%E7%90%86%E6%83%B3%E5%9B%BD%E5%89%8D%E5%9B%9B%E5%8D%B7%E5%9B%9E%E9%A1%BE/"/>
-    <id>http://milkpku.github.io/blog/2022/08/28/%E7%90%86%E6%83%B3%E5%9B%BD%E5%89%8D%E5%9B%9B%E5%8D%B7%E5%9B%9E%E9%A1%BE/</id>
-    <published>2022-08-27T16:00:00.000Z</published>
-    <updated>2024-02-12T03:35:28.863Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-最初的困难&quot;&gt;1. 最初的困难&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#11-力量与善&quot;&gt;1.1 力量与善&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#12-正义非技艺&quot;&gt;1.2 正义非技艺&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#13-更大的问题&quot;&gt;1.3 更大的问题&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-重塑后的困难&quot;&gt;2. 重塑后的困难&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#21-自然与习俗&quot;&gt;2.1 自然与习俗&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#22-灵魂与意见&quot;&gt;2.2 灵魂与意见&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
     
     
   </entry>

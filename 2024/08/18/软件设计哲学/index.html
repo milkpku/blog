@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>《软件设计哲学》读书笔记 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta name="description" content="斯坦福教授、Tcl 语言发明者 John Ousterhout 的著作《A Philosophy of Software Design》，自出版以来，好评如潮。冠名为“哲学”，意为这本书讲授的是一些通用的原则和方法论，这些原则和方法论串起来，能够形成一个体系。用一句话概括《A Philosophy of Software Design》——软件设计的核心在于降低复杂性。   一、复杂性的来源 二、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《软件设计哲学》读书笔记">
+<meta property="og:url" content="http://milkpku.github.io/blog/2024/08/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="斯坦福教授、Tcl 语言发明者 John Ousterhout 的著作《A Philosophy of Software Design》，自出版以来，好评如潮。冠名为“哲学”，意为这本书讲授的是一些通用的原则和方法论，这些原则和方法论串起来，能够形成一个体系。用一句话概括《A Philosophy of Software Design》——软件设计的核心在于降低复杂性。   一、复杂性的来源 二、">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-18T14:16:29.840Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('/blog/images/2024_PSD/cover-BbonuOFD.jpeg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">《软件设计哲学》读书笔记</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-软件设计哲学" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2024/08/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/" class="article-date">
+  <time datetime="2024-08-17T16:00:00.000Z" itemprop="datePublished">2024-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Computer-Science/">Computer Science</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《软件设计哲学》读书笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>斯坦福教授、Tcl 语言发明者 John Ousterhout 的著作《A Philosophy of Software Design》，自出版以来，好评如潮。冠名为“哲学”，意为这本书讲授的是一些通用的原则和方法论，这些原则和方法论串起来，能够形成一个体系。用一句话概括《A Philosophy of Software Design》——软件设计的核心在于降低复杂性。</p>
+<!-- toc -->
+<ul>
+<li><a href="#一-复杂性的来源">一、复杂性的来源</a></li>
+<li><a href="#二-如何正确工作">二、如何正确工作</a><ul>
+<li><a href="#21-战略编程与战术编程">2.1 战略编程与战术编程</a></li>
+<li><a href="#22-设计两次">2.2 设计两次</a></li>
+<li><a href="#23-选择名字一致性代码易读性">2.3 选择名字，一致性，代码易读性</a></li>
+<li><a href="#24-正确修改代码">2.4 正确修改代码</a></li>
+</ul>
+</li>
+<li><a href="#三-模块如何设计">三、模块如何设计</a><ul>
+<li><a href="#31-模块应该是深的">3.1 模块应该是深的</a></li>
+<li><a href="#32-信息隐藏">3.2 信息隐藏</a></li>
+<li><a href="#33-不同的层不同的抽象">3.3 不同的层不同的抽象</a></li>
+<li><a href="#34-降低复杂性">3.4 降低复杂性</a></li>
+<li><a href="#35-相关模块放在一起">3.5 相关模块放在一起</a></li>
+<li><a href="#36-减少异常处理">3.6 减少异常处理</a></li>
+</ul>
+</li>
+<li><a href="#四-如何写注释">四、如何写注释</a><ul>
+<li><a href="#41-四个写注释的理由">4.1 四个写注释的理由</a></li>
+<li><a href="#42-怎么写注释">4.2 怎么写注释</a></li>
+<li><a href="#43-先写注释">4.3 先写注释</a></li>
+<li><a href="#44-更新注释">4.4 更新注释</a></li>
+</ul>
+</li>
+<li><a href="#五-设计性能">五、设计性能</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- tocstop -->
+<h1><span id="一-复杂性的来源">一、复杂性的来源</span></h1><ul>
+<li>复杂性的定义<ul>
+<li>如果一个软件系统难以理解和修改，那它就很复杂。</li>
+<li>一个功能复杂但操作简单的系统，并不复杂。</li>
+<li>总体复杂度等于每个部分复杂度乘以开发人员所花时间，因此隔离复杂性和完全消除复杂性几乎一样好。</li>
+</ul>
+</li>
+<li>复杂性的症状<ul>
+<li><strong>变更放大：</strong> 看似简单的变更需要对代码在很多地方进行修改。</li>
+<li><strong>认知负荷：</strong> 开发人员需要知道很多信息才能完成任务。</li>
+<li><strong>未知的未知：</strong> 需要修改什么代码、知道哪些知识才能完成任务，在系统中都不是明显的。</li>
+</ul>
+</li>
+<li>复杂性的原因<ul>
+<li><strong>依赖性：</strong> 依赖关系是软件系统的基本组成部分，无法完全消除。软件设计的目标就是最大化减少依赖关系。</li>
+<li><strong>模糊性：</strong> 当重要信息不明显时就会产生模糊。比如依赖项不明显、变量名不一致等。缺乏文档也是其中一个原因，但是一个简洁的设计能减少对文档的需求。</li>
+</ul>
+</li>
+<li>复杂性的积累<ul>
+<li>系统复杂性都是一点一滴积累起来的，因此需要在开发维护时实行“零容忍”策略。</li>
+</ul>
+</li>
+</ul>
+<h1><span id="二-如何正确工作">二、如何正确工作</span></h1><h2><span id="21-战略编程与战术编程">2.1 战略编程与战术编程</span></h2><ul>
+<li>战术编程<ul>
+<li>着眼于快速完成任务，不介意增加一些复杂性和引入一两个错误。</li>
+<li>会逐渐积累复杂性，并在之后让重构系统的成本变得难以负担。</li>
+</ul>
+</li>
+<li>战略编程<ul>
+<li>将系统长期结构视为重要目标，而不仅仅关注工作代码。</li>
+</ul>
+</li>
+</ul>
+<p>战略编程需要一种投资心态：</p>
+<ul>
+<li><strong>主动投资：</strong> 例如为每一个新类找到一个简单设计；试想系统未来可能需要的扩展。</li>
+<li><strong>被动投资：</strong> 当发现设计问题时，花一些额外时间修复它。</li>
+<li>初期的设计很快会因需求的改变而变得不合适，因此应进行连续小额的投资，总共花10-20%的时间，可在几个月后收回成本。</li>
+</ul>
+<h2><span id="22-设计两次">2.2 设计两次</span></h2><p>设计软件是件复杂的事情，很少有人能一次做对，再聪明的人也会被提拔到足够困难的环境中，所以要对每个主要设计考虑多个选项。设计两次可以改善设计、提高自己的设计能力。</p>
+<p>设计步骤：</p>
+<ol>
+<li>勾勒出一些重要方法。</li>
+<li>尝试选择完全不同的方法，考虑它们的弱点并将其与其他设计特征进行比对。</li>
+<li>列出每个方案的优缺点。接口是否带来更简洁的界面？是否更通用？是否带来更有效的实现？</li>
+<li>最终选择一个，或者将多个功能组合成一个新的设计。</li>
+<li>如果没有一个方案足够好，则是一个危险的信号，需要带着原始方案的问题重新考虑设计。</li>
+</ol>
+<h2><span id="23-选择名字一致性代码易读性">2.3 选择名字，一致性，代码易读性</span></h2><p><strong>2.3.1 选择名字</strong><br>为变量和函数选择一个好的名字能带来很多好处，例如避免错误、提供重要信息。</p>
+<ul>
+<li><strong>精确性：</strong> 避免笼统和含糊。一个名称如果过于广泛（如result），那它无法传递有效信息。好的名字可以让读者在不查询文档的情况下推知它的角色、值的意义。</li>
+<li><strong>一致性：</strong> 在系统中不同位置可以使用同一名称用于相同目的，但需要注意以下几点：<ul>
+<li>始终将通用名称用于给定目的；</li>
+<li>除给定目的外不使用通用名称；</li>
+<li>确保目的足够狭窄，使所有通用名称都有相同行为。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.3.2 一致性</strong><br>一致性还可以作用在更大的范围，是显著降低系统复杂性的强大工具。其功效有两点：</p>
+<ul>
+<li><strong>降低认知负担：</strong> 如果系统是一致的，就意味着相似的事情以相似的方式完成，不必了解每一处细节。</li>
+<li><strong>减少错误：</strong> 开发人员可以根据熟悉的模式进行假设而不出错。</li>
+</ul>
+<p>一致性体现在以下几个方面：命名、编码风格、接口、设计模式、不变量。其中不变量是始终为真的变量或结构的属性，例如储存文本的数据结构总以换行符结尾。这种不变量减少了特殊情况。</p>
+<p>一致性约定不要随意改变。一致性相比不一致的好处远大于一个新方法相比于旧方法的好处。除非新的方法能够带来足够的好处，才可以进行一致性约定的改变。如果确定要改变，则要保证完全去除旧的约定，重新让系统达到一致性。</p>
+<p><strong>2.3.3 代码易读性</strong><br>代码清晰可读，能够让合作者快速了解其功能，也能减少犯错的可能。确定代码是否清晰的<strong>最好</strong>方法就是让别人来阅读代码。只要读者认为不清晰，就需要进行调整。除选择好的名字、保持一致性以外，空格、注释和文档的合理使用也能让代码清晰可读。</p>
+<p>有几种做法会损害代码的清晰性：</p>
+<ul>
+<li><strong>事件驱动的编程。</strong> 事件驱动的编程很难遵循控制流程，为了弥补这种模糊性，应该给每一个处理程序函数使用接口注释。</li>
+<li><strong>通用容器</strong> 容器如<code>std::pair</code>等提供了方便的方法一次性返回多个对象，但分组后元素的通用名称模糊了它们的含义。因此最好定义新的类或者结构体，并赋予有意义的名称。</li>
+</ul>
+<h2><span id="24-正确修改代码">2.4 正确修改代码</span></h2><p>系统的设计在不断发展，添加新的模块和功能，因此无法在一开始给系统一个正确的设计。我们需要采取措施防止随着系统的发展而积累复杂性。</p>
+<p><strong>保持战略。</strong> 大多数开发者思考的是“如何以最小修改达到目的”，虽然这避免了大的改动带来的不稳定，但这种战术编程会迅速积累复杂性。因此应在修改代码时就考虑设计系统，以获得最佳设计，这样每次修改都将改善系统设计。</p>
+<p><strong>小步前进。</strong> 每次修改代码时都尝试找到一点系统设计的改善。在几个月时间的重构和两个小时的修补之间，考虑一种折中的替代方法，它能够提供像重构一样的简洁，但只需要几天实现。每个团队都应留出一些时间来进行清理和重构，这会很快收回成本。</p>
+<h1><span id="三-模块如何设计">三、模块如何设计</span></h1><h2><span id="31-模块应该是深的">3.1 模块应该是深的</span></h2><p>为了管理系统复杂性，我们将软件划分为不同的模块，理想情况下程序员可以在任何模块中工作而不必了解其他模块。然而由于模块间不可避免地有相互依赖，所以将模块分为接口和实现两个部分：</p>
+<ul>
+<li>接口：描述模块做什么，而非怎么做</li>
+<li>实现：完成接口所承诺的功能</li>
+</ul>
+<p>最好的模块是接口比实现简单得多的模块，有两个优点：（1） 将外部复杂性降到最低 （2）更容易在不影响接口的情况下更改实现</p>
+<p>模块深度是考虑成本与收益的一种方式：</p>
+<ul>
+<li>模块提供的好处是它的功能</li>
+<li>模块的成本是其接口，代表其强加于其他模块的复杂度</li>
+</ul>
+<p>最好的模块是那些收益最大化而成本最低的模块，因此深模块是更好的。unix系统的文件I/O机制就只有五个接口，虽然随着计算机系统的发展它们的实现已经发生了翻天覆地的变化，但仍然保持着稳定而简洁的接口。</p>
+<h2><span id="32-信息隐藏">3.2 信息隐藏</span></h2><p>实现深层模块最重要的技术就是<strong>信息隐藏</strong>：每个模块应该封装一些知识，这些知识代表设计决策，对其他模块不可见。带来两点好处：</p>
+<ul>
+<li>简化了接口，隐藏了细节，减少认知负担。</li>
+<li>使系统更容易演化。信息隐藏技术减少了外部模块对内部信息的依赖，如tcp协议改变只需要更改底层通信类。</li>
+</ul>
+<p><strong>信息泄漏</strong>是信息隐藏的反面，当一个设计决策反映在多个模块中时，就会发生信息泄漏。这在模块间创建了依赖关系，对设计决策的任何改变都要求修改所有涉及的类。比如对特定文件结构的读写。</p>
+<p>将任务按时间分解并依此设计系统容易产生信息泄漏。如文件读取-修改-写出，其中I/O部分共享文件结构信息，应实现在同一类中。在设计模块时应专注每个模块涉及的知识，而不是执行的顺序。</p>
+<h2><span id="33-不同的层不同的抽象">3.3 不同的层不同的抽象</span></h2><p>软件系统由不同层组成，较高层使用较低层提供的接口。在设计良好的系统中，每一层都提供与其上下两层不同的抽象。</p>
+<ul>
+<li><strong>直通方法：</strong> 相邻层存在相似抽象时，通常会出现直通方法。直通方法存在以下问题：（1）除传参外不执行任何操作（2）增加复杂性而不带来任何功能（3）在类之间创造依赖关系。直通方法表明类之间职责划分出现混淆，需要用重构解决，有<em>暴露、划分、合并</em>三种解决方法。</li>
+<li><strong>接口复制：</strong> 具有相同签名的方法只要提供有用且独特的功能，就不会混淆，而且能降低认知负担。它们通常位于同一抽象层。举例：分派器函数调用同名函数。</li>
+<li><strong>装饰器：</strong> 装饰器对象接受现有对象并扩展其功能，通常提供相同API。装饰器类通常很浅，引入大量模版但提供很少的功能，考虑与基础类、用例或已有装饰器进行合并以减少复杂度。</li>
+<li><strong>接口与实现：</strong> 接口与实现的分离是另一个“不同层不同的抽象”规则的应用。</li>
+<li><strong>跨层传参：</strong> 传递变量增加了复杂性，因为它强制所有中间方法知道它的存在，但并不产生作用。有三种办法减轻跨层传参的复杂度：<em>共享对象（打包参数），全局变量，上下文对象。</em></li>
+</ul>
+<h2><span id="34-降低复杂性">3.4 降低复杂性</span></h2><p>遇到不可避免的复杂性时，应该让用户处理还是让模块内部处理？通常用户数量远远多于开发者，因此应尽可能让用户舒服。一个准则是：<strong>简单的接口比简单的实现更重要。</strong></p>
+<p>例如不确定要实施什么策略，则可以定义一些配置参数来设定模块。配置参数可以让用户有更强的控制，但这会增加系统的复杂度。在决定将一个参数交给用户设置前，先扪心自问：用户是否能够确定比我现在更好的参数？如果不能，那就尽可能自动计算合理的默认值。</p>
+<h2><span id="35-相关模块放在一起">3.5 相关模块放在一起</span></h2><p>给定两个模块，它们是否应该放在一起？可以从降低复杂度的角度看到，有两种典型场景下两个模块应该放在一起：（1）模块共享信息（2）放在一起可以简化接口</p>
+<p>模块过长并不是拆分它的理由，而是要看拆分之后是否能够提供更好的抽象（如消除重复），否则更深的模块和更简洁的接口能带来更多好处。</p>
+<h2><span id="36-减少异常处理">3.6 减少异常处理</span></h2><p>异常处理是软件系统中最糟糕的复杂性来源之一。异常通常指任何会改变程序正常控制流程的不常见条件，包括正式定义的异常和方法因未完成正常行为而返回特殊值。异常处理带来复杂性主要在于：</p>
+<ul>
+<li>异常中断了正常代码流，无论是停下还是继续程序都很复杂。</li>
+<li>异常处理代码为带来更多异常创造条件。（在冗余恢复期间再次发生异常怎么办？）</li>
+<li>语言对异常的支持是冗长笨拙的，使阅读变得困难。</li>
+<li>难以检查异常处理模块是否正确工作，因为异常很少发生。</li>
+</ul>
+<p>抛出异常容易，处理起来却很麻烦，所以最好的方法是减少必须处理异常的位置数，有四种方法：</p>
+<ol>
+<li><strong>消除定义盲区：</strong> 消除特殊情况，使得程序可以自动处理所有情况而不需要额外代码<ul>
+<li>unix与windows文件删除的不同实现，使得unix可以删除正在被其他进程使用的文件而不产生异常。</li>
+<li>java字符串取子串的接口支持超出范围的输入。</li>
+</ul>
+</li>
+<li><strong>异常屏蔽：</strong> 在系统较低的级别上检测和处理异常，使得更高级别软件无需知道该情况。<ul>
+<li>tcp网络传输丢包的处理。</li>
+<li>NFS系统服务器崩溃时客户端只会挂起。</li>
+</ul>
+</li>
+<li><strong>异常聚集：</strong> 用一段代码处理多个异常。这种方法适合处理在堆栈中传播了多个层级的异常。<ul>
+<li>web服务器需要处理url的各种问题，但因为处理异常都是打印错误消息，所以可以传递至最顶层用同一段代码处理。</li>
+<li>RAMCloud从来不单独处理异常恢复，而是把所有异常提级，进行服务器级别的崩溃恢复。这样做减少了必须的代码编写量，也使得崩溃恢复代码得到更多测试。虽然增加了恢复成本。但由于异常发生频率低，这样做不是大问题。</li>
+</ul>
+</li>
+<li><strong>直接崩溃：</strong> 软件系统中有些错误是不值得尝试的，此时直接打印诊断信息并中止是最好的方法：<ul>
+<li>储存分配期间出现内存不足。</li>
+<li>I/O时出现错误（除非软件系统本身就是储存系统）。</li>
+</ul>
+</li>
+</ol>
+<p>重要的异常仍然需要抛出，不要为了消除异常位置而走得太远。</p>
+<h1><span id="四-如何写注释">四、如何写注释</span></h1><ul>
+<li>代码内注释很重要：<ul>
+<li>帮助开发人员理解系统并有效工作</li>
+<li>隐藏模块的复杂性</li>
+<li>编写注释改善系统设计</li>
+</ul>
+</li>
+<li>好的注释<ul>
+<li>可以对系统整体质量产生很大影响</li>
+<li>并不难写</li>
+<li>写起来很有趣</li>
+</ul>
+</li>
+</ul>
+<h2><span id="41-四个写注释的理由">4.1 四个写注释的理由</span></h2><ul>
+<li><strong>Q1：好的代码可以自我注释</strong><br>  “好的代码不需要注释”是个美丽的谎言，因为：<ul>
+<li><em>没有注释代码就不完整：</em> 代码的正式接口定义只能提供一部分信息，剩下的非正式信息（如方法的功能和原理）只能由注释提供。</li>
+<li><em>没有注释很痛苦：</em> 如果要通过阅读代码来知道方法的功能，会非常耗时和痛苦。而为了可读性使用浅层方法会使方法变复杂。</li>
+<li><em>有了注释很方便：</em> 有了注释可以提供完整的抽象，只保留必要的信息，从而隐藏复杂度。</li>
+</ul>
+</li>
+<li><strong>Q2：没有时间写注释</strong><ul>
+<li>如果总将开发任务置于注释之上，那么永远不会轮到注释。</li>
+<li>如果想要高效的软件结构和长期有效的工作，那必须花费额外时间。好的注释能够很快收回投资成本。</li>
+<li>许多最重要的注释是顶层设计与抽象，是设计过程的一部分，不占额外时间，并且会让系统结构变得更好。</li>
+</ul>
+</li>
+<li><strong>Q3：注释过时或者误导</strong><ul>
+<li>只有当代码发生较大改动时才会需要对注释作大的改动，相比起来注释改动很小。</li>
+<li>避免重复的文档并时刻保持文档与代码一致。</li>
+</ul>
+</li>
+<li><strong>Q4：很多注释没有用</strong><ul>
+<li>可以通过一定的方法编写良好的文档并随时进行维护。</li>
+</ul>
+</li>
+<li><strong>A1：写注释的好处</strong><ul>
+<li><em>减轻认知负荷：</em> 通过提供必要信息为开发人员减轻认知负担。</li>
+<li><em>减少未知的风险：</em> 通过阐明系统结构从而减少未知。</li>
+<li><em>依赖与模糊：</em> 阐明依赖关系，填补空白消除模糊。</li>
+</ul>
+</li>
+</ul>
+<h2><span id="42-怎么写注释">4.2 怎么写注释</span></h2><p>代码不能捕获开发人员想到的所有重要信息，因此需要编写注释来记录它们。注释的指导原则是<strong>描述那些代码中不明显的信息。</strong></p>
+<p>确定注释的约定：约定要注释的内容和格式。约定即便不完美也没关系，约定保证了两件事：一致性、有内容。</p>
+<p>注释一般分为四种：</p>
+<ul>
+<li>接口注释：描述接口的整体行为</li>
+<li>实现注释：描述代码内在工作方式</li>
+<li>数据结构成员注释</li>
+<li>跨模块注释</li>
+</ul>
+<p>不要重复代码：有两种常见误区</p>
+<ul>
+<li><strong>重复代码：</strong> 注释内容可轻松地从代码推断出，因此没有引入额外信息。</li>
+<li><strong>复用代码中的实体名：</strong> 注释应选用为实体提供更多信息的表述。</li>
+</ul>
+<p><strong>低级/高级注释</strong></p>
+<ul>
+<li>低级注释提高精度：<ul>
+<li>变量单位、范围、空值含义、资源管理、是否存在不变量等。</li>
+<li>注释变量时尽量使用名词，清楚表明它记录什么。</li>
+</ul>
+</li>
+<li>高级注释增强直觉：<ul>
+<li>在比代码更高层面编写，提供一个只保留必要信息的简单框架，帮助读者理解整体意图和结构。</li>
+</ul>
+</li>
+</ul>
+<p><strong>接口/实现注释</strong> </p>
+<ul>
+<li>记录抽象的第一步就是分离接口注释和实现注释。</li>
+<li><strong>接口注释</strong>应包含用于抽象的高层信息，也应包含用于精度的低层细节信息：<ul>
+<li>描述该方法在调用者视角下的行为</li>
+<li>描述每个参数和返回值</li>
+<li>如果有副作用，则必须注明</li>
+<li>如果调用前需要满足一定条件，则必须注明</li>
+</ul>
+</li>
+<li><strong>实现注释</strong>出现在代码内部，以帮助读者了解代码的工作方式。实现注释主要做三件事：<ul>
+<li>解释代码在做什么（而不是如何做）</li>
+<li>解释这么做的原因（如果在代码中并不明显）</li>
+<li>解释重要的局部变量</li>
+</ul>
+</li>
+</ul>
+<p><strong>跨模块设计</strong><br>理想的环境下，每个设计决策都应封装在一个类中。但在实践中仍然不可避免跨模块的依赖。跨模块文档编写最重要的事是找到一个合适的放置位置。如果很难找到，则可以创建一个中央文件，以保证只有一份文档。</p>
+<h2><span id="43-先写注释">4.3 先写注释</span></h2><p>先写注释有三大好处：产生更好的文档，产生更好的设计，产生愉悦感。</p>
+<p>推迟编写注释会导致没有注释，即便返回回来写注释也因为长久没有设计代码了而让记忆变得模糊，从而漏掉重要的设计，最后还让编写注释变得无聊。</p>
+<p>首先编写类的接口注释，其次是重要公共方法的注释和签名，不断迭代直到满意为止。然后为实例变量编写注释，最后实现方法主体。</p>
+<p>先写注释的好处：</p>
+<ul>
+<li><strong>更好的注释：</strong> 先写注释能够让设计者专注于设计问题，而不为实现分心，得到更好的抽象。其次，在编码和测试过程中能够发现注释的问题，从而改善注释。</li>
+<li><strong>更好的设计：</strong> 注释提供了完全捕获抽象的唯一方法。如果注释需要写得很复杂，说明没有很好地抽象，设计存在问题。反之如果注释清晰完整，则是良好设计的指示。</li>
+<li><strong>早期注释很有趣：</strong> 类的早期设计阶段是编程中最有趣的部分。找到简洁的注释会带来成就感。</li>
+<li><strong>早期注释并不贵：</strong> 早期编写注释和后期编写注释花的时间差不多，至多占10%的总时间。尽早编写注释意味着抽象更加稳定，这会节省编码时间。</li>
+</ul>
+<h2><span id="44-更新注释">4.4 更新注释</span></h2><p>当更新代码时，更改很有可能使注释过时。不准确的注释会让读者沮丧。发生次数多了之后读者便会对注释失去信任。如何保持注释在最新状态呢？</p>
+<ol>
+<li><strong>离代码近：</strong> 注释离关联代码越远，被正确更新的概率就越小。所以应将注释放在离它所描述代码近的地方，如：<ul>
+<li>编写接口注释时考虑放在.cc文件。更改代码主体时可以看到注释。IDE/Doxygen工具可以提取注释从而不会与写在头文件上有区别。</li>
+<li>编写实现注释时将注释分散开来。不要将所有注释写在开头，将其分散到主体中，头部只写总体策略。</li>
+<li>不要将重要注释放到提交日志中。</li>
+</ul>
+</li>
+<li><strong>避免重复：</strong> 如果同一份注释有多个副本，则更新时很容易漏掉。<ul>
+<li>只记录一次设计决策，并把它放在最明显的位置。</li>
+<li>如果找不到合适的地方，新建一个designNote，并把所有相关地方指向该note。</li>
+<li>不要把一个模块的设计放在另一个模块中，比如不要在方法调用处解释该方法。</li>
+<li>如果信息在模块之外的某个地方记录了，就不要重复记录。</li>
+</ul>
+</li>
+<li><strong>检查差异：</strong> 在提交更改前再检查一遍所有变动，确定文档正确反映了每个更改。<code>git diff</code> 能很好完成这一功能。</li>
+<li><strong>让注释更高级：</strong> 越高级、越抽象的注释越不容易受到代码更改的影响。</li>
+</ol>
+<h1><span id="五-设计性能">五、设计性能</span></h1><p>简单性不仅能改善系统设计，而且通常还能使系统更快。</p>
+<p>先了解哪些操作是昂贵的：</p>
+<ul>
+<li>网络通信：数据中心内往返约10-50us，广域往返10-100ms</li>
+<li>存储I/O：硬盘5-10ms，闪存10-100us，固态硬盘1us（2000条指令）</li>
+<li>动态内存分配：分配、释放和垃圾回收等产生大量开销。</li>
+<li>高速缓存未命中：数百条指令的延迟。</li>
+</ul>
+<p>了解程序中哪些东西是耗时的，最好的方法是运行基准测试。第一，目标是确定大量耗时的少量非常具体的地方。第二，可以为性能改善提供基线。</p>
+<p>以高性能的方法替代耗时的方法。例如用hash表替代有序映射，用C/C++分配结构数组。如果增加复杂度是提高性能的唯一方法，就需要仔细考虑；如果复杂度被封装起来，那它是值得的；否则，最好先从简单的方法开始，在遇到性能瓶颈时再作优化。</p>
+<p>围绕关键路径进行设计：</p>
+<ol>
+<li>首先确定在通常情况下需要执行的最少代码量是多少，忽略所有特殊情况，并假定最适合的数据结构，得到一个理想中的设计。</li>
+<li>第二步寻找一个新的设计，尽可能的接近理想设计，并同时保持干净的结构。</li>
+<li>最重要的事是减少需要处理的特殊情况，因为每增加一个特殊情况就会拖慢系统运行，最好是在一开始只有一个if语句判断是否是特殊情况。</li>
+</ol>
+<h1><span id="参考资料">参考资料</span></h1><p>[1] <a href="https://go7hic.github.io/A-Philosophy-of-Software-Design/#/">https://go7hic.github.io/A-Philosophy-of-Software-Design/#/</a><br>[2] <a href="https://cactus-proj.github.io/A-Philosophy-of-Software-Design-zh/">https://cactus-proj.github.io/A-Philosophy-of-Software-Design-zh/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2024/08/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/" data-id="clzznde460000nlsg31cxdhse" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<script src="https://utteranc.es/client.js"
+        repo="milkpku/blog"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2024/07/31/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%8D%81%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《渐行渐远的红利》笔记 - 第十章 “新中间路线”—转型的政策路径</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2024 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
