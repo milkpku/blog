@@ -6,7 +6,7 @@
   <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
   
   <link href="http://milkpku.github.io/blog/"/>
-  <updated>2024-10-30T13:23:03.450Z</updated>
+  <updated>2025-01-21T15:57:56.840Z</updated>
   <id>http://milkpku.github.io/blog/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Diffusion Model 的原理推演</title>
+    <link href="http://milkpku.github.io/blog/2025/01/21/Diffusion%20Model%E7%9A%84%E5%8E%9F%E7%90%86%E6%8E%A8%E6%BC%94/"/>
+    <id>http://milkpku.github.io/blog/2025/01/21/Diffusion%20Model%E7%9A%84%E5%8E%9F%E7%90%86%E6%8E%A8%E6%BC%94/</id>
+    <published>2025-01-20T16:00:00.000Z</published>
+    <updated>2025-01-21T15:57:56.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(x_t|x_{t-1}) = &#92;mathcal{N}(&#92;sqrt{1-&#92;beta_t} x_{t-1}, &#92;beta_t I), x_0 &#92;sim q(x_0)$ ，我们可以通过采样得到 $&#92;{x_0, …, x_T&#92;}$。假设扩散过程足够充分，可以认为 $x_T &#92;sim &#92;mathcal{N}(0,</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>从“端午快乐”到“端午安康”—社会进取心丧失的一个侧照</title>
     <link href="http://milkpku.github.io/blog/2024/10/28/%E7%AB%AF%E5%8D%88%E5%AE%89%E5%BA%B7/"/>
     <id>http://milkpku.github.io/blog/2024/10/28/%E7%AB%AF%E5%8D%88%E5%AE%89%E5%BA%B7/</id>
     <published>2024-10-27T16:00:00.000Z</published>
-    <updated>2024-10-30T13:23:03.450Z</updated>
+    <updated>2025-01-21T15:35:38.020Z</updated>
     
     
       
@@ -44,7 +67,7 @@
     <link href="http://milkpku.github.io/blog/2024/08/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/"/>
     <id>http://milkpku.github.io/blog/2024/08/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6/</id>
     <published>2024-08-17T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.710Z</updated>
+    <updated>2024-08-18T14:16:29.840Z</updated>
     
     
       
@@ -72,7 +95,7 @@
     <link href="http://milkpku.github.io/blog/2024/07/31/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%8D%81%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/07/31/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%8D%81%E7%AB%A0/</id>
     <published>2024-07-30T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-07-31T13:29:58.860Z</updated>
     
     
       
@@ -99,7 +122,7 @@
     <link href="http://milkpku.github.io/blog/2024/07/30/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B9%9D%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/07/30/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B9%9D%E7%AB%A0/</id>
     <published>2024-07-29T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-07-30T15:02:49.080Z</updated>
     
     
       
@@ -129,7 +152,7 @@
     <link href="http://milkpku.github.io/blog/2024/07/23/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%85%AB%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/07/23/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%85%AB%E7%AB%A0/</id>
     <published>2024-07-22T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-07-25T13:41:23.866Z</updated>
     
     
       
@@ -158,7 +181,7 @@
     <link href="http://milkpku.github.io/blog/2024/07/19/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%83%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/07/19/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%83%E7%AB%A0/</id>
     <published>2024-07-18T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-07-20T05:01:15.121Z</updated>
     
     
       
@@ -192,7 +215,7 @@
     <link href="http://milkpku.github.io/blog/2024/07/16/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%85%AD%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/07/16/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%85%AD%E7%AB%A0/</id>
     <published>2024-07-15T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-07-17T14:36:43.971Z</updated>
     
     
       
@@ -223,7 +246,7 @@
     <link href="http://milkpku.github.io/blog/2024/07/14/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E5%87%BA%E7%A7%9F%E8%BD%A6%E5%8A%A8%E4%BA%86%E8%B0%81%E7%9A%84%E8%9B%8B%E7%B3%95/"/>
     <id>http://milkpku.github.io/blog/2024/07/14/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E5%87%BA%E7%A7%9F%E8%BD%A6%E5%8A%A8%E4%BA%86%E8%B0%81%E7%9A%84%E8%9B%8B%E7%B3%95/</id>
     <published>2024-07-13T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-07-14T11:34:29.550Z</updated>
     
     
       
@@ -252,7 +275,7 @@
     <link href="http://milkpku.github.io/blog/2024/06/20/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/06/20/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/</id>
     <published>2024-06-19T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-06-20T13:30:37.449Z</updated>
     
     
       
@@ -284,7 +307,7 @@
     <link href="http://milkpku.github.io/blog/2024/06/11/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/06/11/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0/</id>
     <published>2024-06-10T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-06-11T12:51:39.872Z</updated>
     
     
       
@@ -315,7 +338,7 @@
     <link href="http://milkpku.github.io/blog/2024/06/09/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/06/09/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/</id>
     <published>2024-06-08T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-06-09T13:37:49.741Z</updated>
     
     
       
@@ -348,7 +371,7 @@
     <link href="http://milkpku.github.io/blog/2024/06/04/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/06/04/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0/</id>
     <published>2024-06-03T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-06-09T13:39:04.321Z</updated>
     
     
       
@@ -381,7 +404,7 @@
     <link href="http://milkpku.github.io/blog/2024/05/29/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/"/>
     <id>http://milkpku.github.io/blog/2024/05/29/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/</id>
     <published>2024-05-28T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-05-30T13:58:54.479Z</updated>
     
     
       
@@ -412,7 +435,7 @@
     <link href="http://milkpku.github.io/blog/2024/05/28/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E5%89%8D%E8%A8%80/"/>
     <id>http://milkpku.github.io/blog/2024/05/28/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E5%89%8D%E8%A8%80/</id>
     <published>2024-05-27T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-07-06T08:47:27.731Z</updated>
     
     
       
@@ -440,7 +463,7 @@
     <link href="http://milkpku.github.io/blog/2024/04/10/Stable%20Diffusion%20Paper%20%E7%B2%BE%E8%AF%BB/"/>
     <id>http://milkpku.github.io/blog/2024/04/10/Stable%20Diffusion%20Paper%20%E7%B2%BE%E8%AF%BB/</id>
     <published>2024-04-09T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-04-10T14:01:08.565Z</updated>
     
     
       
@@ -467,7 +490,7 @@
     <link href="http://milkpku.github.io/blog/2024/02/12/%E4%BB%8E%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%88%B0%E5%AE%87%E5%AE%99%E6%A0%87%E5%87%86%E6%A8%A1%E5%9E%8B/"/>
     <id>http://milkpku.github.io/blog/2024/02/12/%E4%BB%8E%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%88%B0%E5%AE%87%E5%AE%99%E6%A0%87%E5%87%86%E6%A8%A1%E5%9E%8B/</id>
     <published>2024-02-11T16:00:00.000Z</published>
-    <updated>2024-10-30T13:17:03.590Z</updated>
+    <updated>2024-02-12T15:03:03.484Z</updated>
     
     
       
@@ -500,7 +523,7 @@
     <link href="http://milkpku.github.io/blog/2023/08/22/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E4%BA%94%E5%B9%B4%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E%E7%9A%84%E5%B1%95%E6%9C%9B/"/>
     <id>http://milkpku.github.io/blog/2023/08/22/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E4%BA%94%E5%B9%B4%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E%E7%9A%84%E5%B1%95%E6%9C%9B/</id>
     <published>2023-08-21T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-02-12T03:35:28.863Z</updated>
     
     
       
@@ -530,7 +553,7 @@
     <link href="http://milkpku.github.io/blog/2023/04/22/OpenAI%E5%AF%B9%E8%AF%9D%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     <id>http://milkpku.github.io/blog/2023/04/22/OpenAI%E5%AF%B9%E8%AF%9D%E8%A7%82%E5%90%8E%E6%84%9F/</id>
     <published>2023-04-21T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
+    <updated>2024-02-12T03:35:28.863Z</updated>
     
     
       
@@ -554,7 +577,7 @@
     <link href="http://milkpku.github.io/blog/2023/03/18/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%94%E5%8D%B7%E6%B5%85%E6%9E%90/"/>
     <id>http://milkpku.github.io/blog/2023/03/18/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%94%E5%8D%B7%E6%B5%85%E6%9E%90/</id>
     <published>2023-03-17T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.710Z</updated>
+    <updated>2024-02-12T03:35:28.863Z</updated>
     
     
       
@@ -578,34 +601,6 @@
     
     
     <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>从两个数据看2022年底国内经济环境</title>
-    <link href="http://milkpku.github.io/blog/2023/03/05/%E4%BB%8E%E4%B8%A4%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%9C%8B2022%E5%B9%B4%E5%BA%95%E5%9B%BD%E5%86%85%E7%BB%8F%E6%B5%8E%E7%8E%AF%E5%A2%83/"/>
-    <id>http://milkpku.github.io/blog/2023/03/05/%E4%BB%8E%E4%B8%A4%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%9C%8B2022%E5%B9%B4%E5%BA%95%E5%9B%BD%E5%86%85%E7%BB%8F%E6%B5%8E%E7%8E%AF%E5%A2%83/</id>
-    <published>2023-03-04T16:00:00.000Z</published>
-    <updated>2024-10-28T14:00:31.700Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;2022年对于几乎所有人来讲都不太好过——年初开始的上海封控到年底的换届大戏，中间夹着俄乌战争引发的全球动荡，还有美联储一次比一次高的加息，都在一下下捶打着本不稳定的经济。国内就业形势究竟多严峻，我已在去年的文章&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;中讨论过了，那么今年的情况会是怎样？笔者打算从两个角度谈一谈：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;房地产一直是经济的重要支柱，那么今年的楼市究竟冷热如何？&lt;/li&gt;
-&lt;li&gt;政府投资拉动经济是许多地方重要的发展模式，那么今年及以后政府投资还能继续吗？&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1&gt;&lt;span id=&quot;1-新增房贷的断崖式下跌&quot;&gt;1. </summary>
-        
-      
-    
-    
-    
-    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
     
     
   </entry>
