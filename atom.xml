@@ -6,7 +6,7 @@
   <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
   
   <link href="http://milkpku.github.io/blog/"/>
-  <updated>2025-01-21T15:57:56.840Z</updated>
+  <updated>2025-04-27T14:09:58.831Z</updated>
   <id>http://milkpku.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《漫步华尔街》笔记</title>
+    <link href="http://milkpku.github.io/blog/2025/04/22/%E3%80%8A%E6%BC%AB%E6%AD%A5%E5%8D%8E%E5%B0%94%E8%A1%97%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>http://milkpku.github.io/blog/2025/04/22/%E3%80%8A%E6%BC%AB%E6%AD%A5%E5%8D%8E%E5%B0%94%E8%A1%97%E3%80%8B%E7%AC%94%E8%AE%B0/</id>
+    <published>2025-04-21T16:00:00.000Z</published>
+    <updated>2025-04-27T14:09:58.831Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;markmap-wrap&quot;&gt;
+      &lt;script type=&quot;application/json&quot;&gt;{&quot;content&quot;:&quot;&quot;,&quot;children&quot;:[{&quot;content&quot;:&quot;1. &amp;#x80a1;&amp;#x7968;&amp;#x53ca;&amp;#x5176;&amp;#x4ef7;&amp;#x503c;&quot;,&quot;children&quot;:[{&quot;content&quot;:&quot;1.1</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Diffusion Model 的原理推演</title>
@@ -568,39 +592,6 @@
     
     
     <category term="Essay" scheme="http://milkpku.github.io/blog/categories/Essay/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>理想国第五卷浅析</title>
-    <link href="http://milkpku.github.io/blog/2023/03/18/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%94%E5%8D%B7%E6%B5%85%E6%9E%90/"/>
-    <id>http://milkpku.github.io/blog/2023/03/18/%E7%90%86%E6%83%B3%E5%9B%BD%E7%AC%AC%E4%BA%94%E5%8D%B7%E6%B5%85%E6%9E%90/</id>
-    <published>2023-03-17T16:00:00.000Z</published>
-    <updated>2024-02-12T03:35:28.863Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-两次浪潮&quot;&gt;1. 两次浪潮&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#11-浪潮一男女平等&quot;&gt;1.1 浪潮一：男女平等&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#12-浪潮二共产共妻&quot;&gt;1.2 浪潮二：共产共妻&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2-回应多得的挑战&quot;&gt;2. 回应“多得”的挑战&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#21-护卫者的根本困难&quot;&gt;2.1 护卫者的根本困难&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#22-公有制解决方案&quot;&gt;2.2 公有制解决方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#23-彻底解决多得&quot;&gt;2.3</summary>
-        
-      
-    
-    
-    
-    <category term="Philosophy" scheme="http://milkpku.github.io/blog/categories/Philosophy/"/>
     
     
   </entry>
