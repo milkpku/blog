@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://milkpku.github.io/blog/images/2025_ddpm/infer.svg">
 <meta property="article:published_time" content="2025-01-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-01-21T15:57:56.840Z">
+<meta property="article:modified_time" content="2025-10-09T06:41:00.016Z">
 <meta property="article:author" content="Li-Ke Ma">
 <meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
 <meta name="twitter:card" content="summary">
@@ -207,11 +207,15 @@ q(x_{t-1}|x_t, x_0) \propto& \exp \bigg(-\frac{(x_t - \sqrt{1-\beta_t}x_{t-1})^2
 <h1><span id="4-后记">4. 后记</span></h1><p>DDPM的核心是构造了一个扩散过程，这个过程既可以分解为 $q(x_t|x_{t-1})$ 的每一小步，使得反向过程 $q(x_{t-1}|x_t)$ 接近于高斯分布，能够被模型学习，又具有解析的 $q(x_t|x_0)$ 形式，使得训练数据可以直接从原始分布一步采样得到，从而让训练不受扩散采样过程影响。</p>
 <p>然而DDPM的缺陷在于反向过程迭代次数太多影响推理速度，因此<a href="https://arxiv.org/abs/2010.02502">Song et al. 2022</a> 提出了DDIM，一个基于非马尔可夫扩散过程的Diffusion Model。通过巧妙设置非马尔可夫过程 $q(x_t|x_{t-1}, x_0)$，使得 $q(x_t|x_0)$ 具有和DDPM相同的表达式，从而有相同的训练loss，但在推理时可以使用不同的alpha schedule，从而加速生成。</p>
 <h1><span id="reference">Reference</span></h1><p>[1] <a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</a><br>[2] <a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a><br>[3] <a href="https://arxiv.org/abs/2102.09672">Improved Denoising Diffusion Probabilistic Models</a><br>[4] <a href="https://arxiv.org/abs/2010.02502">Denoising Diffusion Implicit Models</a><br>[5] <a href="https://github.com/milkpku/toy_diffusion">https://github.com/milkpku/toy_diffusion</a></p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/blog/css/markmap.css">
+
+<script src="/blog/js/markmap.js"></script>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2025/01/21/Diffusion%20Model%E7%9A%84%E5%8E%9F%E7%90%86%E6%8E%A8%E6%BC%94/" data-id="cm66o2x5v00069rsg1nmb1tky" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2025/01/21/Diffusion%20Model%E7%9A%84%E5%8E%9F%E7%90%86%E6%8E%A8%E6%BC%94/" data-id="cmjv5njfb000a3lsg7zordglu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -257,7 +261,7 @@ q(x_{t-1}|x_t, x_0) \propto& \exp \bigg(-\frac{(x_t - \sqrt{1-\beta_t}x_{t-1})^2
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      Copyright &copy; 2025 Li-Ke Ma
+      Copyright &copy; 2026 Li-Ke Ma
     </div>
   </div>
 </footer>
