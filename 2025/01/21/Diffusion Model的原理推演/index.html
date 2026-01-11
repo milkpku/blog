@@ -20,16 +20,16 @@
   <title>Diffusion Model 的原理推演 | Li-Ke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <meta name="description" content="一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(x_t|x_{t-1}) &#x3D; \mathcal{N}(\sqrt{1-\beta_t} x_{t-1}, \beta_t I), x_0 \sim q(x_0)$ ，我们可以通过采样得到 $">
+  <meta name="description" content="一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(xt|x{t-1}) &#x3D; \mathcal{N}(\sqrt{1-\betat} x{t-1}, \betat I), x_0 \sim q(x_0)$ ，我们可以通过采样得到 ${x_0,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Diffusion Model 的原理推演">
 <meta property="og:url" content="http://milkpku.github.io/blog/2025/01/21/Diffusion%20Model%E7%9A%84%E5%8E%9F%E7%90%86%E6%8E%A8%E6%BC%94/index.html">
 <meta property="og:site_name" content="Li-Ke&#39;s blog">
-<meta property="og:description" content="一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(x_t|x_{t-1}) &#x3D; \mathcal{N}(\sqrt{1-\beta_t} x_{t-1}, \beta_t I), x_0 \sim q(x_0)$ ，我们可以通过采样得到 $">
+<meta property="og:description" content="一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(xt|x{t-1}) &#x3D; \mathcal{N}(\sqrt{1-\betat} x{t-1}, \betat I), x_0 \sim q(x_0)$ ，我们可以通过采样得到 ${x_0,">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://milkpku.github.io/blog/images/2025_ddpm/infer.svg">
 <meta property="article:published_time" content="2025-01-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-09T06:41:00.016Z">
+<meta property="article:modified_time" content="2026-01-11T02:48:30.613Z">
 <meta property="article:author" content="Li-Ke Ma">
 <meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
 <meta name="twitter:card" content="summary">
@@ -146,28 +146,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(x_t|x_{t-1}) = \mathcal{N}(\sqrt{1-\beta_t} x_{t-1}, \beta_t I), x_0 \sim q(x_0)$ ，我们可以通过采样得到 $\{x_0, …, x_T\}$。假设扩散过程足够充分，可以认为 $x_T \sim \mathcal{N}(0, I)$。于是我们通过扩散过程建立起$q(x_0)$分布到高斯噪音的一个联系。可以看到扩散过程的逆过程正好就是一个生成过程，因此问题便转化为了试图求解扩散过程的逆$q(x_{t-1}|x_t)$。</p>
-<p>定义参数为$\theta$的模型 $p_\theta(x_{t-1} | x_t)$ 为目标模型，便可通过$x_{t-1} \sim p_\theta(x_{t-1} | x_t)$的生成过程得到 $\{x_T, …, x_0\}$，记以此得到的$x_0$分布为 $p_\theta(x_0)$。通过最大化原始数据 $q(x_0)$ 在反向生成分布中的似然 $\mathbb{E}_{q(x_0)}\log p_\theta(x_0)$，我们便可以到一个适当的参数$\theta$用于生成接近$q(x_0)$。</p>
+        <p>一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(x<em>t|x</em>{t-1}) = \mathcal{N}(\sqrt{1-\beta<em>t} x</em>{t-1}, \beta<em>t I), x_0 \sim q(x_0)$ ，我们可以通过采样得到 ${x_0, …, x_T}$。假设扩散过程足够充分，可以认为 $x_T \sim \mathcal{N}(0, I)$。于是我们通过扩散过程建立起$q(x_0)$分布到高斯噪音的一个联系。可以看到扩散过程的逆过程正好就是一个生成过程，因此问题便转化为了试图求解扩散过程的逆$q(x</em>{t-1}|x_t)$。</p>
+<p>定义参数为$\theta$的模型 $p<em>\theta(x</em>{t-1} | x<em>t)$ 为目标模型，便可通过$x</em>{t-1} \sim p<em>\theta(x</em>{t-1} | x<em>t)$的生成过程得到 ${x_T, …, x_0}$，记以此得到的$x_0$分布为 $p</em>\theta(x<em>0)$。通过最大化原始数据 $q(x_0)$ 在反向生成分布中的似然 $\mathbb{E}</em>{q(x<em>0)}\log p</em>\theta(x_0)$，我们便可以到一个适当的参数$\theta$用于生成接近$q(x_0)$。</p>
 <h1><span id="1-推导主干">1. 推导主干</span></h1><ol>
-<li><p><strong>从最大似然$L_{CE}$到变分下界$L_{VLB}$</strong>：<br>$L_{CE} = \mathbb{E}_{q(x_0)} \left[-\log p_{\theta}(x_0)\right]$，根据Lemma 1可知<script type="math/tex">L_{CE} \leq L_{VLB} = \mathbb{E}_{q(x_{0:T})}\left[\log \frac{q(x_{1:T} | x_0)}{p_\theta(x_{0:T})}\right].</script></p>
+<li><p><strong>从最大似然$L<em>{CE}$到变分下界$L</em>{VLB}$</strong>：<br>$L<em>{CE} = \mathbb{E}</em>{q(x<em>0)} \left[-\log p</em>{\theta}(x<em>0)\right]$，根据Lemma 1可知$$L</em>{CE} \leq L<em>{VLB} = \mathbb{E}</em>{q(x<em>{0:T})}\left[\log \frac{q(x</em>{1:T} | x<em>0)}{p</em>\theta(x_{0:T})}\right].$$</p>
 </li>
-<li><p><strong>将$L_{VLB}$展开为不同时间步Loss</strong>：<br>根据 Lemma 2 将 $L_{VLB}$ 展开为 $L_0 + L_{1:T-1} + L_T$，其中</p>
+<li><p><strong>将$L_{VLB}$展开为不同时间步Loss</strong>：<br>根据 Lemma 2 将 $L<em>{VLB}$ 展开为 $L_0 + L</em>{1:T-1} + L_T$，其中</p>
 <ul>
-<li>$L_T = D_{KL} (q(x_T|x_0)|p_\theta(x_T))$ </li>
-<li>$L_0 = - \log p_\theta(x_0|x_1)$</li>
-<li>$L_t = D_{KL} (q(x_t|x_{t+1}, x_0) | p_\theta(x_t|x_{t+1}))$<br>其中$L_T$为常数，真正可以被学习的是$L_t$和$L_0$。</li>
+<li>$L<em>T = D</em>{KL} (q(x<em>T|x_0)|p</em>\theta(x_T))$ </li>
+<li>$L<em>0 = - \log p</em>\theta(x_0|x_1)$</li>
+<li>$L<em>t = D</em>{KL} (q(x<em>t|x</em>{t+1}, x<em>0) | p</em>\theta(x<em>t|x</em>{t+1}))$<br>其中$L_T$为常数，真正可以被学习的是$L_t$和$L_0$。</li>
 </ul>
 </li>
-<li><p><strong>分时间步Loss的闭式解</strong>：<br>将$p_{\theta}(x_{t-1}|x_t)$ 表征为 $\mathcal{N}(\mu_{\theta}(x_t, t), \Sigma_{\theta}(x_t, t))$，由 Lamma 3 可知 $q(x_{t-1}|x_t, x_0)$=$\mathcal{N}(\mu(x_t, x_0),  \sigma_t^2 I)$ 也是高斯分布，$L_t$ 即为两个高斯分布KL Divergence的期望。<script type="math/tex">L_{t-1} = \mathbb E_{x_0, x_t} \left[\frac{1}{2\|\Sigma_\theta\|^2}\|\mu_{\theta}(x_t, t) - \mu(x_t, x_0)\|^2\right].</script></p>
+<li><p><strong>分时间步Loss的闭式解</strong>：<br>将$p<em>{\theta}(x</em>{t-1}|x<em>t)$ 表征为 $\mathcal{N}(\mu</em>{\theta}(x<em>t, t), \Sigma</em>{\theta}(x<em>t, t))$，由 Lamma 3 可知 $q(x</em>{t-1}|x<em>t, x_0)$=$\mathcal{N}(\mu(x_t, x_0),  \sigma_t^2 I)$ 也是高斯分布，$L_t$ 即为两个高斯分布KL Divergence的期望。$$L</em>{t-1} = \mathbb E<em>{x_0, x_t} \left[\frac{1}{2|\Sigma</em>\theta|^2}|\mu_{\theta}(x_t, t) - \mu(x_t, x_0)|^2\right].$$</p>
 </li>
-<li><p><strong>表达为噪音预测 $\epsilon_\theta$ 的Loss</strong>：<br>重写$\mu_{\theta}(x_t, t)=\frac{1}{\sqrt{\alpha_t}} \left(x_t - \frac{\beta_t}{\sqrt{1-\bar\alpha_t}}\epsilon_{\theta}(x_t, t)\right)$，最终优化目标$L_i$成为 <script type="math/tex">\mathbb E_{x_0, \epsilon_t} \left[ \frac{\beta_t^2}{2\alpha_t(1-\bar\alpha_t)\|\Sigma_\theta\|^2}\| \epsilon_t - \epsilon_\theta(x_t, t)\|^2 \right].</script></p>
+<li><p><strong>表达为噪音预测 $\epsilon_\theta$ 的Loss</strong>：<br>重写$\mu<em>{\theta}(x_t, t)=\frac{1}{\sqrt{\alpha_t}} \left(x_t - \frac{\beta_t}{\sqrt{1-\bar\alpha_t}}\epsilon</em>{\theta}(x<em>t, t)\right)$，最终优化目标$L_i$成为 $$\mathbb E</em>{x<em>0, \epsilon_t} \left[ \frac{\beta_t^2}{2\alpha_t(1-\bar\alpha_t)|\Sigma</em>\theta|^2}| \epsilon<em>t - \epsilon</em>\theta(x_t, t)|^2 \right].$$</p>
 </li>
 </ol>
-<h1><span id="2-训练与推理">2. 训练与推理</span></h1><p>$L = \mathbb E_{x_0, \epsilon_t} \left[ \frac{\beta_t^2}{2\alpha_t(1-\bar\alpha_t)|\Sigma_\theta|^2}| \epsilon_t - \epsilon_\theta(x_t, t)|^2 \right]$ 作为loss稍显复杂，而且$\Sigma_\theta$会带来训练的不稳定。<a href="https://arxiv.org/abs/2102.09672">Nichol &amp; Dhariwal (2021)</a> 提出使用简化loss <script type="math/tex">L_{\mathtt{simp}} = \mathbb E_{x_0, \epsilon_t} \left[ \| \epsilon_t - \epsilon_\theta(x_t, t)\|^2 \right].</script> 该优化目标更简洁，也让训练变得更稳定，是现在主流Diffusion模型的实现。</p>
-<p>与此同时，<a href="https://arxiv.org/abs/2102.09672">Nichol &amp; Dhariwal (2021)</a> 还提出用余弦$\{\bar\alpha_t\}$序列替代线性$\{\beta_t\}$序列以提高NLL。这样的参数选择使得扩散过程在开端和结尾处变动小，中间段变动大。需要注意的是要同时保证 $\beta_t &lt; 1-\delta$，因此具体实现时通常先以$\{\bar\alpha_t\}$反算$\{\beta_t\}$，对$\{\beta_t\}$作范围限制，再得到最终$\{\bar\alpha_t\}$。</p>
-<p>反向生成时，$x_{t-1} \sim p_\theta(x_t, t)$，依赖 $\mu_\theta(x_t, t)$ 和 $\Sigma_\theta$。采样的噪声强度$\Sigma_\theta$有很重要的影响，如果简单设为$0$则生成的样本会坍缩。但如果采用$L_{\mathtt{simp}}$训练，则无法获知 $\Sigma_\theta$。在<a href="https://arxiv.org/abs/2006.11239">Ho et al. (2020)</a> 中作者使用 $\Sigma_\theta = \sigma_t^2 I$来进行生成得到了较好的效果，报告称 $\sigma_t^2 = \beta_t$ 或者 $\sigma_t^2 = \frac{1-\bar \alpha_{t-1}}{1-\bar \alpha_t} \beta_t$ 都能得到相似结果。然而笔者在<a href="https://github.com/milkpku/toy_diffusion">toy example</a>上复现后发现后者的结果还是要好不少。</p>
+<h1><span id="2-训练与推理">2. 训练与推理</span></h1><p>$L = \mathbb E<em>{x_0, \epsilon_t} \left[ \frac{\beta_t^2}{2\alpha_t(1-\bar\alpha_t)|\Sigma</em>\theta|^2}| \epsilon<em>t - \epsilon</em>\theta(x<em>t, t)|^2 \right]$ 作为loss稍显复杂，而且$\Sigma</em>\theta$会带来训练的不稳定。<a href="https://arxiv.org/abs/2102.09672">Nichol &amp; Dhariwal (2021)</a> 提出使用简化loss <script type="math/tex">L_{\mathtt{simp}} = \mathbb E_{x_0, \epsilon_t} \left[ \| \epsilon_t - \epsilon_\theta(x_t, t)\|^2 \right].</script> 该优化目标更简洁，也让训练变得更稳定，是现在主流Diffusion模型的实现。</p>
+<p>与此同时，<a href="https://arxiv.org/abs/2102.09672">Nichol &amp; Dhariwal (2021)</a> 还提出用余弦${\bar\alpha_t}$序列替代线性${\beta_t}$序列以提高NLL。这样的参数选择使得扩散过程在开端和结尾处变动小，中间段变动大。需要注意的是要同时保证 $\beta_t &lt; 1-\delta$，因此具体实现时通常先以${\bar\alpha_t}$反算${\beta_t}$，对${\beta_t}$作范围限制，再得到最终${\bar\alpha_t}$。</p>
+<p>反向生成时，$x<em>{t-1} \sim p</em>\theta(x<em>t, t)$，依赖 $\mu</em>\theta(x<em>t, t)$ 和 $\Sigma</em>\theta$。采样的噪声强度$\Sigma<em>\theta$有很重要的影响，如果简单设为$0$则生成的样本会坍缩。但如果采用$L</em>{\mathtt{simp}}$训练，则无法获知 $\Sigma<em>\theta$。在<a href="https://arxiv.org/abs/2006.11239">Ho et al. (2020)</a> 中作者使用 $\Sigma</em>\theta = \sigma<em>t^2 I$来进行生成得到了较好的效果，报告称 $\sigma_t^2 = \beta_t$ 或者 $\sigma_t^2 = \frac{1-\bar \alpha</em>{t-1}}{1-\bar \alpha_t} \beta_t$ 都能得到相似结果。然而笔者在<a href="https://github.com/milkpku/toy_diffusion">toy example</a>上复现后发现后者的结果还是要好不少。</p>
 <p><img src="/blog/images/2025_ddpm/infer.svg" alt="不同噪声强度下的采样结果"></p>
-<h1><span id="3-若干引理">3. 若干引理</span></h1><h2><span id="lemma-1-l_ce-leq-l_vlb">Lemma 1. $L_{CE} \leq L_{VLB}$</span></h2><p>$\mathbb{E}_{q(x_0)} \left[-\log p_{\theta}(x_0)\right]  = L_{CE} \leq L_{VLB} = \mathbb{E}_{q(x_{0:T})}\left[\log \frac{q(x_{1:T} | x_0)}{p_\theta(x_{0:T})}\right]$</p>
+<h1><span id="3-若干引理">3. 若干引理</span></h1><h2><span id="lemma-1-lce-leq-lvlb">Lemma 1. $L<em>{CE} \leq L</em>{VLB}$</span></h2><p>$\mathbb{E}<em>{q(x_0)} \left[-\log p</em>{\theta}(x<em>0)\right]  = L</em>{CE} \leq L<em>{VLB} = \mathbb{E}</em>{q(x<em>{0:T})}\left[\log \frac{q(x</em>{1:T} | x<em>0)}{p</em>\theta(x_{0:T})}\right]$</p>
 <p>由Jense不等式可以自然推出该关系</p>
 <script type="math/tex; mode=display">
 \begin{align*}
@@ -177,7 +177,7 @@
              &=  -\mathbb{E}_{q(x_0)} \log \left( \mathbb{E}_{q(x_{1:T}|x_0)} \left[ \frac{p_\theta(x_{0:T}) }{q(x_{1:T}|x_0) } \right] \right) \\
              &\leq -  \mathbb{E}_{q(x_{0:T})} \left[\log \frac{p_\theta(x_{0:T}) }{q(x_{1:T}|x_0) } \right] \\
              &= L_{VLB}
- \end{align*}</script><h2><span id="lemma-2-l_vlb-l_0-l_1t-1-l_t">Lemma 2. $L_{VLB}= L_0 + L_{1:T-1} + L_T$</span></h2><p>由贝叶斯定理 <script type="math/tex">q(x_t|x_{t-1}, x_0)=\frac{q(x_t, x_{t-1}, x_0)}{q(x_{t-1}, x_0)} = q(x_{t-1}|x_t, x_0) \frac{q(x_t, x_0)}{q(x_{t-1}, x_0)}</script></p>
+ \end{align*}</script><h2><span id="lemma-2-lvlb-l_0-l1t-1-l_t">Lemma 2. $L<em>{VLB}= L_0 + L</em>{1:T-1} + L_T$</span></h2><p>由贝叶斯定理 <script type="math/tex">q(x_t|x_{t-1}, x_0)=\frac{q(x_t, x_{t-1}, x_0)}{q(x_{t-1}, x_0)} = q(x_{t-1}|x_t, x_0) \frac{q(x_t, x_0)}{q(x_{t-1}, x_0)}</script></p>
 <p>因此</p>
 <script type="math/tex; mode=display">
 \begin{align*}
@@ -190,8 +190,8 @@ L_{VLB} &=  \mathbb{E}_{q(x_{0:T})}\left[\log \frac{q(x_{1:T} | x_0)}{p_\theta(x
   &= \mathbb{E}_{q} \bigg[ \log \frac{q(x_T| x_0)}{p_\theta(x_T)}   + \sum_{t=2}^T \log \frac{q(x_{t-1}|x_t, x_0)}{ p_\theta(x_{t-1} | x_t)}   - \log  p_\theta(x_0 | x_1) \bigg] \\
  &=\mathbb{E}_{q} \bigg[ \underbrace{D_{KL} (q(x_T|x_0)\|p_\theta(x_T))}_{L_T} + \sum_{t=2}^T \underbrace{D_{KL} (q(x_{t-1}|x_t, x_0) \|p_\theta(x_{t-1}|x_t))}_{L_{t-1}} + \underbrace{(- \log  p_\theta(x_0 | x_1))}_{L_0}  \bigg] \\
  &= L_0 + L_{1:T-1} + L_T
-\end{align*}</script><h2><span id="lemma-3-qx_t-1x_t-x_0-是高斯分布">Lemma 3. $q(x_{t-1}|x_t, x_0)$ 是高斯分布</span></h2><p>$q(x_{t-1}|x_t, x_0) = \frac{q(x_t, x_{t-1}, x_0)}{q(x_t, x_0)} = q(x_t|x_{t-1})  \frac{q(x_{t-1}|x_0)}{q(x_t | x_0)}$</p>
-<p>已知 $q(x_t|x_{t-1}) =  \mathcal{N}(\sqrt{1-\beta_t} x_{t-1}, \beta_t I)$，令$\alpha_t = 1-\beta_t, \bar\alpha_t = \prod_{i=1}^{t} \alpha_i$，不难证明：<script type="math/tex">q(x_t|x_0) = \mathcal{N}(\sqrt{\bar\alpha_t} x_{t-1}, (1-\bar\alpha_t) I)</script></p>
+\end{align*}</script><h2><span id="lemma-3-qx_t-1x_t-x_0-是高斯分布">Lemma 3. $q(x_{t-1}|x_t, x_0)$ 是高斯分布</span></h2><p>$q(x<em>{t-1}|x_t, x_0) = \frac{q(x_t, x</em>{t-1}, x<em>0)}{q(x_t, x_0)} = q(x_t|x</em>{t-1})  \frac{q(x_{t-1}|x_0)}{q(x_t | x_0)}$</p>
+<p>已知 $q(x<em>t|x</em>{t-1}) =  \mathcal{N}(\sqrt{1-\beta<em>t} x</em>{t-1}, \beta<em>t I)$，令$\alpha_t = 1-\beta_t, \bar\alpha_t = \prod</em>{i=1}^{t} \alpha<em>i$，不难证明：$$q(x_t|x_0) = \mathcal{N}(\sqrt{\bar\alpha_t} x</em>{t-1}, (1-\bar\alpha_t) I)$$</p>
 <p>因此</p>
 <script type="math/tex; mode=display">
 \begin{align*}
@@ -204,8 +204,8 @@ q(x_{t-1}|x_t, x_0) \propto& \exp \bigg(-\frac{(x_t - \sqrt{1-\beta_t}x_{t-1})^2
 \mu(x_t, x_0) &= \frac{\sqrt{\alpha_t}(1-\bar\alpha_{t-1})}{1-\bar\alpha_t} x_t + \frac{\sqrt{\bar\alpha_{t-1}}\beta_t}{1-\bar\alpha_t} x_0\\
 \sigma_t^2 &= \frac{1-\bar \alpha_{t-1}}{1-\bar \alpha_t} \beta_t
 \end{align*}</script><p>结合 $x_t = \sqrt{\bar\alpha_t} x_0 + \sqrt{1-\bar\alpha_t} \epsilon_t$ 可写为 <script type="math/tex">\mu(x_t, x_0) = \frac{1}{\sqrt{\alpha_t}}\left(x_t - \frac{\beta_t}{\sqrt{1-\bar\alpha_t}}\epsilon_t\right)</script></p>
-<h1><span id="4-后记">4. 后记</span></h1><p>DDPM的核心是构造了一个扩散过程，这个过程既可以分解为 $q(x_t|x_{t-1})$ 的每一小步，使得反向过程 $q(x_{t-1}|x_t)$ 接近于高斯分布，能够被模型学习，又具有解析的 $q(x_t|x_0)$ 形式，使得训练数据可以直接从原始分布一步采样得到，从而让训练不受扩散采样过程影响。</p>
-<p>然而DDPM的缺陷在于反向过程迭代次数太多影响推理速度，因此<a href="https://arxiv.org/abs/2010.02502">Song et al. 2022</a> 提出了DDIM，一个基于非马尔可夫扩散过程的Diffusion Model。通过巧妙设置非马尔可夫过程 $q(x_t|x_{t-1}, x_0)$，使得 $q(x_t|x_0)$ 具有和DDPM相同的表达式，从而有相同的训练loss，但在推理时可以使用不同的alpha schedule，从而加速生成。</p>
+<h1><span id="4-后记">4. 后记</span></h1><p>DDPM的核心是构造了一个扩散过程，这个过程既可以分解为 $q(x<em>t|x</em>{t-1})$ 的每一小步，使得反向过程 $q(x_{t-1}|x_t)$ 接近于高斯分布，能够被模型学习，又具有解析的 $q(x_t|x_0)$ 形式，使得训练数据可以直接从原始分布一步采样得到，从而让训练不受扩散采样过程影响。</p>
+<p>然而DDPM的缺陷在于反向过程迭代次数太多影响推理速度，因此<a href="https://arxiv.org/abs/2010.02502">Song et al. 2022</a> 提出了DDIM，一个基于非马尔可夫扩散过程的Diffusion Model。通过巧妙设置非马尔可夫过程 $q(x<em>t|x</em>{t-1}, x_0)$，使得 $q(x_t|x_0)$ 具有和DDPM相同的表达式，从而有相同的训练loss，但在推理时可以使用不同的alpha schedule，从而加速生成。</p>
 <h1><span id="reference">Reference</span></h1><p>[1] <a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</a><br>[2] <a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a><br>[3] <a href="https://arxiv.org/abs/2102.09672">Improved Denoising Diffusion Probabilistic Models</a><br>[4] <a href="https://arxiv.org/abs/2010.02502">Denoising Diffusion Implicit Models</a><br>[5] <a href="https://github.com/milkpku/toy_diffusion">https://github.com/milkpku/toy_diffusion</a></p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/blog/css/markmap.css">
@@ -215,7 +215,7 @@ q(x_{t-1}|x_t, x_0) \propto& \exp \bigg(-\frac{(x_t - \sqrt{1-\beta_t}x_{t-1})^2
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://milkpku.github.io/blog/2025/01/21/Diffusion%20Model%E7%9A%84%E5%8E%9F%E7%90%86%E6%8E%A8%E6%BC%94/" data-id="cmjv5njfb000a3lsg7zordglu" class="article-share-link">Share</a>
+      <a data-url="http://milkpku.github.io/blog/2025/01/21/Diffusion%20Model%E7%9A%84%E5%8E%9F%E7%90%86%E6%8E%A8%E6%BC%94/" data-id="cmk9hpljj0008jhw7hjb06e2a" class="article-share-link">Share</a>
       
       
     </footer>
