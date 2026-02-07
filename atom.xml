@@ -6,7 +6,7 @@
   <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
   
   <link href="http://milkpku.github.io/blog/"/>
-  <updated>2026-01-27T14:32:30.858Z</updated>
+  <updated>2026-02-07T03:10:57.757Z</updated>
   <id>http://milkpku.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>科学假说的有效性与信息熵</title>
+    <link href="http://milkpku.github.io/blog/2026/02/07/%E7%A7%91%E5%AD%A6%E5%81%87%E8%AF%B4/"/>
+    <id>http://milkpku.github.io/blog/2026/02/07/%E7%A7%91%E5%AD%A6%E5%81%87%E8%AF%B4/</id>
+    <published>2026-02-06T16:00:00.000Z</published>
+    <updated>2026-02-07T03:10:57.757Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在科学哲学中，一个重要判别标准是假说是否可证伪。然而并不是所有逻辑上可证伪的假说都具有科学价值。本文认为一个假说如果要有效力还必须能够降低对未来预测的不确定性。这种不确定性的降低能够被信息熵所测量，这一过程也必然蕴含着可证伪性。&lt;/p&gt;
+&lt;p&gt;具体来讲，我们会根据已有的知识和信息对未来可能发生的事情有一个预期。预测不一定要是排除性的（明天一定不会下雨），而有可能是概率性的（两个骰子扔出和为7的概率最大）。如果一个假说能改变我们的认知状态，使得对未来预期的不确定性降低，那么它就是有效力的预测。测量这种不确定性变化最合适的工具就是信息熵。&lt;/p&gt;
+&lt;p&gt;并非所有逻辑上可检验的科学假说都有同等效力。信息熵的降低程度，也即未来预测不确定性的降低正是假说强弱的体现。一个带来微小不确定性降低的预测</summary>
+        
+      
+    
+    
+    
+    <category term="Physics" scheme="http://milkpku.github.io/blog/categories/Physics/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Dan Koe改变系列笔记</title>
@@ -552,37 +577,6 @@
 &lt;p&gt;本书特色是将人口结构变动纳入宏观分析框架以观察它的影响。如今中国面临的问题不仅是劳动力数量的下降，还有人口结构的改变。生命周期理论指出，人口结构会对消费和投资产生重大影响。人口变动缓慢，并不意味着其影响是线性、均匀的，尤其是通过资产价格和货币信用造成很大波动。本章将阐述人口结构如何影响经济增长、通胀、资产价格和货币信用周期等。&lt;/p&gt;
 &lt;!-- toc --&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《渐行渐远的红利》笔记 - 第一章 宏观经济分析新思路</title>
-    <link href="http://milkpku.github.io/blog/2024/05/29/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/"/>
-    <id>http://milkpku.github.io/blog/2024/05/29/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/</id>
-    <published>2024-05-28T16:00:00.000Z</published>
-    <updated>2026-01-11T02:48:30.614Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;2008年金融危机促使人们反思主流理论框架的缺陷。为了应对金融危机，西方许多国家的宏观政策框架也发生了重大变化。因此原有的“共识”、“规律”不再适用，需要对现有宏观分析框架进行调整。&lt;/p&gt;
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#一-分析框架的重要性&quot;&gt;一、分析框架的重要性&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#二-需求和供给&quot;&gt;二、需求和供给&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#三-长期和短期&quot;&gt;三、长期和短期&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#四-两大主流学派的盛衰&quot;&gt;四、两大主流学派的盛衰&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#41-古典经济学&quot;&gt;4.1 古典经济学&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a</summary>
         
       

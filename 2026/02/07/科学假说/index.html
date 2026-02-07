@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>科学假说的有效性与信息熵 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta name="description" content="在科学哲学中，一个重要判别标准是假说是否可证伪。然而并不是所有逻辑上可证伪的假说都具有科学价值。本文认为一个假说如果要有效力还必须能够降低对未来预测的不确定性。这种不确定性的降低能够被信息熵所测量，这一过程也必然蕴含着可证伪性。 具体来讲，我们会根据已有的知识和信息对未来可能发生的事情有一个预期。预测不一定要是排除性的（明天一定不会下雨），而有可能是概率性的（两个骰子扔出和为7的概率最大）。如果一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科学假说的有效性与信息熵">
+<meta property="og:url" content="http://milkpku.github.io/blog/2026/02/07/%E7%A7%91%E5%AD%A6%E5%81%87%E8%AF%B4/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="在科学哲学中，一个重要判别标准是假说是否可证伪。然而并不是所有逻辑上可证伪的假说都具有科学价值。本文认为一个假说如果要有效力还必须能够降低对未来预测的不确定性。这种不确定性的降低能够被信息熵所测量，这一过程也必然蕴含着可证伪性。 具体来讲，我们会根据已有的知识和信息对未来可能发生的事情有一个预期。预测不一定要是排除性的（明天一定不会下雨），而有可能是概率性的（两个骰子扔出和为7的概率最大）。如果一">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-07T03:10:57.757Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Black_hole%27s_accretion_disk_blank.jpg/960px-Black_hole%27s_accretion_disk_blank.jpg') center #000"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">科学假说的有效性与信息熵</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-科学假说" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2026/02/07/%E7%A7%91%E5%AD%A6%E5%81%87%E8%AF%B4/" class="article-date">
+  <time datetime="2026-02-06T16:00:00.000Z" itemprop="datePublished">2026-02-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Physics/">Physics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      科学假说的有效性与信息熵
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在科学哲学中，一个重要判别标准是假说是否可证伪。然而并不是所有逻辑上可证伪的假说都具有科学价值。本文认为一个假说如果要有效力还必须能够降低对未来预测的不确定性。这种不确定性的降低能够被信息熵所测量，这一过程也必然蕴含着可证伪性。</p>
+<p>具体来讲，我们会根据已有的知识和信息对未来可能发生的事情有一个预期。预测不一定要是排除性的（明天一定不会下雨），而有可能是概率性的（两个骰子扔出和为7的概率最大）。如果一个假说能改变我们的认知状态，使得对未来预期的不确定性降低，那么它就是有效力的预测。测量这种不确定性变化最合适的工具就是信息熵。</p>
+<p>并非所有逻辑上可检验的科学假说都有同等效力。信息熵的降低程度，也即未来预测不确定性的降低正是假说强弱的体现。一个带来微小不确定性降低的预测（北京明天有一定概率会下雨），即便是可检验的也没有太大的价值。而真正有价值的是那些能够给出更精确、更冒险预测的假说，它们大幅削减先验信息中的概率分布，从而显著降低信息熵。这样的假说如果被证实，会对科学体系产生巨大贡献（麦克斯韦电磁波预测）；如果被证伪，也能揭示我们认识体系中需要修正的地方（迈克尔逊干涉实验）。因此，信息熵的降低是衡量一个假说所蕴含信息量与预测风险的核心指标，而证伪则是对这一信息和风险在经验世界的裁决机制。</p>
+<p>综上，一个具备科学预测效力的假说，必须提供超越先验知识的新信息，这体现为对未来预测信息熵的降低。而任何改变概率分布的假说（无论是增加还是减少信息熵）都必然可以在经验上被检验—即与某种可能的观测相冲突。因此，可证伪性是有效假说的必然条件，但“有效力”的深层内涵和标准，是其降低信息熵的能力。</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/blog/css/markmap.css">
+
+<script src="/blog/js/markmap.js"></script>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2026/02/07/%E7%A7%91%E5%AD%A6%E5%81%87%E8%AF%B4/" data-id="cmlbqcno400000hw7d1if6v8z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<script src="https://utteranc.es/client.js"
+        repo="milkpku/blog"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2026/01/27/Don%E7%9A%84%E6%94%B9%E5%8F%98%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Dan Koe改变系列笔记</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2026 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
