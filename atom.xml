@@ -6,7 +6,7 @@
   <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
   
   <link href="http://milkpku.github.io/blog/"/>
-  <updated>2026-02-18T08:58:18.023Z</updated>
+  <updated>2026-03-15T12:59:51.760Z</updated>
   <id>http://milkpku.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《股票大作手回忆录》笔记</title>
+    <link href="http://milkpku.github.io/blog/2026/03/15/%E3%80%8A%E8%82%A1%E7%A5%A8%E5%A4%A7%E4%BD%9C%E6%89%8B%E5%9B%9E%E5%BF%86%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>http://milkpku.github.io/blog/2026/03/15/%E3%80%8A%E8%82%A1%E7%A5%A8%E5%A4%A7%E4%BD%9C%E6%89%8B%E5%9B%9E%E5%BF%86%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/</id>
+    <published>2026-03-14T16:00:00.000Z</published>
+    <updated>2026-03-15T12:59:51.760Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;注意买进卖出的滑点（和对赌的即时交易不同）&lt;/li&gt;
+&lt;li&gt;不要依赖别人的判断，否则买和卖都得依赖别人。（因为相信朋友的内幕消息而损失）&lt;/li&gt;
+&lt;li&gt;即便是做出了正确判断，也要看时机，要敬畏时间的力量，一步一步来。（做空被轧空）&lt;/li&gt;
+&lt;li&gt;人们用一半的个人财富在股市上冒险，而思考的时间还不如选一辆平价汽车考虑得久。&lt;/li&gt;
+&lt;li&gt;读懂自己和读懂股市一样重要。要去理解自己的恐惧和希望，不要被自己的心情影响。&lt;/li&gt;
+&lt;li&gt;牛市中一个板块的股票通常会有相关性，但是如果一个股票和板块走势不同，就不应该期望它只是没有被发现。那些没有跟随板块领涨的股票，可能有内部人才知道的缺陷。&lt;/li&gt;
+&lt;li&gt;敬畏市场，不与大盘争论对错，设立止损点。如果个人的判断和市场走</summary>
+        
+      
+    
+    
+    
+    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2028 AI 衰退与繁荣</title>
+    <link href="http://milkpku.github.io/blog/2026/03/15/2028-AI-%E8%A1%B0%E9%80%80%E4%B8%8E%E7%B9%81%E8%8D%A3/"/>
+    <id>http://milkpku.github.io/blog/2026/03/15/2028-AI-%E8%A1%B0%E9%80%80%E4%B8%8E%E7%B9%81%E8%8D%A3/</id>
+    <published>2026-03-14T16:00:00.000Z</published>
+    <updated>2026-03-15T12:58:11.271Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;一-ai衰退&quot;&gt;一、AI衰退：&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;原文链接：&lt;a href=&quot;https://www.citriniresearch.com/p/2028gic&quot;&gt;THE 2028 GLOBAL INTELLIGENCE CRISIS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;曾经的稀缺资源“聪明的头脑”现在变得廉价，产生了替代浪潮。律师、会计、中介等白领职位从人力密集向资本密集转化。&lt;/p&gt;
+&lt;p&gt;AI agent迅速增长的能力成为白领的替代:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SaaS：建SaaS成为客户的选项时，saas等公司降价，为了应对收入的下降，采取裁员+投入AI研发的策略，加速了AI的渗透和对就业的挤压。&lt;/li&gt;
+&lt;li&gt;中介：中介是靠信息差赚钱，当AI</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>为什么机场线商务座通常很空</title>
@@ -507,70 +565,6 @@
 &lt;li&gt;&lt;a href=&quot;#六-下半场的挑战&quot;&gt;六、下半场的挑战&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- tocstop</summary>
-        
-      
-    
-    
-    
-    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《渐行渐远的红利》笔记 - 第四章 结构的失衡与再平衡</title>
-    <link href="http://milkpku.github.io/blog/2024/06/11/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0/"/>
-    <id>http://milkpku.github.io/blog/2024/06/11/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0/</id>
-    <published>2024-06-10T16:00:00.000Z</published>
-    <updated>2026-01-11T02:48:30.616Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#前言&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#一-结构失衡的表象消费弱&quot;&gt;一、结构失衡的表象：消费弱&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#二-失衡症结收入差距扩大&quot;&gt;二、失衡症结：收入差距扩大&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#人口结构是基本因素-原第三节&quot;&gt;人口结构是基本因素 （原第三节）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#企业对居民部门的挤压原第四节&quot;&gt;企业对居民部门的挤压（原第四节）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#政府对居民部门的挤压原第五节&quot;&gt;政府对居民部门的挤压（原第五节）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《渐行渐远的红利》笔记 - 第三章 增长的长周期与短周期</title>
-    <link href="http://milkpku.github.io/blog/2024/06/09/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/"/>
-    <id>http://milkpku.github.io/blog/2024/06/09/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/</id>
-    <published>2024-06-08T16:00:00.000Z</published>
-    <updated>2026-01-11T02:48:30.615Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#前言&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#一-过去三十年的三次增长上升期&quot;&gt;一、过去三十年的三次增长上升期&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#二-长周期放缓已经开始&quot;&gt;二、长周期放缓已经开始&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#三-改革决定未来增长&quot;&gt;三、改革决定未来增长&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#四-短周期波动中国版大缓和&quot;&gt;四、短周期波动：中国版“大缓和”&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#六-供给与需求的两面性&quot;&gt;六、供给与需求的两面性&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- tocstop --&gt;
-&lt;h1&gt;&lt;span</summary>
         
       
     
