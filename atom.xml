@@ -75,6 +75,34 @@
   </entry>
   
   <entry>
+    <title>2028 AI 衰退与繁荣</title>
+    <link href="http://milkpku.github.io/blog/2026/03/15/2028-AI-%E8%A1%B0%E9%80%80%E4%B8%8E%E7%B9%81%E8%8D%A3/"/>
+    <id>http://milkpku.github.io/blog/2026/03/15/2028-AI-%E8%A1%B0%E9%80%80%E4%B8%8E%E7%B9%81%E8%8D%A3/</id>
+    <published>2026-03-14T16:00:00.000Z</published>
+    <updated>2026-03-15T12:58:11.271Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;一-ai衰退&quot;&gt;一、AI衰退：&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;原文链接：&lt;a href=&quot;https://www.citriniresearch.com/p/2028gic&quot;&gt;THE 2028 GLOBAL INTELLIGENCE CRISIS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;曾经的稀缺资源“聪明的头脑”现在变得廉价，产生了替代浪潮。律师、会计、中介等白领职位从人力密集向资本密集转化。&lt;/p&gt;
+&lt;p&gt;AI agent迅速增长的能力成为白领的替代:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SaaS：建SaaS成为客户的选项时，saas等公司降价，为了应对收入的下降，采取裁员+投入AI研发的策略，加速了AI的渗透和对就业的挤压。&lt;/li&gt;
+&lt;li&gt;中介：中介是靠信息差赚钱，当AI</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>《股票大作手回忆录》笔记</title>
     <link href="http://milkpku.github.io/blog/2026/03/15/%E3%80%8A%E8%82%A1%E7%A5%A8%E5%A4%A7%E4%BD%9C%E6%89%8B%E5%9B%9E%E5%BF%86%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
     <id>http://milkpku.github.io/blog/2026/03/15/%E3%80%8A%E8%82%A1%E7%A5%A8%E5%A4%A7%E4%BD%9C%E6%89%8B%E5%9B%9E%E5%BF%86%E5%BD%95%E3%80%8B%E7%AC%94%E8%AE%B0/</id>
@@ -100,34 +128,6 @@
     
     
     <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2028 AI 衰退与繁荣</title>
-    <link href="http://milkpku.github.io/blog/2026/03/15/2028-AI-%E8%A1%B0%E9%80%80%E4%B8%8E%E7%B9%81%E8%8D%A3/"/>
-    <id>http://milkpku.github.io/blog/2026/03/15/2028-AI-%E8%A1%B0%E9%80%80%E4%B8%8E%E7%B9%81%E8%8D%A3/</id>
-    <published>2026-03-14T16:00:00.000Z</published>
-    <updated>2026-03-15T12:58:11.271Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;一-ai衰退&quot;&gt;一、AI衰退：&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;原文链接：&lt;a href=&quot;https://www.citriniresearch.com/p/2028gic&quot;&gt;THE 2028 GLOBAL INTELLIGENCE CRISIS&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;曾经的稀缺资源“聪明的头脑”现在变得廉价，产生了替代浪潮。律师、会计、中介等白领职位从人力密集向资本密集转化。&lt;/p&gt;
-&lt;p&gt;AI agent迅速增长的能力成为白领的替代:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;SaaS：建SaaS成为客户的选项时，saas等公司降价，为了应对收入的下降，采取裁员+投入AI研发的策略，加速了AI的渗透和对就业的挤压。&lt;/li&gt;
-&lt;li&gt;中介：中介是靠信息差赚钱，当AI</summary>
-        
-      
-    
-    
-    
-    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
     
     
   </entry>
@@ -359,7 +359,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(x&lt;em&gt;t|x&lt;/em&gt;{t-1}) = &#92;mathcal{N}(&#92;sqrt{1-&#92;beta&lt;em&gt;t} x&lt;/em&gt;{t-1}, &#92;beta&lt;em&gt;t I), x_0 &#92;sim q(x_0)$ ，我们可以通过采样得到 ${x_0, …, x_T}$。假设扩散过程足够充分，可以认为 $x_T &#92;sim &#92;mathcal{N}(0,</summary>
+    <summary type="html">&lt;p&gt;一直以来科研人员对生成式模型进行不断探索，试图建立从高斯噪音到样本数据分布的映射。最近出现的 Diffusion Model 提出一个新的角度：将生成问题看作一个扩散过程的逆问题。定义一个特殊的扩散过程 $q(x_t|x_{t-1}) = &#92;mathcal{N}(&#92;sqrt{1-&#92;beta_t} x_{t-1}, &#92;beta_t I), x_0 &#92;sim q(x_0)$ ，我们可以通过采样得到 $&#92;{x_0, …, x_T&#92;}$。假设扩散过程足够充分，可以认为 $x_T &#92;sim &#92;mathcal{N}(0,</summary>
         
       
     
