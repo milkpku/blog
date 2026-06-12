@@ -6,7 +6,7 @@
   <link href="http://milkpku.github.io/blog/atom.xml" rel="self"/>
   
   <link href="http://milkpku.github.io/blog/"/>
-  <updated>2026-05-02T08:42:02.935Z</updated>
+  <updated>2026-06-13T03:11:28.382Z</updated>
   <id>http://milkpku.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从统计流形到 PPO：强化学习策略空间的内蕴几何学</title>
+    <link href="http://milkpku.github.io/blog/2026/06/12/%E4%BB%8E%E7%BB%9F%E8%AE%A1%E6%B5%81%E5%BD%A2%E5%88%B0PPO/"/>
+    <id>http://milkpku.github.io/blog/2026/06/12/%E4%BB%8E%E7%BB%9F%E8%AE%A1%E6%B5%81%E5%BD%A2%E5%88%B0PPO/</id>
+    <published>2026-06-11T16:00:00.000Z</published>
+    <updated>2026-06-13T03:11:28.382Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-参数空间这把尺子量不准概率的地图&quot;&gt;1. 参数空间这把尺子，量不准概率的地图&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#11-从-pg-到-ppo从未被超越的-baseline&quot;&gt;1.1 从 PG 到 PPO：从未被超越的 baseline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#12-同样的油门不同的车速-参数距离的概率代价&quot;&gt;1.2 同样的油门，不同的车速 — 参数距离的概率代价&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2-换一把尺子在概率的曲面上做梯度下降&quot;&gt;2. 换一把尺子：在概率的曲面上做梯度下降&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Computer Science" scheme="http://milkpku.github.io/blog/categories/Computer-Science/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>《股票大作手操盘法》笔记</title>
@@ -530,37 +561,6 @@
 &lt;!-- toc --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#一-泡沫的争议&quot;&gt;一、泡沫的争议&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Economics" scheme="http://milkpku.github.io/blog/categories/Economics/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《渐行渐远的红利》笔记 - 第六章 通胀迷思</title>
-    <link href="http://milkpku.github.io/blog/2024/07/16/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%85%AD%E7%AB%A0/"/>
-    <id>http://milkpku.github.io/blog/2024/07/16/%E3%80%8A%E6%B8%90%E8%A1%8C%E6%B8%90%E8%BF%9C%E7%9A%84%E7%BA%A2%E5%88%A9%E3%80%8B%E7%AC%AC%E5%85%AD%E7%AB%A0/</id>
-    <published>2024-07-15T16:00:00.000Z</published>
-    <updated>2026-01-11T02:48:30.616Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#一-通胀短周期总需求波动&quot;&gt;一、通胀短周期：总需求波动&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#二-货币超发的影响先通胀-后通缩&quot;&gt;二、货币“超发”的影响：先通胀、后通缩&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#三-发展直接融资降低通胀吗&quot;&gt;三、发展直接融资降低通胀吗？&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#四-劳动力短缺推升通胀吗&quot;&gt;四、劳动力短缺推升通胀吗？&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#五-食品价格的特殊性&quot;&gt;五、食品价格的特殊性&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#六-过剩型经济难以逆转&quot;&gt;六、过剩型经济难以逆转&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a</summary>
         
       

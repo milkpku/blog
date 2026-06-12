@@ -689,6 +689,33 @@ a.article-title:hover {
   height: 100%;
   margin-top: 0;
 }
+.article-entry .has-jax {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+.article-entry .MJXc-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+.article-entry .mjx-chtml.MathJax_CHTML {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle !important;
+}
+@media screen and (max-width: 479px) {
+  .article-entry .MJXc-display {
+    font-size: 0.85em;
+  }
+  .article-entry .MathJax_CHTML {
+    font-size: 0.85em !important;
+  }
+  .article-entry .MJXc-display .MathJax_CHTML {
+    font-size: inherit !important;
+  }
+}
 .article-more-link a {
   display: inline-block;
   line-height: 1em;
