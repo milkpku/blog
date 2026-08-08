@@ -622,6 +622,12 @@ a.article-title:hover {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.article-entry table caption {
+  color: #555;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
 .article-entry th {
   font-weight: bold;
   border-bottom: 3px solid #ddd;
@@ -694,6 +700,10 @@ a.article-title:hover {
   overflow-y: hidden;
   max-width: 100%;
 }
+.article-entry li.has-jax {
+  overflow-x: visible;
+  overflow-y: visible;
+}
 .article-entry .MJXc-display {
   overflow-x: auto;
   overflow-y: hidden;
@@ -714,6 +724,12 @@ a.article-title:hover {
   }
   .article-entry .MJXc-display .MathJax_CHTML {
     font-size: inherit !important;
+  }
+  .outer {
+    padding: 0 8px;
+  }
+  .article-entry {
+    padding: 0 12px;
   }
 }
 .article-more-link a {

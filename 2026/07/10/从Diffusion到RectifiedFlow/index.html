@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>从 Diffusion Model 到 Rectified Flow — 连续生成模型的确定性进化之路 | Li-Ke&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta name="description" content="一、百川归海 — 连续生成模型的流体力学统一视角 二、逆流而上 — Diffusion Model 的逐步去噪 符号系统 前向过程 逆向过程   三、小中见大 — DDPM 小步长的约束与突破契机 小步长约束 边缘分布对齐 从约束到突破   四、静水流深 — 从随机离散采样到连续确定流场 连续极限下的 SDE 连续极限下的边缘分布演化 从 Fokker-Planck 到逆向过程 可计算的优化目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 Diffusion Model 到 Rectified Flow — 连续生成模型的确定性进化之路">
+<meta property="og:url" content="http://milkpku.github.io/blog/2026/07/10/%E4%BB%8EDiffusion%E5%88%B0RectifiedFlow/index.html">
+<meta property="og:site_name" content="Li-Ke&#39;s blog">
+<meta property="og:description" content="一、百川归海 — 连续生成模型的流体力学统一视角 二、逆流而上 — Diffusion Model 的逐步去噪 符号系统 前向过程 逆向过程   三、小中见大 — DDPM 小步长的约束与突破契机 小步长约束 边缘分布对齐 从约束到突破   四、静水流深 — 从随机离散采样到连续确定流场 连续极限下的 SDE 连续极限下的边缘分布演化 从 Fokker-Planck 到逆向过程 可计算的优化目">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://milkpku.github.io/blog/images/2026_rectified_flow/rectified.png">
+<meta property="article:published_time" content="2026-07-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-08T06:48:52.088Z">
+<meta property="article:author" content="Li-Ke Ma">
+<meta property="article:tag" content="Programming, Computer Science, Physics, Philosopy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://milkpku.github.io/blog/images/2026_rectified_flow/rectified.png">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Li-Ke&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="background-image: url('');"><div id="layer"></div></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="logo">从 Diffusion Model 到 Rectified Flow — 连续生成模型的确定性进化之路</div>
+      </h1>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/About%20me.html">About Me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://milkpku.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdn.bootcdn.net/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+  
+</header>
+<div class="outer">
+  <section id="main-post"><article id="post-从Diffusion到RectifiedFlow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2026/07/10/%E4%BB%8EDiffusion%E5%88%B0RectifiedFlow/" class="article-date">
+  <time datetime="2026-07-09T16:00:00.000Z" itemprop="datePublished">2026-07-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Computer-Science/">Computer Science</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从 Diffusion Model 到 Rectified Flow — 连续生成模型的确定性进化之路
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#一-百川归海-连续生成模型的流体力学统一视角">一、百川归海 — 连续生成模型的流体力学统一视角</a></li>
+<li><a href="#二-逆流而上-diffusion-model-的逐步去噪">二、逆流而上 — Diffusion Model 的逐步去噪</a><ul>
+<li><a href="#符号系统">符号系统</a></li>
+<li><a href="#前向过程">前向过程</a></li>
+<li><a href="#逆向过程">逆向过程</a></li>
+</ul>
+</li>
+<li><a href="#三-小中见大-ddpm-小步长的约束与突破契机">三、小中见大 — DDPM 小步长的约束与突破契机</a><ul>
+<li><a href="#小步长约束">小步长约束</a></li>
+<li><a href="#边缘分布对齐">边缘分布对齐</a></li>
+<li><a href="#从约束到突破">从约束到突破</a></li>
+</ul>
+</li>
+<li><a href="#四-静水流深-从随机离散采样到连续确定流场">四、静水流深 — 从随机离散采样到连续确定流场</a><ul>
+<li><a href="#连续极限下的-sde">连续极限下的 SDE</a></li>
+<li><a href="#连续极限下的边缘分布演化">连续极限下的边缘分布演化</a></li>
+<li><a href="#从-fokker-planck-到逆向过程">从 Fokker-Planck 到逆向过程</a></li>
+<li><a href="#可计算的优化目标">可计算的优化目标</a></li>
+<li><a href="#从粒子到流场">从粒子到流场</a></li>
+</ul>
+</li>
+<li><a href="#五-化曲为直-gaussian-cfm-flow-matching">五、化曲为直 — Gaussian CFM / Flow Matching</a><ul>
+<li><a href="#核心思想">核心思想</a></li>
+<li><a href="#可计算的优化目标-1">可计算的优化目标</a></li>
+</ul>
+</li>
+<li><a href="#六-百炼归真-rectified-flow-与最优传输">六、百炼归真 — Rectified Flow 与最优传输</a><ul>
+<li><a href="#rectification-迭代">Rectification 迭代</a></li>
+<li><a href="#问题和改进">问题和改进</a></li>
+</ul>
+</li>
+<li><a href="#登高望远-从随机到确定再到最优">登高望远 — 从随机到确定再到最优</a></li>
+<li><a href="#参考文献">参考文献</a></li>
+<li><a href="#附录addpm-训练目标的推导">附录A：DDPM 训练目标的推导</a></li>
+<li><a href="#附录bddpm-逆向核高斯性的分析">附录B：DDPM 逆向核高斯性的分析</a></li>
+</ul>
+<!-- tocstop -->
+<h2><span id="一-百川归海-连续生成模型的流体力学统一视角">一、百川归海 — 连续生成模型的流体力学统一视角</span></h2><p>连续生成模型的核心任务，是在高斯先验分布 $p_0 \sim \mathcal{N}(0,I)$ 与数据分布 $p_1 \sim p_{\text{data}}$ 之间，建立一个<strong>连续的变换</strong>。这个变换在宏观上表现为一条概率密度路径 $\{p_t\}_{t\in[0,1]}$，在微观上则需要一个<strong>速度场 $v_t(x)$</strong> 来引导每个粒子从高斯分布流动到数据分布：</p>
+<script type="math/tex; mode=display">
+\frac{dx}{dt} = v_t(x)</script><p>宏观与微观之间的耦合，将借助流体力学的<strong>连续性方程</strong>来建立——这个方程将在第四节的关键推导中正式登场。</p>
+<p>从 Diffusion Model 到 Rectified Flow 的演进，本质上是一条<strong>随机性逐步消解、路径逐步拉直</strong>的路径：</p>
+<ul>
+<li><strong>DDPM</strong> [1] — 通过扩散过程首次连接了高斯与数据分布，但逆向推理充满随机性，需要上千步</li>
+<li><strong>DDIM</strong> [2] — 提出了一种非马尔可夫的前向过程，其边际分布 $p_t(x)$ 与马尔可夫扩散过程完全相同，据此推导出完全确定性的逆向过程，大幅减少了推理步数</li>
+<li><strong>Score-Based SDE</strong> [3] — 将前向与逆向过程统一为 SDE（随机微分方程，Stochastic Differential Equation），并证明了逆向 SDE 与一个确定性 ODE（Probability Flow ODE）边际分布相同。以 score function 为桥梁建立了速度场的统一框架，为 Flow Matching 奠定了理论基础</li>
+<li><strong>Flow Matching</strong> [4] — 迈出了更大的一步：不再走”先扩散再反扩散”的弯路，而是直接定义直线路径，用条件期望来构造速度场</li>
+<li><strong>Rectified Flow</strong> [5] — 通过迭代优化找到了最优传输对耦，消除了路径交叉，实现了宏观与微观的双重拉直</li>
+</ul>
+<p>以下总结了从 Diffusion Model 到 Rectified Flow 各方法在 Flow 统一视角下的定位，后面的章节将逐层深入每一行背后的洞察与突破：</p>
+<div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<table style="min-width: 750px;">
+  <caption><b>表一：模型概览</b></caption>
+  <thead>
+    <tr>
+      <th>模型</th><th>速度场</th><th>路径曲率</th><th>推理确定性</th><th>采样效率</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+        <td><b>DDPM</b></td>
+        <td>先定义随机的扩散过程 $p_1 \to p_0$，再通过逆过程定义流速，含布朗运动项</td>
+        <td>❌ 弯曲</td><td>❌ 随机 (SDE)</td><td>低 (100-1000步)</td>
+      </tr>
+      <tr>
+        <td><b>DDIM / Probability Flow ODE</b></td>
+        <td>证明存在确定的 ODE 与 SDE 的边际分布 $p_t$ 完全一致，去掉了 DDPM 中的布朗运动项</td>
+        <td>❌ 弯曲</td><td>✅ 确定性 (ODE)</td><td>中 (10-50步)</td>
+      </tr>
+      <tr>
+        <td><b>Flow Matching</b></td>
+        <td>独立配对 $(x_0,x_1)\sim p_0\times p_1$ 并进行匀速输运，速度场等于通过一点的配对速度的期望</td>
+        <td>微观✅ 宏观❌</td><td>✅ 确定性 (ODE)</td><td>高 (1-10步)</td>
+      </tr>
+      <tr>
+        <td><b>Rectified Flow</b></td>
+        <td>用最优输运配对 $(x_0,x_1)\sim\pi_{OT}$ 替代 Flow Matching 中的独立配对</td>
+        <td>✅ 双重拉直</td><td>✅ 确定性 (ODE)</td><td>极高 (1-4步)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<table style="min-width: 440px;">
+  <caption><b>表二：速度场的微分形式</b></caption>
+  <thead>
+    <tr>
+      <th>模型</th><th>速度场的微分形式</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+        <td><b>DDPM</b></td>
+        <td>$dx_t = [f(x_t,t) - g(t)^2\nabla_x\log p_t(x_t)]dt + g(t)d\bar{w}_t$</td>
+      </tr>
+      <tr>
+        <td><b>DDIM / Probability Flow ODE</b></td>
+        <td>$dx_t = [f(x_t,t) - \frac12 g(t)^2\nabla_x\log p_t(x_t)]dt$</td>
+      </tr>
+      <tr>
+        <td><b>Flow Matching</b></td>
+        <td>$dx_t = \mathbb{E}_{(x_0,x_1)\sim p_0\times p_1}[x_1 - x_0 \mid x_t]dt$</td>
+      </tr>
+      <tr>
+        <td><b>Rectified Flow</b></td>
+        <td>$dx_t = \mathbb{E}_{(x_0,x_1)\sim\pi_{OT}}[x_1 - x_0 \mid x_t]dt$</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<blockquote>
+<p>其中 $f(x_t,t)$ 为前向 SDE 的漂移系数，$g(t)$ 为扩散系数。以 DDPM 为例：$f(x_t,t) = -\frac12\beta_t x_t$，$g(t) = \sqrt{\beta_t}$，其中 $\beta_t$ 为噪声 schedule</p>
+</blockquote>
+<hr>
+<h2><span id="二-逆流而上-diffusion-model-的逐步去噪">二、逆流而上 — Diffusion Model 的逐步去噪</span></h2><p>为了从宏观分布层面更清晰地刻画 Diffusion Model 的去噪过程，本文采用了与原文 [1] 不同的视角——以整体分布而非粒子采样的视角来审视逐步去噪。</p>
+<h3><span id="符号系统">符号系统</span></h3><p>记 $p_0$ 为数据分布，$p_T \sim \mathcal{N}(0,I)$ 为高斯先验。前向扩散定义了由 $i=0$ 到 $T$ 的马尔可夫链，$p_i$ 为第 $i$ 步的边缘分布：</p>
+<script type="math/tex; mode=display">
+p_i = F_i(p_{i-1}), \quad F_i(\cdot|x_{i-1}) = \mathcal{N}(\sqrt{1-\beta_i}\,x_{i-1},\,\beta_i I)</script><p>其中 $F_i$ 为前向转移核。逆向过程由理想反向核 $R_i(\cdot|x_{i+1})$ 和模型反向核 $\hat{R}_i(\cdot|x_{i+1})$ 描述：</p>
+<ul>
+<li>$R_i(p_{i+1}) = p_i$ — 贝叶斯逆转移，精确但不可计算</li>
+<li>$\hat{R}_i(p_{i+1}) \approx p_i$ — 神经网络近似的逆向核</li>
+</ul>
+<p>定义两个重要的重构分布：</p>
+<ul>
+<li>$\hat{p}_i = \hat{R}_{i+1}(p_{i+1})$ — 从<strong>真实</strong> $p_{i+1}$ 单步重构第 $i$ 步分布</li>
+<li>$\tilde{p}_i = \hat{R}_{i+1} \circ \hat{R}_{i+2} \circ \cdots \circ \hat{R}_T(p_T)$ — 从先验 $p_T$ 多步生成到达第 $i$ 步的分布，$\tilde{p}_0$ 即最终生成分布</li>
+</ul>
+<h3><span id="前向过程">前向过程</span></h3><p>Diffusion Model 的前向马尔可夫链定义了一个逐步加噪过程：</p>
+<script type="math/tex; mode=display">
+F_i(x_i|x_{i-1}) = \mathcal{N}(\sqrt{\alpha_i}\,x_{i-1},\,(1-\alpha_i)I),\quad \alpha_i = 1-\beta_i</script><p>反复迭代得到从 $x_0$ 到 $x_i$ 的条件分布：</p>
+<script type="math/tex; mode=display">
+p_i(x_i|x_0) = \mathcal{N}(\sqrt{\bar{\alpha}_i}\,x_0,\,(1-\bar{\alpha}_i)I),\quad \bar{\alpha}_i = \prod_{k=1}^i \alpha_k</script><p>但边缘分布 $p_i(x_i) = \int p_i(x_i|x_0)\,p_0(x_0)\,dx_0$ 没有解析闭式——它需要积分掉复杂的数据分布 $p_0$。不过我们并不需要 $p_i$ 的显式表达式：只需采样 $x_0 \sim p_0$，即可通过重参数化一步得到 $p_i$ 的样本：</p>
+<script type="math/tex; mode=display">
+x_i = \sqrt{\bar{\alpha}_i}\,x_0 + \sqrt{1-\bar{\alpha}_i}\,\varepsilon,\quad \varepsilon \sim \mathcal{N}(0,I)</script><p>当 $T$ 足够大时，$p_T$ 逼近标准高斯分布。前向链给出了联合分布 $q(x_0, x_{i+1})$ 的可行采样方案，且条件分布 $q(x_i|x_{i+1}, x_0)$ 可由上述高斯核经贝叶斯公式得到闭式解——这为后续 Jensen 推导提供了基础。</p>
+<h3><span id="逆向过程">逆向过程</span></h3><p>构造两条反向路径的联合分布：</p>
+<ul>
+<li><strong>理想反向路径</strong>（使用 $R_i$）：$Q(x_0,\dots,x_T) = p_T(x_T)\prod_{i=0}^{T-1} R_i(x_i|x_{i+1})$，其 $x_0$ 边缘为 $p_0$</li>
+<li><strong>模型反向路径</strong>（使用 $\hat{R}_i$）：$P(x_0,\dots,x_T) = p_T(x_T)\prod_{i=0}^{T-1} \hat{R}_i(x_i|x_{i+1})$，其 $x_0$ 边缘为 $\tilde{p}_0$</li>
+</ul>
+<p>由 KL 链式法则：</p>
+<script type="math/tex; mode=display">
+KL(Q\|P) = \sum_{i=0}^{T-1} \mathbb{E}_{p_{i+1}}[KL(R_i(\cdot|x_{i+1}) \| \hat{R}_i(\cdot|x_{i+1}))]</script><p>由数据处理不等式，边缘化不增加 KL：</p>
+<script type="math/tex; mode=display">
+KL(p_0 \| \tilde{p}_0) \leq KL(Q\|P)</script><p>因此得到一个<strong>严格的上界</strong>（在任意步长下成立）：</p>
+<script type="math/tex; mode=display">
+\boxed{KL(p_0 \| \tilde{p}_0) \leq \sum_{i=0}^{T-1} \mathbb{E}_{p_{i+1}}[KL(R_i \| \hat{R}_i)]} \tag{1}</script><p>至此，我们将数据分布 $p_0$ 与生成分布 $\tilde{p}_0$ 之间的 KL 散度，分解为各步逆向核 KL 散度期望之和。每一步的损失只依赖于当前步的逆向核 $\hat{R}_i$，各步之间互不耦合——只需把每一步的逆向核学到位，即可拼接出完整的逆向分布逼近链。</p>
+<p>对 $\mathbb{E}_{p_{i+1}}[KL(R_i | \hat{R}_i)]$ 应用 Jensen 不等式，用前向过程诱导的 $q(x_i|x_{i+1}, x_0)$ 展开 $R_i$，即可把其中不可计算的 KL 散度放缩为一个可采样的期望上界：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}_{p_{i+1}}[KL(R_i \| \hat{R}_i)] \leq \mathbb{E}_{q(x_0, x_{i+1})}[KL(q(x_i|x_{i+1}, x_0) \| \hat{R}_i)]</script><p>其中 $q(x_0, x_{i+1})$ 由 $x_0 \sim p_0$ 和 $x_{i+1} \sim p_{i+1}(\cdot|x_0)$ 直接采样得到。将 $\hat{R}_i$ 参数化为高斯 $\mathcal{N}(\mu_\theta(x_{i+1}, i), \sigma_i^2 I)$，展开两个高斯之间的 KL 散度即得 DDPM 的可计算训练目标：</p>
+<script type="math/tex; mode=display">
+\mathcal{L} = \sum_{i=0}^{T-1} \mathbb{E}_{q(x_0, x_{i+1})} \left[ \frac{1}{2\sigma_i^2} \|\tilde{\mu}_i(x_{i+1}, x_0) - \mu_\theta(x_{i+1}, i)\|^2 \right]</script><p>详细推导见<a href="#附录addpm-训练目标的推导">附录 A</a>。</p>
+<hr>
+<h2><span id="三-小中见大-ddpm-小步长的约束与突破契机">三、小中见大 — DDPM 小步长的约束与突破契机</span></h2><p>DDPM 的理论框架对任意步长 $\beta_i$ 在数学上均成立，但实践中必须满足 $\beta_i \ll 1$ 才能生成高质量样本。这一现实约束从何而来？它是否揭示了 DDPM 更深刻的生成结构？</p>
+<p>本节从逆向核的高斯参数化假设出发，揭示小步长约束的数学根源。分析将表明，这一约束不仅指明了扩大步长的优化方向，也引出了一个看待 DDPM 的全新视角——边缘分布对齐。在这个视角下，去噪过程不再关心微观层面的逆向核对齐，而是转向宏观分布的对齐，为后续放松约束、走向连续确定流场埋下了伏笔。</p>
+<h3><span id="小步长约束">小步长约束</span></h3><p>上文中 DDPM 通过 Jensen 不等式获得了可计算的 ELBO（<a href="#附录addpm-训练目标的推导">附录 A</a> 中有详细推导），这一推导对任意步长 $\beta_i$ 在数学上均成立。然而在实践中，DDPM 必须采用极小的 $\beta_i$、以上千步的采样才能生成高质量样本。原因在于对真实逆向核 $R_i$ 使用了高斯分布参数化——这一参数化隐式要求 $\beta_i$ 足够小。</p>
+<p>对 $R_i$ 使用高斯分布参数化，即令 $\hat{R}_i(x_i|x_{i+1}) = \mathcal{N}(\mu_\theta(x_{i+1}, i), \sigma_i^2 I)$，这只有在 $R_i$ 本身近似高斯时才有意义。由贝叶斯公式并对 $\log p_i$ 做泰勒展开可知（<a href="#附录bddpm-逆向核高斯性的分析">附录 B</a> 中有完整推导），$R_i$ 的高斯性要求：</p>
+<script type="math/tex; mode=display">
+\boxed{\beta_i \cdot \max_x \|\nabla^2 \log p_i(x)\|_{\text{op}} \ll 1} \tag{2}</script><p>当 $\beta_i$ 足够小时，正向转移核的带宽 $\sqrt{\beta_i}$ 极窄，在核的支撑范围内数据分布 $p_i$ 的曲率变化可忽略，$R_i$ 自然退化为高斯分布。反之，若 $\beta_i$ 过大（如扩散初期 $p_i$ 呈现复杂的数据结构，Hessian 条件数很大），则 $R_i$ 偏离高斯，高斯参数化失效。</p>
+<p>这一约束也能解释 DDPM 的 noise schedule 设计。以 cosine schedule 为例，它在扩散后期步长显著增大。这是因为扩散后期 $p_i$ 趋近标准高斯，$\nabla^2 \log p_i \approx -I$，条件数极低，条件 (2) 自动放宽为 $\beta_i \ll 1$，无需严格小步长。而扩散初期 $p_i$ 呈现复杂的数据分布结构，Hessian 条件数很大，必须采用极小的 $\beta_i$ 来保证 $R_i$ 的高斯性。</p>
+<p>这一分析也指明了突破方向。公式 (2) 表明，扩大步长的关键在于加快降低 $|\nabla^2 \log p_i|$ 的速度——即让数据分布在更少的步数内变得足够平滑。然而，DDPM 的路径由加噪高斯核定义，平滑速度受限于扩散过程的固有节奏，无法自由调节。这暗示了一条根本性的出路：<strong>放弃 DDPM 由加噪定义的弯曲路径，转而直接构造一条更平滑的概率路径</strong>。</p>
+<h3><span id="边缘分布对齐">边缘分布对齐</span></h3><p>在满足小步长约束条件下，优化目标还可以和边缘分布产生更紧密的联系，揭示出一个更宽松的优化思路。由 KL 链式法则，优化 $\mathbb{E}_{p_{i+1}}[KL(R_i | \hat{R}_i)]$ 等价于优化边缘分布 KL 与一个偏差项之和：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}_{p_{i+1}}[KL(R_i \| \hat{R}_i)] = KL(p_i \| \hat{p}_i) + \Delta_i</script><p>其中 $KL(p_i | \hat{p}_i)$ 是当前步真实边缘分布 $p_i$ 与单步重构分布 $\hat{p}_i$ 之间的差距，$\Delta_i = \mathbb{E}_{p_i(x_i)}\big[KL\big(F_{i+1}(\cdot|x_i) \;\big|\; \frac{\hat{R}_i(x_i|\cdot) p_{i+1}(\cdot)}{\hat{p}_i(x_i)}\big)\big]$ 是模型反向核诱导的伪前向过程与真实前向过程之间的偏差。</p>
+<p>条件 (2) 再次发挥作用，$\Delta_i$ 相对于 $KL(p_i | \hat{p}_i)$ 成为高阶小量。（有兴趣的读者可自行推导：将 $\mathbb{E}_{p_{i+1}}[KL(R_i | \hat{R}_i)]$ 和 $KL(p_i | \hat{p}_i)$ 改写为 score matching 形式后对比，其差距主要来源于估计时的 distribution shift，由此可得到 $\Delta_i$ 的估计。）于是：</p>
+<script type="math/tex; mode=display">
+\boxed{KL(p_0 \| \tilde{p}_0) \;\lesssim\; \sum_{i=0}^{T-1} KL(p_i \| \hat{p}_i)}</script><p>这意味着优化条件 KL 近似等价于逐层缩小边缘分布差距——<strong>每一步都在让 $\hat{p}_i$ 更接近 $p_i$</strong>，这正是去噪过程在宏观分布层面的最直观解释。</p>
+<p>这一视角的意义在于，它将关注点从微观层面逆向核 $R_i$ 与 $\hat{R}_i$ 的一一对应约束，转向了宏观层面两步边缘分布 $p_i$ 与 $\hat{p}_i$ 的关系。在小步长条件下，实际的逆向采样过程可以与准确的逆向核 $R_i$ 不同，只需保证单步重构的整体分布 $\hat{p}_i$ 与真实边缘 $p_i$ 一致即可。这一认识的直接成果便是 DDIM——它舍弃了 DDPM 逆向过程中的随机项，采用完全确定性的采样过程，仍保证 $\hat{p}_i$ 与 $p_i$ 的边缘一致性。</p>
+<h3><span id="从约束到突破">从约束到突破</span></h3><p>小步长约束指向了两条突破方向。其一是<strong>构造更平直的概率路径</strong>，从根源上消除曲率对步长的限制——这正是 Flow Matching 的出发点。其二是<strong>从随机采样转向确定性采样</strong>（DDIM 已迈出第一步），将其置于连续框架下，则表现为从随机 SDE 到确定性 ODE 的转变。以下两章将分别展开这两条路径。</p>
+<hr>
+<h2><span id="四-静水流深-从随机离散采样到连续确定流场">四、静水流深 — 从随机离散采样到连续确定流场</span></h2><p>在小步长约束下，边缘分布对齐视角将去噪过程从微观的逆向核匹配中解放出来，将关注点聚焦于相邻分布的逐层逼近。在这一节中，我们将把这个框架从离散推向连续——令时间间隔 $\Delta t \to 0$——以一个更简洁和现代的视角去审视这个过程。</p>
+<h3><span id="连续极限下的-sde">连续极限下的 SDE</span></h3><p>离散前向过程的连接由连续 SDE 框架统一描述 [3]。</p>
+<p>DDPM 的递推形式为：</p>
+<script type="math/tex; mode=display">
+x_{i+1} = \sqrt{\alpha_i}\,x_i + \sqrt{1-\alpha_i}\,\varepsilon,\quad \alpha_i = 1-\beta_i</script><p>累计到第 $i$ 步有 $\bar\alpha_i = \prod_{k=1}^i \alpha_k$。将步长视为 $\Delta t = 1/T$，引入连续时间 $t = i/T$ 并对 $\bar\alpha_i$ 做光滑插值得到 $\bar\alpha(t)$。对任意 $\Delta t$，相邻两步之间的关系可写为：</p>
+<script type="math/tex; mode=display">
+x_{t+\Delta t} = \sqrt{\frac{\bar\alpha(t+\Delta t)}{\bar\alpha(t)}}\,x_t + \sqrt{1-\frac{\bar\alpha(t+\Delta t)}{\bar\alpha(t)}}\,\varepsilon</script><p>记 $\beta(t)\Delta t = 1 - \frac{\bar\alpha(t+\Delta t)}{\bar\alpha(t)}$，小步长下 $\sqrt{1-\beta\Delta t} \approx 1 - \frac12\beta\Delta t$，代入得：</p>
+<script type="math/tex; mode=display">
+x_{t+\Delta t} - x_t \approx -\frac12\beta(t)x_t\Delta t + \sqrt{\beta(t)\Delta t}\,\varepsilon</script><p>两边除以 $\Delta t$ 并令 $\Delta t\to0$，离散过程收敛为连续 SDE：</p>
+<script type="math/tex; mode=display">
+dx = f(x,t)dt + g(t)dw</script><p>其中漂移系数 $f(x,t) = -\frac12\beta(t)x$，扩散系数 $g(t) = \sqrt{\beta(t)}$，$dw$ 为标准维纳过程。逆向时间维纳过程记为 $d\bar w$。</p>
+<h3><span id="连续极限下的边缘分布演化">连续极限下的边缘分布演化</span></h3><p>在连续框架下，我们不再追踪单个粒子的微观轨迹，只关心边缘分布 $p_t$ 的宏观演化——这正是第三节”边缘分布对齐”视角走向连续的自然延伸。$p_t$ 的演化由流体力学中的<strong>连续性方程</strong>约束：</p>
+<script type="math/tex; mode=display">
+\frac{\partial p_t}{\partial t} + \nabla \cdot (p_t v_t) = 0</script><p>它将宏观密度 $p_t$ 与微观速度场 $v_t$ 耦合在一起。</p>
+<p>将 SDE 改写为粒子速度形式 $\frac{dx}{dt} = f(x,t) + g(t)\,\dot{w}_t$（$\dot{w}_t$ 为白噪声），代入连续性方程的 $v_t$，得到 Fokker-Planck 方程：</p>
+<script type="math/tex; mode=display">
+\frac{\partial p_t}{\partial t} = -\nabla \cdot (f p_t) + \frac12 g^2 \nabla^2 p_t</script><p>其中 $\frac12 g^2 \nabla^2 p_t$ 来自白噪声 $\dot{w}_t$——噪声增量 $dw$ 的均值为零，故在宏观上不产生净输运；但其方差随时间的累积在分布层面汇聚为扩散流（可由 Ito 引理严格导出），微观的布朗运动被 $\nabla^2$ 算子吸收为宏观扩散项。</p>
+<h3><span id="从-fokker-planck-到逆向过程">从 Fokker-Planck 到逆向过程</span></h3><p>将 Fokker-Planck 方程重新整理为连续性方程的规范形式：</p>
+<script type="math/tex; mode=display">
+\frac{\partial p_t}{\partial t} + \nabla \cdot \big(p_t\,(f - \tfrac12 g^2 \nabla\log p_t)\big) = 0</script><p>与 $\partial_t p_t + \nabla\cdot(p_t v_t)=0$ 对比，速度场自然提取为：</p>
+<script type="math/tex; mode=display">
+\boxed{v_t(x) = f(x,t) - \tfrac12 g(t)^2 \nabla_x\log p_t(x)}</script><p>这正是 <strong>Probability Flow ODE</strong> 的确定性流场：</p>
+<script type="math/tex; mode=display">
+dx = v_t(x)\,dt</script><p>粒子沿此流场即可从高斯先验 $p_0$ 演化至数据分布 $p_1$，完成逆向生成。</p>
+<p>但逆向过程并不唯一。可以验证，逆向 SDE</p>
+<script type="math/tex; mode=display">
+dx = [f - g^2\nabla\log p_t]dt + g\,d\bar w</script><p>同样满足同一 Fokker-Planck 方程，与 PF-ODE 共享完全相同的边际分布 $p_t$。事实上，存在一族逆向过程：</p>
+<script type="math/tex; mode=display">
+dx = \big[f - \tfrac12(1+\eta^2)g^2\nabla\log p_t\big]dt + \eta g\,d\bar w,\quad \eta\in[0,1]</script><p>它们都在宏观上产生完全相同的 $p_t$——$\eta$ 调控的是微观层面粒子轨迹的随机性。$\eta=0$ 退化为确定性 ODE，$\eta=1$ 是标准的逆向 SDE。</p>
+<p>这正是在 DDIM 中发现的自由度的连续版本。DDIM 通过调整逆向步中的噪声方差 $\sigma_t$，在确定性与随机采样之间插值，且不改变边际分布；在连续极限下，该自由度的根源即同一 Fokker-Planck 对应多个逆向过程。</p>
+<h3><span id="可计算的优化目标">可计算的优化目标</span></h3><p>记 $s_\theta: \mathbb{R}^n \times [0,T] \to \mathbb{R}^n$ 为 score function $\nabla_x \log p_t(x)$ 的神经网络近似。连续框架下的生成质量同样受 KL 散度的约束。Song et al. [3] 证明了 score matching loss 与生成分布之间的上界关系：</p>
+<script type="math/tex; mode=display">
+KL(p_0 \| \tilde{p}_0) \leq \frac12 \int_0^T \mathbb{E}_{p_t}[\|s_\theta(x,t) - \nabla_x \log p_t(x)\|^2]\, g(t)^2 dt</script><p>然而 $\nabla \log p_t(x)$ 涉及的边缘密度 $p_t(x)$ 没有解析形式，无法直接计算。与第二节的 Jensen 推导一脉相承——将 $\nabla \log p_t$ 用条件 score $\nabla \log p_t(\cdot|x_0)$ 展开，通过不等式引入 $x_0$ 得到可采样的上界：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}_{p_t}[\|s_\theta - \nabla \log p_t\|^2] \leq \mathbb{E}_{p_0(x_0) p_t(x_t|x_0)}[\|s_\theta(x_t,t) - \nabla_{x_t} \log p_t(x_t|x_0)\|^2]</script><p>这就是 <strong>Denoising Score Matching (DSM)</strong>。由于 $p_t(x_t|x_0) = \mathcal{N}(\sqrt{\bar\alpha_t} x_0, (1-\bar\alpha_t)I)$，条件 score 有解析闭式 $\nabla_{x_t} \log p_t(x_t|x_0) = -(x_t - \sqrt{\bar\alpha_t} x_0)/(1-\bar\alpha_t) = -\varepsilon/\sqrt{1-\bar\alpha_t}$，代入即得与 DDPM 完全相同的训练损失：</p>
+<script type="math/tex; mode=display">
+\mathcal{L} = \mathbb{E}_{t \sim [0,T],\, x_0 \sim p_0,\, \varepsilon \sim \mathcal{N}(0,I)} \left[ \|\varepsilon_\theta(x_t, t) - \varepsilon\|^2 \right], \quad x_t = \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\varepsilon</script><p>与第二节的 $\mathcal{L}$ 表达式完全一致——$s_\theta$ 等价于 $-\varepsilon_\theta / \sqrt{1-\bar\alpha_t}$。</p>
+<p>上述 KL 上界通过 Girsanov 定理推导，依赖 SDE 中的噪声项。当使用 PF-ODE 替代逆向 SDE 进行采样时，这一 KL 上界不再成立——ODE 的误差累积行为不同，score matching loss 对生成分布的保障减弱。这也解释了 PF-ODE / DDIM 在步数极少时质量下降，而 SDE 的随机性起到误差校正作用，对粗略离散化更鲁棒。</p>
+<h3><span id="从粒子到流场">从粒子到流场</span></h3><p>至此，我们完成了从离散马尔可夫链到连续确定性流场的范式转换。</p>
+<p>然而，小步长约束并未真正消失——它只是以 SDE/ODE 数值离散步长的形式重新出现。根本原因在于边缘分布的扩散路径没有改变。注意到速度场的 Jacobian $\nabla_x v_t$ 包含曲率项 $-\frac12 g(t)^2 \nabla^2 \log p_t$，而扩散系数 $g(t) = \sqrt{\beta(t)}$ 即 $g(t)^2 = \beta(t)$，代入后我们熟悉的小步长约束公式 (2) 再次出现。于是公式 (2) 对 $\beta_t \cdot |\nabla^2 \log p_t|$ 的限制，等价于要求 $\nabla_x v_t$ 的曲率项不能太大——即速度场必须足够平直，数值积分才能大步前进。要彻底解除这一约束，必须从路径本身入手。</p>
+<hr>
+<h2><span id="五-化曲为直-gaussian-cfm-flow-matching">五、化曲为直 — Gaussian CFM / Flow Matching</span></h2><p>既然 Probability Flow 揭示了生成模型的任务本质上就是学习 $p_t(x)$ 变化的流场 $v_t(x)$，那又何必局限于求解扩散过程所定义的弯曲速度场？</p>
+<ul>
+<li><strong>能否选择其他概率路径？</strong> 能否构造一条 $p_t$，使其对应的速度场天然更平直？</li>
+<li><strong>能否直接构造速度场？</strong> 能否不依赖显式的边缘分布插值过程，直接构造一个满足连续性方程的顺直速度场？</li>
+</ul>
+<p>最重要的是，在流场视角下，DDPM 已经成功地对随机过程所诱导的速度场进行了学习并取得了高质量采样结果，这让我们有信心在拥有更加平直的速度场时同样能取得成功。</p>
+<h3><span id="核心思想">核心思想</span></h3><p>Flow Matching 直接从<strong>输运</strong>的角度出发：将噪声分布 $p_0$ 上的每一个粒子，以<strong>匀速直线运动</strong>的方式运送到数据分布 $p_1$ 上。</p>
+<p>具体地，对任意一对噪声点 $x_0 \sim p_0$ 和数据点 $x_1 \sim p_1$，定义一条线性插值路径：</p>
+<script type="math/tex; mode=display">
+x_t = (1-t)x_0 + t x_1, \quad t \in [0,1]</script><p>沿该路径的粒子密度为 Dirac delta $p_t(x|x_0,x_1) = \delta(x - (1-t)x_0 - t x_1)$，条件速度 $v_t(x|x_0,x_1) = x_1 - x_0$ 是恒定常数——点粒子沿直线匀速运动，这是一种平凡解，任意 Dirac delta 以恒定速度运动都自动满足连续性方程。所有粒子沿各自直线轨迹同步运动，便在宏观上构成了 $p_0$ 到 $p_1$ 的一个<strong>概率流</strong>。其边缘密度为条件密度的期望：</p>
+<script type="math/tex; mode=display">
+p_t(x) = \iint \delta\big(x - (1-t)x_0 - t x_1\big) \, p_0(x_0) p_1(x_1) \, dx_0 dx_1</script><p>相应地，全局速度场也为条件速度关于 delta 的加权平均：</p>
+<script type="math/tex; mode=display">
+v_t(x) = \frac{1}{p_t(x)} \iint (x_1 - x_0) \, \delta\big(x - (1-t)x_0 - t x_1\big) \, p_0(x_0) p_1(x_1) \, dx_0 dx_1</script><p>现在证明这组 $p_t$、$v_t$ 满足连续性方程。将 $p_t$ 和 $p_t v_t$ 的积分形式代入：</p>
+<script type="math/tex; mode=display">
+\partial_t p_t + \nabla \cdot (p_t v_t) = \iint \Big[\partial_t \delta(x - x_t) + \nabla \cdot \big(\delta(x - x_t)(x_1 - x_0)\big)\Big] \, p_0(x_0) p_1(x_1) \, dx_0 dx_1</script><p>其中 $x_t = (1-t)x_0 + t x_1$。$\partial_t$ 和 $\nabla\cdot$ 的线性性使算子可直接进入积分内部。括号内的项正是单条轨迹的连续性方程——对 Dirac delta 以恒定速度运动的情形，有恒等式 $\partial_t \delta(x - x_t) = -\nabla \cdot (\delta(x - x_t)\dot x_t)$，故被积函数恒为零。因此整个积分为零，$\partial_t p_t + \nabla \cdot (p_t v_t) = 0$ 成立。</p>
+<h3><span id="可计算的优化目标">可计算的优化目标</span></h3><p>全局速度场 $v_t(x)$ 的解析形式涉及对全空间 $(x_0,x_1)$ 的加权积分，无法直接计算。但观察其底层刻画——每对 $(x_0,x_1)$ 的条件速度 $x_1 - x_0$ 是已知的解析量，我们只需按配对 $(x_0,x_1)\sim p_0\times p_1$ 采样，即可构造出一个可计算的回归目标：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{\text{CFM}} = \mathbb{E}_{t,x_0,x_1}\left[\|v_\theta(x_t, t) - (x_1 - x_0)\|^2\right]</script><p>Lipman et al. [4] 的定理保证了这一方案的合理性：上述损失与全局速度场损失共享相同的梯度——<strong>通过随机配对采样训练，即可学到全局速度场</strong>（有兴趣的读者可尝试自行证明：$\iint p_t(x)(v_\theta(x, t)- v_t(x)) dx dt$ 将$p_t$和$v_t$的积分表达代入，并对$x$完成积分）。</p>
+<p>CFM 训练具有以下优势：</p>
+<ul>
+<li>每条条件路径都是直线 → 速度场平滑 → NFE（网络求值次数，Number of Function Evaluations）降到 1-10 步</li>
+<li>训练目标稳定（简单的回归损失）</li>
+<li>可直接继承 Diffusion Model 的条件控制技术（如 CFG）</li>
+</ul>
+<p>总结 Flow Matching 的训练与推理流程：</p>
+<ul>
+<li><strong>训练</strong>：采样 $t\sim\mathcal{U}[0,1]$、$x_0\sim p_0$、$x_1\sim p_1$，计算 $x_t = (1-t)x_0 + t x_1$，最小化 $|v_\theta(x_t,t) - (x_1-x_0)|^2$</li>
+<li><strong>推理</strong>：从高斯先验 $x_0\sim\mathcal{N}(0,I)$ 出发，沿 ODE $dx = v_\theta(x,t)dt$ 从 $t=0$ 积分至 $t=1$，得到生成样本 $x_1$</li>
+</ul>
+<hr>
+<h2><span id="六-百炼归真-rectified-flow-与最优传输">六、百炼归真 — Rectified Flow 与最优传输</span></h2><p>Flow Matching 的 $x_0$ 和 $x_1$ 是<strong>独立随机配对</strong>的。这导致不同粒子的轨迹在中间时刻大量交叉：</p>
+<p><img src="/blog/images/2026_rectified_flow/rectified.png" alt="独立配对（交叉）vs 最优传输配对（不交叉）的流线对比"></p>
+<p>当两条路径交叉，平均速度场会在交叉点被”拉扯”，最终宏观流线仍然弯曲。因此虽然微观是直线，但宏观流线不是直线。</p>
+<p>一个自然的问题是：能否让微观流线之间不再交叉？回顾 Flow Matching 的构造，其所有性质——可计算的 CFM 损失、梯度等价性、连续性方程自动满足——都<strong>不依赖配对的具体形式</strong>。只要以联合分布 $\pi(x_0,x_1)$ 采样，且 $\pi$ 的边缘分布分别等于 $p_0$ 和 $p_1$（即 $\pi$ 是二者的一个耦合），Flow Matching 的理论保证全部成立。随机配对 $\pi = p_0 \times p_1$ 只是最简单的独立耦合，远非最优——这意味着一个巨大的优化空间。</p>
+<h3><span id="rectification-迭代">Rectification 迭代</span></h3><p>Flow Matching 训练完成后，总速度场 $v_\theta(x,t)$ 实际上已经在高斯分布和数据分布之间建立了一个<strong>输入到输出的映射</strong>。用这个速度场对一组噪声 $x_0^{(i)}$ 进行确定性 ODE 求解，得到对应的数据点 $x_1^{(i)}$。$x_0^{(i)}$ 和 $x_1^{(i)}$ 由此自然诱导出一个<strong>新的配对</strong>，与随机配对有本质区别：<strong>它们之间已经存在一条流线相连了</strong>。</p>
+<p>用这个新配对重新训练速度场：</p>
+<script type="math/tex; mode=display">
+\mathcal{L} = \mathbb{E}_{t,(x_0, x_1) \sim \text{ODE 配对}}\left[\|v_\theta(x_t, t) - (x_1 - x_0)\|^2\right]</script><p>经历一次 Rectification 后，速度场会变得更直。这背后的原理是<strong>最优传输（Optimal Transport, OT）</strong>[5]：在 $p_0$ 和 $p_1$ 之间寻找总运输代价最小的配对，满足该解的配对恰好完全没有交叉。Rectification 的每一次迭代，本质上就是在求解最优传输——上一轮的流线引导了更优的起点-终点对应，新配对的运输代价降低，条件速度 $x_1-x_0$ 的方向因此更一致，速度场自然更直。迭代逐步逼近 $\pi_{OT}$，流线也随之达到笔直且互不交叉的极限状态。</p>
+<h3><span id="问题和改进">问题和改进</span></h3><p>经过 1-2 轮 Rectification，流场即可达到宏观与微观的双重拉直，NFE 降至 1-4 步且质量不降。Stable Diffusion 3、Sora、FLUX 等工业系统均采用了这一方案 [5]。</p>
+<p>然而，Rectification 的迭代成本不可忽视。每轮需要全 ODE 积分生成配对，计算开销较大，且采样依赖当前速度场，$x_1^{\text{ODE}}$ 的分布与真实数据分布存在偏移。</p>
+<p>针对这些挑战，后续工作提出了多种改进方案。<strong>InstaFlow</strong> 引入了无 ODE 的冷启动策略，用高斯噪声和数据直接构造配对，跳过首轮全量推理 [6]。<strong>ReFlow</strong> 则采用分层 finetune 而非从头训练新模型，将配对生成纳入训练循环，降低了 90% 以上的计算量 [5]。两种方案在保持最终流场平直度的同时大幅提升了训练效率。</p>
+<hr>
+<h2><span id="登高望远-从随机到确定再到最优">登高望远 — 从随机到确定再到最优</span></h2><p>回顾整条演进路径，我们看到了一个清晰的趋势：</p>
+<blockquote>
+<p>随机性 - 确定性 - 最优性</p>
+</blockquote>
+<ul>
+<li><strong>Diffusion Model</strong> 首次建立了先验到数据的桥梁，但桥梁是随机的、弯的</li>
+<li><strong>DDIM</strong> 发现这座桥可以走确定性的路</li>
+<li><strong>Score-Based SDE</strong> 将这座桥从离散推向连续，并展现了<strong>流场</strong>这一新的视角——随机 SDE 与确定性 ODE 共享同一流场，为后续拉直铺平了道路</li>
+<li><strong>Flow Matching</strong> 说：与其走扩散决定的弯路，不如自己建一条直的</li>
+<li><strong>Rectified Flow</strong> 最后优化了桥上的交通规则，让每颗粒子都走最短路线</li>
+</ul>
+<p>从更广的视角看，这场演进也是<strong>物理学直觉</strong>与<strong>工程实践</strong>相互成就的典范 — 流体力学提供了理解生成过程的语言，而工程需求驱动着它走向更高效、更实用的方向。</p>
+<hr>
+<h2><span id="参考文献">参考文献</span></h2><p>[1] Ho, J., Jain, A., Abbeel, P. <a href="https://arxiv.org/abs/2006.11239"><em>Denoising Diffusion Probabilistic Models</em></a>. NeurIPS 2020.</p>
+<p>[2] Song, J., Meng, C., Ermon, S. <a href="https://arxiv.org/abs/2010.02502"><em>Denoising Diffusion Implicit Models</em></a>. ICLR 2021.</p>
+<p>[3] Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar, A., Ermon, S., Poole, B. <a href="https://arxiv.org/abs/2011.13456"><em>Score-Based Generative Modeling through Stochastic Differential Equations</em></a>. ICLR 2021.</p>
+<p>[4] Lipman, Y., Chen, R. T. Q., Ben-Hamu, H., Nickel, M., Le, M. <a href="https://arxiv.org/abs/2210.02747"><em>Flow Matching for Generative Modeling</em></a>. ICLR 2023.</p>
+<p>[5] Liu, X., Gong, C., Liu, Q. <a href="https://arxiv.org/abs/2209.03003"><em>Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow</em></a>. ICLR 2023.</p>
+<p>[6] Liu, X., Zhang, X., Ma, J., Peng, J., Liu, Q. <a href="https://arxiv.org/abs/2309.06380"><em>InstaFlow: One Step is Enough for High-Quality Diffusion-Based Text-to-Image Generation</em></a>. ICLR 2024.</p>
+<hr>
+<h2><span id="附录addpm-训练目标的推导">附录A：DDPM 训练目标的推导</span></h2><p>本附录从第二节的分层 KL 分解出发，推导出 DDPM 原文中可计算的训练损失。</p>
+<p>第二节得到严格上界：</p>
+<script type="math/tex; mode=display">
+KL(p_0 \| \tilde{p}_0) \leq \sum_{i=0}^{T-1} \mathbb{E}_{p_{i+1}}[KL(R_i \| \hat{R}_i)]</script><p>其中 $R_i(\cdot|x_{i+1})$ 是贝叶斯逆向核，$\hat{R}_i(\cdot|x_{i+1})$ 是模型近似。上界中的 $\mathbb{E}_{p_{i+1}}[KL(R_i | \hat{R}_i)]$ 仍不可直接计算——$R_i(x_i|x_{i+1})$ 中涉及的两个边缘分布 $p_i$ 和 $p_{i+1}$ 都需积分掉复杂的数据分布 $p_0$，没有解析形式。</p>
+<p>但前向过程允许我们从 $p_0$ 采样出 $(x_0, x_{i+1})$ 的联合样本。利用贝叶斯公式，将 $R_i$ 用 $x_0$ 展开：</p>
+<script type="math/tex; mode=display">
+R_i(x_i|x_{i+1}) = \int q(x_i|x_{i+1}, x_0)\,p(x_0|x_{i+1})\,dx_0</script><p>其中 $q(x_i|x_{i+1}, x_0)$ 是前向过程诱导的闭式高斯分布，其均值 $\tilde{\mu}_i(x_{i+1}, x_0)$ 有解析表达式。</p>
+<p>$R_i(\cdot|x_{i+1})$ 可以看作 $q(\cdot|x_{i+1}, x_0)$ 以 $p(x_0|x_{i+1})$ 为权重的加权平均。而 $KL(A|B)$ 作为 $A$ 的凸函数，满足 Jensen 不等式——凸函数在加权平均处的值 ≤ 函数值的加权平均：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+KL(R_i(\cdot|x_{i+1}) \| \hat{R}_i(\cdot|x_{i+1}))
+&= KL\!\left(\int q(\cdot|x_{i+1}, x_0)\,p(x_0|x_{i+1})\,dx_0 \;\Big\|\; \hat{R}_i(\cdot|x_{i+1})\right) \\
+&\leq \int p(x_0|x_{i+1})\, KL\!\left(q(\cdot|x_{i+1}, x_0) \;\|\; \hat{R}_i(\cdot|x_{i+1})\right) dx_0
+\end{aligned}</script><p>两边对 $p(x_{i+1})$ 取期望，由重期望公式 $p(x_{i+1})p(x_0|x_{i+1}) = q(x_0, x_{i+1})$：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}_{p_{i+1}}[KL(R_i \| \hat{R}_i)] \leq \mathbb{E}_{q(x_0, x_{i+1})}[KL(q(x_i|x_{i+1}, x_0) \| \hat{R}_i)]</script><p>右侧 $q(x_0, x_{i+1})$ 是前向过程联合分布，通过 $x_0 \sim p_0$ 和 $x_{i+1} \sim p_{i+1}(\cdot|x_0)$ 即可采样——因此是可计算的。</p>
+<p>上式中 $\hat{R}_i$ 仍是任意的。最后一步将其参数化为高斯：</p>
+<script type="math/tex; mode=display">
+\hat{R}_i(x_i|x_{i+1}) = \mathcal{N}(\mu_\theta(x_{i+1}, i), \sigma_i^2 I)</script><p>展开两个高斯之间的 KL 散度：</p>
+<script type="math/tex; mode=display">
+KL(q(x_i|x_{i+1}, x_0) \| \hat{R}_i) = \frac{1}{2\sigma_i^2} \|\tilde{\mu}_i(x_{i+1}, x_0) - \mu_\theta(x_{i+1}, i)\|^2 + \text{const}</script><p>求和即得可计算的训练目标：</p>
+<script type="math/tex; mode=display">
+\mathcal{L} = \sum_{i=0}^{T-1} \mathbb{E}_{q(x_0, x_{i+1})} \left[ \frac{1}{2\sigma_i^2} \|\tilde{\mu}_i(x_{i+1}, x_0) - \mu_\theta(x_{i+1}, i)\|^2 \right]</script><hr>
+<h2><span id="附录bddpm-逆向核高斯性的分析">附录B：DDPM 逆向核高斯性的分析</span></h2><p>模型将 $\hat{R}_i$ 参数化为单高斯 $\mathcal{N}(\mu_\theta, \sigma_i^2 I)$，这只有在真实逆向核 $R_i$ 本身近似高斯时才有意义。由贝叶斯公式：</p>
+<script type="math/tex; mode=display">
+R_i(x_i|x_{i+1}) \propto \mathcal{N}(x_{i+1};\sqrt{\alpha_{i+1}}x_i, \beta_{i+1}I) \cdot p_i(x_i)</script><p>记 $x_i^\ast = x_{i+1}/\sqrt{\alpha_{i+1}}$，在 $x_i^\ast$ 处展开 $\log p_i$ 至三阶：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\log R_i &= -\frac{\alpha_{i+1}\|x_i - x_i^\ast\|^2}{2\beta_{i+1}} + \log p_i(x_i^\ast) + (x_i - x_i^\ast)^T g \\
+&\quad + \frac12 (x_i - x_i^\ast)^T H (x_i - x_i^\ast) + \frac{1}{6} T^{(3)} \cdot (x_i - x_i^\ast)^{\otimes 3} + \cdots + C
+\end{aligned}</script><p>其中 $g = \nabla \log p_i(x_i^\ast)$，$H = \nabla^2 \log p_i(x_i^\ast)$，$T^{(3)} = \nabla^3 \log p_i(x_i^\ast)$。合并二次项：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\log R_i &= -\frac12 (x_i - x_i^\ast)^T \left(\frac{\alpha_{i+1}}{\beta_{i+1}} I - H\right)(x_i - x_i^\ast) \\
+&\quad + \frac{1}{6} T^{(3)} \cdot (x_i - x_i^\ast)^{\otimes 3} + \cdots
+\end{aligned}</script><p><strong>二次项无论 $H$ 多大都不会破坏高斯性</strong>——它只将协方差从 $\frac{\beta}{\alpha}I$ 调整为 $(\frac{\alpha}{\beta}I - H)^{-1}$，整体仍是高斯分布。真正破坏高斯性的是三阶项。在窗口宽度 $|x_i - x_i^\ast| \sim \sqrt{\beta_{i+1}}$ 上，三阶项可忽略的条件为：</p>
+<script type="math/tex; mode=display">
+\beta_{i+1}^{3/2} \cdot \|T^{(3)}\| \ll 1</script><p>这一条件涉及三阶导数，不便直接分析。一个更简单的做法是<strong>升格为约束二阶项</strong>：</p>
+<script type="math/tex; mode=display">
+\beta_{i+1} \cdot \max_x \|\nabla^2 \log p_i(x)\|_{\text{op}} \ll 1</script><p>虽然这比实际需要更强（二阶项本身不破坏高斯性），但它方便分析，且间接保证了高阶项在窗口内也受到控制。</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/blog/css/markmap.css">
+
+<script src="/blog/js/markmap.js"></script>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://milkpku.github.io/blog/2026/07/10/%E4%BB%8EDiffusion%E5%88%B0RectifiedFlow/" data-id="cmsk0ohr0001x6mw7ee379p6a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+    <!-- comments -->
+    <div id="comments"></div>
+<script src="https://utteranc.es/client.js"
+        repo="milkpku/blog"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2026/06/12/%E4%BB%8E%E7%BB%9F%E8%AE%A1%E6%B5%81%E5%BD%A2%E5%88%B0PPO/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">从统计流形到 PPO：强化学习策略空间的内蕴几何学</div>
+    </a>
+  
+</nav>
+
+  
+
+
+</article>
+
+</section>
+</div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      Copyright &copy; 2026 Li-Ke Ma
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/blog/About%20me.html" class="mobile-nav-link">About Me</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6E22RQMZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6E22RQMZX');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  </div>
+</body>
+</html>
